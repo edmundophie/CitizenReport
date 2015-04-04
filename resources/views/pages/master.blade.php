@@ -17,6 +17,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
 <![endif]-->
+<link rel="shortcut icon" type="image/png" href="images/favicon.png">
 <!--  webfonts  -->
 <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,700' rel='stylesheet' type='text/css'>
 <!-- // webfonts  -->
@@ -47,8 +48,8 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 		    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 		      <ul class="menu nav navbar-nav ">
 		        <li @yield('home_active')><a href="index">home</a></li>
-		        <li @yield('daftar_pengaduan_active')><a href="feature.html">daftar pengaduan</a></li>
-		        <li @yield('blog_active')><a href="blog.html">statistik</a></li>
+		        <li @yield('daftar_pengaduan_active')><a href="daftar-pengaduan">daftar pengaduan</a></li>
+		        <li @yield('statistik_active')><a href="statistik">statistik</a></li>
 		        <li @yield('buat_pengaduan_active')><a href="buat-pengaduan">buat pengaduan</a></li>
 		        <li id="loggedin-menu">
 		        	welcome, <a href="contact.html">edmund</a> 

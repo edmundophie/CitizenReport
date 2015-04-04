@@ -11,8 +11,15 @@ class PagesController extends Controller {
 		return view("pages.index");
 	}
 
+	public function daftarPengaduan() {
+		return view('pages.daftar_pengaduan');
+	}
+
+	public function statistik() {
+		return view('pages.statistik');
+	}
+
 	public function buatPengaduan() {
 		return view('pages.buat_pengaduan');
 	}
-
 }

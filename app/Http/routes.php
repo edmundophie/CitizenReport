@@ -15,11 +15,15 @@ Route::get('/', 'PagesController@index');
 
 Route::get('/index', 'PagesController@index');
 
+Route::get('/daftar-pengaduan', 'PagesController@daftarPengaduan');
+
+Route::get('/statistik', 'PagesController@statistik');
+
 Route::get('/buat-pengaduan', 'PagesCOntroller@buatPengaduan');
 
-Route::get('home', 'HomeController@index');
+// Route::get('home', 'HomeController@index');
 
-Route::controllers([
-	'auth' => 'Auth\AuthController',
-	'password' => 'Auth\PasswordController',
-]);
+// Route::controllers([
+// 	'auth' => 'Auth\AuthController',
+// 	'password' => 'Auth\PasswordController',
+// ]);
