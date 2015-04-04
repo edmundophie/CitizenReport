@@ -122,7 +122,6 @@ body {
 	font-size: 13px;
 }
 .btn{
-	background: #F15F43;
 	color: #ffffff;
 	padding: 9px 28px;
 	line-height:20px;
@@ -136,7 +135,6 @@ body {
 }
 .btn:hover{
 	color:#ffffff;
-	background: #354B77;
 }
 /* start slider */
 .slider{
@@ -848,4 +846,16 @@ body {
 	}
 }
 
-
+/* My Code */
+.body-container{
+	padding: 4% 2%;
+	font-size: 14px;
+	line-height: 1.8em;
+	color: #434C5E;
+}
+.body-container p{
+	font-size: 14px;
+	line-height: 1.8em;
+	color: #434C5E;
+	margin-bottom: 20px;
+}

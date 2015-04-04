@@ -1,0 +1,42 @@
+.list-pengaduan{
+	padding: 15px;
+	border: 1px solid gray;
+	box-shadow: 0px 1px 1px black;
+	margin-bottom: 20px;
+}
+
+.list-pengaduan h2{
+	margin:0;
+}
+
+.list-pengaduan a:hover {
+	text-decoration: none;
+}
+
+.tanggal-pengaduan, .kategori {
+	text-align: right;
+}
+
+.pager{
+	margin-bottom: 0;
+}
+
+/* Large */
+@media only screen and (min-width: 1200px) {
+
+}
+
+/* Medium */
+@media only screen and (min-width: 992px) {
+
+}
+
+/* Small */
+@media only screen and (min-width: 768px) {
+
+}
+
+/* Extra small */
+@media only screen and (max-width: 767px) {
+
+}

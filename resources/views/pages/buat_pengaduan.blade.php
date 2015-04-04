@@ -16,14 +16,15 @@
 @stop
 
 @section('body')
+	<div class="body-container">
 	<div class="col-sm-6 keterangan">
 		<div class="panel panel-default">
 			<div class="panel-heading">
-				<h3 class="panel-title">Keterangan</h3>
+				<h2 class="panel-title">Keterangan</h2>
 			</div>
 			<div class="panel-body">		
 				<strong>Formulir pengaduan:</strong><br>
-				1. Anda dapat mengunggah file lampiran sebagai bukti dan pelengkap pengaduan anda dalam bentuk dokumen, gambar, ataupun video.
+				<p>1. Anda dapat mengunggah file lampiran sebagai bukti dan pelengkap pengaduan anda dalam bentuk dokumen, gambar, ataupun video.</p>
 				<hr>
 				<table class="table">
 					<thead>
@@ -74,10 +75,10 @@
 			</div>
 		</div>
 	</div>
-	<div class="col-sm-6">
-		<h3 class="title">Buat Pengaduan</h3>
+	<div class="col-sm-6 pengaduan-form">
+		<h2 class="title">Buat Pengaduan</h2>
 		<hr>
-		<form class="form-horizontal pengaduan-form" enctype="multipart/form-data">
+		<form class="form-horizontal" enctype="multipart/form-data">
 			<div class="form-group">
 				<label for="inputJudul" class="col-sm-2 control-label">Judul</label>
 				<div class="col-sm-10">
@@ -118,5 +119,6 @@
 				</div>
 			</div>
 		</form>
+	</div>
 	</div>
 @stop
