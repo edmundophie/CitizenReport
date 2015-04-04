@@ -13,6 +13,10 @@
 
 Route::get('/', 'PagesController@index');
 
+Route::get('/index', 'PagesController@index');
+
+Route::get('/buat-pengaduan', 'PagesCOntroller@buatPengaduan');
+
 Route::get('home', 'HomeController@index');
 
 Route::controllers([

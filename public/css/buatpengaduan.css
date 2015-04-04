@@ -1,0 +1,19 @@
+.title{
+	margin-top:0;
+	margin-bottom: 0;
+}
+.title + hr{
+	margin-top:0;
+}
+.keterangan{
+	font-size: 14px;
+	font-weight: normal;
+}
+
+.pengaduan-form label{
+	text-transform: capitalize;
+	font-size: 13px;
+	color: #9499A3;
+	font-weight: normal;
+	text-align: left !important;
+}

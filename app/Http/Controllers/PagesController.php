@@ -11,4 +11,8 @@ class PagesController extends Controller {
 		return view("pages.index");
 	}
 
+	public function buatPengaduan() {
+		return view('pages.buat_pengaduan');
+	}
+
 }
