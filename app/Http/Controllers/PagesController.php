@@ -22,4 +22,8 @@ class PagesController extends Controller {
 	public function buatPengaduan() {
 		return view('pages.buat_pengaduan');
 	}
+
+	public function statusPengaduan() {
+		return view('pages.status_pengaduan');
+	}
 }
