@@ -5,6 +5,9 @@
 .title + hr{
 	margin-top:0;
 }
+.header_bg{
+	margin-bottom: 20px;
+}
 .keterangan{
 	font-size: 14px;
 	font-weight: normal;

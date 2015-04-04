@@ -61,6 +61,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 		  </div><!-- /.container-fluid -->
 		</nav>
 		</div>
+		@yield('breadcrumb')
 		@yield('slider')
 	</div>
 </div>

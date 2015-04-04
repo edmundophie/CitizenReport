@@ -5,6 +5,12 @@
 @section('css')
 	<link rel="stylesheet" href="css/buatpengaduan.css">
 @stop
+@section('breadcrumb')
+	<ol class="breadcrumb">
+	  <li><a href="index">Home</a></li>
+	  <li class="">Buat Pengaduan</li>
+	</ol>
+@stop
 @section('buat_pengaduan_active')
 	class="active"
 @stop
