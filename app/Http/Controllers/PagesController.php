@@ -22,4 +22,11 @@ class PagesController extends Controller {
 	public function buatPengaduan() {
 		return view('pages.buat_pengaduan');
 	}
+
+	public function detailPengaduan($id) {
+		if($id==1)
+			return view('pages.detail_pengaduan');
+		else
+			return view('pages.detail_pengaduan2');
+	}
 }

@@ -19,7 +19,9 @@ Route::get('/daftar-pengaduan', 'PagesController@daftarPengaduan');
 
 Route::get('/statistik', 'PagesController@statistik');
 
-Route::get('/buat-pengaduan', 'PagesCOntroller@buatPengaduan');
+Route::get('/buat-pengaduan', 'PagesController@buatPengaduan');
+
+Route::get('/detail-pengaduan/{id}', 'PagesController@detailPengaduan');
 
 // Route::get('home', 'HomeController@index');
 
