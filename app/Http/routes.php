@@ -23,9 +23,4 @@ Route::get('/buat-pengaduan', 'PagesController@buatPengaduan');
 
 Route::get('/detail-pengaduan/{id}', 'PagesController@detailPengaduan');
 
-// Route::get('home', 'HomeController@index');
-
-// Route::controllers([
-// 	'auth' => 'Auth\AuthController',
-// 	'password' => 'Auth\PasswordController',
-// ]);
+Route::get('/ubah-status-pengaduan', 'PagesController@statusPengaduan');
