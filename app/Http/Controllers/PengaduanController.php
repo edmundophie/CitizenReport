@@ -1,10 +1,10 @@
 <?php namespace App\Http\Controllers;
 
 use App\Http\Requests;
-use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Session;
+use App\Pengaduan;
 
 use Illuminate\Http\Request;
-use App\pengaduan;
 
 class PengaduanController extends Controller {
 
@@ -12,14 +12,16 @@ class PengaduanController extends Controller {
 		// Session stub
 		Session::put('role', 'MASYARAKAT');
 		$user_role = Session::get('role');
-		
-		if($user_role=="SKPD") {
-			return view('skpd.pengaduan', compact('pengaduan'));
+
+        $aduan = new Pengaduan($pengaduan);
+
+        if($user_role=="SKPD") {
+			return view('skpd.pengaduan', compact('aduan'));
 		} else if ($user_role=="ADMIN") {
-			return view('admin.pengaduan', compact('pengaduan'));
+			return view('admin.pengaduan', compact('aduan'));
 		}
 		else { // if logged in as MASYARAKAT
-			return view('pages.pengaduan', compact('pengaduan'));
+			return view('pages.pengaduan', compact('aduan'));
 		}
 	}
 
