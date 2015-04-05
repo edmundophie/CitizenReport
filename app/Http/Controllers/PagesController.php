@@ -2,6 +2,7 @@
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\DB;
 
 use Illuminate\Http\Request;
 
@@ -20,11 +21,7 @@ class PagesController extends Controller {
 	}
 
 	public function buatPengaduan() {
-		return view('pages.buat_pengaduan');
-	}
-
-	public function statusPengaduan(){
-        return view('pages.status_pengaduan');
+        return view('pages.buat_pengaduan');
     }
 
 	public function detailPengaduan($id) {
@@ -33,4 +30,14 @@ class PagesController extends Controller {
 		else
 			return view('pages.detail_pengaduan2');
 	}
+
+    public function detailPengaduanSkpd() {
+        return view('pages.detail_pengaduan_skpd');
+    }
+
+    public function db(){
+        DB::insert('insert into skpd (nama, alamat, telepon) values ("chobits", "Bandung", "081828828228")');
+
+        return 'nanana';
+    }
 }
