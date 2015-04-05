@@ -24,10 +24,12 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <!-- // webfonts  -->
 <link href="{{ URL::asset('css/style.css') }}" rel="stylesheet" type="text/css" media="all" />
 @yield('css')
+
 <!-- start plugins -->
 <script type="text/javascript" src="{{ URL::asset('js/jquery.min.js') }}"></script>
 <!-- <script type="text/javascript" src="{{ URL::asset('js/bootstrap.js') }}"></script> -->
 <script type="text/javascript" src="{{ URL::asset('js/bootstrap.min.js') }}"></script>
+@yield('javascript')
 </head>
 <body>
 <div class="header_bg"><!-- start header -->
