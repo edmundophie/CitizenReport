@@ -2,16 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="779cceb1-43be-4160-acd2-d3038cf2cb1e" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/database/migrations/2015_04_05_055229_create_masyarakat_table.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/database/migrations/2015_04_05_055304_create_skpd_table.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/database/migrations/2015_04_05_061705_create_admin_table.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/database/migrations/2015_04_05_071444_create_kategori_table.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/database/migrations/2015_04_05_071505_create_penanggungjawab_table.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/database/migrations/2015_04_05_071521_create_pengaduan_table.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/database/migrations/2015_04_05_074252_create_komentar_table.php" />
-      <change type="MOVED" beforePath="C:\Users\Sakurai\Desktop\CitizenReport\database\migrations\2014_10_12_000000_create_users_table.php" afterPath="$PROJECT_DIR$/database/migrations/2015_04_05_055228_create_user_table.php" />
-      <change type="MOVED" beforePath="C:\Users\Sakurai\Desktop\CitizenReport\database\migrations\2014_10_12_100000_create_password_resets_table.php" afterPath="$PROJECT_DIR$/database/migrations/2015_04_05_055245_create_status_table.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config/database.php" afterPath="$PROJECT_DIR$/config/database.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/pages/detail_pengaduan_skpd.blade.php" afterPath="$PROJECT_DIR$/resources/views/pages/detail_pengaduan_skpd.blade.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/css/detailpengaduan.css" afterPath="$PROJECT_DIR$/public/css/detailpengaduan.css" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="CitizenReport.iws" />
@@ -52,11 +45,11 @@
       <file leaf-file-name="PagesController.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Http/Controllers/PagesController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-16.884615" vertical-offset="139" max-vertical-offset="833">
-              <caret line="34" column="51" selection-start-line="34" selection-start-column="51" selection-end-line="34" selection-end-column="51" />
+            <state vertical-scroll-proportion="-16.884615" vertical-offset="224" max-vertical-offset="901">
+              <caret line="39" column="5" selection-start-line="39" selection-start-column="5" selection-end-line="39" selection-end-column="5" />
               <folding>
                 <element signature="e#39#61#0#PHP" expanded="true" />
-                <marker date="1428208151340" expanded="true" signature="806:892" placeholder="insert into ..." />
+                <marker date="1428221109775" expanded="true" signature="880:966" placeholder="insert into ..." />
               </folding>
             </state>
           </provider>
@@ -75,8 +68,8 @@
       <file leaf-file-name="detail_pengaduan_skpd.blade.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/resources/views/pages/detail_pengaduan_skpd.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-9.807693" vertical-offset="1071" max-vertical-offset="2414">
-              <caret line="78" column="73" selection-start-line="78" selection-start-column="73" selection-end-line="78" selection-end-column="73" />
+            <state vertical-scroll-proportion="3.2692308" vertical-offset="1071" max-vertical-offset="2414">
+              <caret line="58" column="41" selection-start-line="58" selection-start-column="41" selection-end-line="58" selection-end-column="41" />
               <folding>
                 <element signature="e#3316#3334#0#HTML" expanded="true" />
               </folding>
@@ -87,8 +80,8 @@
       <file leaf-file-name="detailpengaduan.css" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public/css/detailpengaduan.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="198" max-vertical-offset="1360">
-              <caret line="43" column="20" selection-start-line="43" selection-start-column="20" selection-end-line="43" selection-end-column="20" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1530">
+              <caret line="25" column="18" selection-start-line="25" selection-start-column="18" selection-end-line="25" selection-end-column="18" />
               <folding />
             </state>
           </provider>
@@ -98,7 +91,7 @@
         <entry file="file://$PROJECT_DIR$/config/database.php">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.2820946" vertical-offset="836" max-vertical-offset="2227">
-              <caret line="59" column="38" selection-start-line="59" selection-start-column="38" selection-end-line="59" selection-end-column="38" />
+              <caret line="59" column="33" selection-start-line="59" selection-start-column="33" selection-end-line="59" selection-end-column="33" />
               <folding />
             </state>
           </provider>
@@ -123,8 +116,8 @@
         <option value="$PROJECT_DIR$/app/Http/routes.php" />
         <option value="$PROJECT_DIR$/resources/views/pages/test.php" />
         <option value="$PROJECT_DIR$/resources/views/pages/master.blade.php" />
-        <option value="$PROJECT_DIR$/public/css/detailpengaduan.css" />
         <option value="$PROJECT_DIR$/resources/views/pages/detail_pengaduan_skpd.blade.php" />
+        <option value="$PROJECT_DIR$/public/css/detailpengaduan.css" />
         <option value="$PROJECT_DIR$/config/database.php" />
       </list>
     </option>
@@ -437,7 +430,7 @@
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="e#39#61#0#PHP" expanded="true" />
-            <marker date="1428208151340" expanded="true" signature="806:892" placeholder="insert into ..." />
+            <marker date="1428221109775" expanded="true" signature="880:966" placeholder="insert into ..." />
           </folding>
         </state>
       </provider>
@@ -526,11 +519,11 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/PagesController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-16.884615" vertical-offset="139" max-vertical-offset="833">
-          <caret line="34" column="51" selection-start-line="34" selection-start-column="51" selection-end-line="34" selection-end-column="51" />
+        <state vertical-scroll-proportion="-16.884615" vertical-offset="224" max-vertical-offset="901">
+          <caret line="39" column="5" selection-start-line="39" selection-start-column="5" selection-end-line="39" selection-end-column="5" />
           <folding>
             <element signature="e#39#61#0#PHP" expanded="true" />
-            <marker date="1428208151340" expanded="true" signature="806:892" placeholder="insert into ..." />
+            <marker date="1428221109775" expanded="true" signature="880:966" placeholder="insert into ..." />
           </folding>
         </state>
       </provider>
@@ -543,28 +536,28 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/css/detailpengaduan.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="198" max-vertical-offset="1360">
-          <caret line="43" column="20" selection-start-line="43" selection-start-column="20" selection-end-line="43" selection-end-column="20" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/pages/detail_pengaduan_skpd.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-9.807693" vertical-offset="1071" max-vertical-offset="2414">
-          <caret line="78" column="73" selection-start-line="78" selection-start-column="73" selection-end-line="78" selection-end-column="73" />
+        <state vertical-scroll-proportion="3.2692308" vertical-offset="1071" max-vertical-offset="2414">
+          <caret line="58" column="41" selection-start-line="58" selection-start-column="41" selection-end-line="58" selection-end-column="41" />
           <folding>
             <element signature="e#3316#3334#0#HTML" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/public/css/detailpengaduan.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1530">
+          <caret line="25" column="18" selection-start-line="25" selection-start-column="18" selection-end-line="25" selection-end-column="18" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/config/database.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.2820946" vertical-offset="836" max-vertical-offset="2227">
-          <caret line="59" column="38" selection-start-line="59" selection-start-column="38" selection-end-line="59" selection-end-column="38" />
+          <caret line="59" column="33" selection-start-line="59" selection-start-column="33" selection-end-line="59" selection-end-column="33" />
           <folding />
         </state>
       </provider>

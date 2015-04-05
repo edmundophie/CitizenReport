@@ -56,8 +56,8 @@
 			</div>
 		</div>
 
-        <div class="row keterangan-status">
-            <h3>Ubah Status</h3>
+        <div class="row status-pengerjaan">
+            <h3>Status</h3>
             <div class="form-group">
                 <div class="col-xs-12 col-sm-4 selectContainer" id="pilihanstatus">
                     <select name="status" class="form-control" title="Pilih status pengerjaan">
