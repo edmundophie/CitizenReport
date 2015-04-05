@@ -54,10 +54,10 @@ return [
 
 		'mysql' => [
 			'driver'    => 'mysql',
-			'host'      => 'akhfa.in',
-			'database'  => 'ppl_pengaduan',
-			'username'  => 'ppl_pengaduan',
-			'password'  => 'pplk1',
+			'host'      => env('DB_HOST', 'akhfa.in'),
+			'database'  => env('DB_DATABASE', 'ppl_pengaduan'),
+			'username'  => env('DB_USERNAME', 'ppl_pengaduan'),
+			'password'  => env('DB_PASSWORD', 'pplk1'),
 			'charset'   => 'utf8',
 			'collation' => 'utf8_unicode_ci',
 			'prefix'    => '',

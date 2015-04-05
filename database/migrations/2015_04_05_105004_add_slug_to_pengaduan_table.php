@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateKategoriTable extends Migration {
+class AddSlugToPengaduanTable extends Migration {
 
 	/**
 	 * Run the migrations.
@@ -12,12 +12,9 @@ class CreateKategoriTable extends Migration {
 	 */
 	public function up()
 	{
-		Schema::create('kategori', function(Blueprint $table)
+		Schema::table('pengaduan', function(Blueprint $table)
 		{
-			$table->increments('id');
-			$table->string('nama');
-			$table->text('deskripsi');
-			$table->timestamps();
+			$table->string('slug')->unique();
 		});
 	}
 
@@ -28,7 +25,10 @@ class CreateKategoriTable extends Migration {
 	 */
 	public function down()
 	{
-		Schema::drop('kategori');
+		Schema::table('pengaduan', function(Blueprint $table)
+		{
+			//
+		});
 	}
 
 }

@@ -27,21 +27,4 @@ class PagesController extends Controller {
 	public function statusPengaduan() {
 		return view('pages.status_pengaduan');
 	}
-	
-	public function detailPengaduan($id) {
-		if($id==1)
-			return view('pages.detail_pengaduan');
-		else
-			return view('pages.detail_pengaduan2');
-	}
-
-    public function detailPengaduanSkpd() {
-        return view('pages.detail_pengaduan_skpd');
-    }
-
-    public function db(){
-        DB::insert('insert into skpd (nama, alamat, telepon) values ("chobits", "Bandung", "081828828228")');
-
-        return 'nanana';
-    }
 }

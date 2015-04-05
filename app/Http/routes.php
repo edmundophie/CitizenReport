@@ -11,6 +11,13 @@
 |
 */
 
+// Model binding
+Route::bind('pengaduan', function($slug)
+{
+	return App\Pengaduan::where('slug', $slug)->first();
+});
+
+// Main pages
 Route::get('/', 'PagesController@index');
 
 Route::get('/index', 'PagesController@index');
@@ -21,8 +28,5 @@ Route::get('/statistik', 'PagesController@statistik');
 
 Route::get('/buat-pengaduan', 'PagesController@buatPengaduan');
 
-Route::get('/detail-pengaduan/{id}', 'PagesController@detailPengaduan');
-
-Route::get('/detail-pengaduan-skpd', 'PagesController@detailPengaduanSkpd');
-
-Route::get('/test-db/', 'PagesController@db');
+// Class
+Route::get('/pengaduan/{pengaduan}', 'PengaduanController@show');
