@@ -9,24 +9,25 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <head>
 <title>@yield('title')</title>
 <!-- Bootstrap -->
-<link href="css/bootstrap.min.css" rel='stylesheet' type='text/css' />
-<link href="css/bootstrap.css" rel='stylesheet' type='text/css' />
+<!-- <link href="{{ URL::asset('css/bootstrap.min.css') }}" rel='stylesheet' type='text/css' /> -->
+<link href="{{ URL::asset('css/bootstrap-original.css') }}" rel='stylesheet' type='text/css' />
+<link href="{{ URL::asset('css/bootstrap.css') }}" rel='stylesheet' type='text/css' />
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
  <!--[if lt IE 9]>
      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
 <![endif]-->
-<link rel="shortcut icon" type="image/png" href="images/favicon.png">
+<link rel="shortcut icon" type="image/png" href="{{ URL::asset('images/favicon.png') }}">
 <!--  webfonts  -->
 <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,700' rel='stylesheet' type='text/css'>
 <!-- // webfonts  -->
-<link href="css/style.css" rel="stylesheet" type="text/css" media="all" />
+<link href="{{ URL::asset('css/style.css') }}" rel="stylesheet" type="text/css" media="all" />
 @yield('css')
 <!-- start plugins -->
-<script type="text/javascript" src="js/jquery.min.js"></script>
-<script type="text/javascript" src="js/bootstrap.js"></script>
-<script type="text/javascript" src="js/bootstrap.min.js"></script>
+<script type="text/javascript" src="{{ URL::asset('js/jquery.min.js') }}"></script>
+<!-- <script type="text/javascript" src="{{ URL::asset('js/bootstrap.js') }}"></script> -->
+<script type="text/javascript" src="{{ URL::asset('js/bootstrap.min.js') }}"></script>
 </head>
 <body>
 <div class="header_bg"><!-- start header -->
@@ -42,17 +43,17 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 		        <span class="icon-bar"></span>
 		        <span class="icon-bar"></span>
 		      </button>
-		      <a class="navbar-brand" href="index.html"><img src="images/logo.png" alt="" class="img-responsive"/> </a>
+		      <a class="navbar-brand" href="{{ URL::asset('index') }}"><img src="{{ URL::asset('images/logo.png') }}" alt="" class="img-responsive"/> </a>
 		    </div>
 		    <!-- Collect the nav links, forms, and other content for toggling -->
 		    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 		      <ul class="menu nav navbar-nav ">
-		        <li @yield('home_active')><a href="index">home</a></li>
-		        <li @yield('daftar_pengaduan_active')><a href="daftar-pengaduan">daftar pengaduan</a></li>
-		        <li @yield('statistik_active')><a href="statistik">statistik</a></li>
-		        <li @yield('buat_pengaduan_active')><a href="buat-pengaduan">buat pengaduan</a></li>
+		        <li @yield('home_active')><a href="{{ URL::asset('index') }}">home</a></li>
+		        <li @yield('daftar_pengaduan_active')><a href="{{ URL::asset('daftar-pengaduan') }}">daftar pengaduan</a></li>
+		        <li @yield('statistik_active')><a href="{{ URL::asset('statistik') }}">statistik</a></li>
+		        <li @yield('buat_pengaduan_active')><a href="{{ URL::asset('buat-pengaduan') }}">buat pengaduan</a></li>
 		        <li id="loggedin-menu">
-		        	welcome, <a href="contact.html">edmund</a> 
+		        	welcome, <a href="#">edmund</a> 
 	        	</li>
 	        	<li id="notification-menu">
 		        	<a href="#" class="glyphicon glyphicon-bell"></a>

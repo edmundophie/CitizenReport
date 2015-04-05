@@ -102,6 +102,12 @@
 				</div>
 			</div>
 			<div class="form-group">
+				<label for="inputGambar" class="col-sm-2 control-label">Gambar</label>
+				<div class="col-sm-10">
+					<input type="file" class="form-control" name="gambar" id="inputGambar">
+				</div>
+			</div>
+			<div class="form-group">
 				<label for="inputLampiran" class="col-sm-2 control-label">Lampiran</label>
 				<div class="col-sm-10">
 					<input type="file" class="form-control" name="lampiran" id="inputLampiran">

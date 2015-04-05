@@ -1,0 +1,63 @@
+.list-pengaduan{
+	padding: 15px;
+	border: 1px solid gray;
+	border-bottom: 0;
+	box-shadow: 0px -1px 1px black;
+	margin-bottom: 20px;
+}
+.list-pengaduan h2, .keterangan-status h3{
+	margin:0;
+}
+.tanggal-pengaduan, .kategori {
+	text-align: right;
+}
+.gambar-pengaduan{
+	padding-left: 0;
+}
+.keterangan-status{
+	padding: 15px;
+	border: 1px solid gray;
+	border-top:0;
+	box-shadow: 0px 1px 1px black;
+	margin-bottom: 20px;
+}
+.komentar + .clearfix{
+	margin-bottom: 10px;
+}
+
+.konfirmasi-section .btn{
+	text-transform: none;
+	border: 1px solid transparent;
+  	border-radius: 4px;
+	padding: 6px 12px;
+
+}
+
+/* Large */
+@media only screen and (min-width: 1200px) {
+
+}
+
+/* Medium */
+@media only screen and (max-width: 992px) {
+	.gambar-pengaduan{
+		text-align:center;
+	}
+	.konfirmasi-section .keluhan{
+		padding-right: 0;
+	}
+}
+
+/* Small */
+@media only screen and (min-width: 768px) {
+}
+@media only screen and (max-width: 768px) {
+	.konfirmasi-section .keluhan{
+		padding-left: 0;
+		margin-top: 10px;
+	}
+}
+
+/* Extra small */
+@media only screen and (max-width: 767px) {
+}

@@ -21,4 +21,6 @@ Route::get('/statistik', 'PagesController@statistik');
 
 Route::get('/buat-pengaduan', 'PagesController@buatPengaduan');
 
+Route::get('/detail-pengaduan/{id}', 'PagesController@detailPengaduan');
+
 Route::get('/ubah-status-pengaduan', 'PagesController@statusPengaduan');

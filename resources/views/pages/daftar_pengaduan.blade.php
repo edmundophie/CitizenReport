@@ -3,7 +3,7 @@
 	Daftar Pengaduan - Citizen Report
 @stop
 @section('css')
-	<link rel="stylesheet" href="css/daftarpengaduan.css">
+	<link rel="stylesheet" href="{{ URL::asset('css/daftarpengaduan.css') }}">
 @stop
 @section('breadcrumb')
 	<ol class="breadcrumb">
@@ -18,20 +18,25 @@
 @section('body')
 	<div class="body-container">
 		
+		<!-- Single button -->
 		<div class="row pull-right">
-			<select class="form-control" name="sortby" id="pilSorting">
-				<option value="" selected disabled>Urutkan berdasarkan</option>
-				<option value="">Status pengaduan</option>
-				<option value="">Tanggal</option>
-				<option value="">Kategori</option>
-			</select>
+			<div class="btn-group">
+				<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+					Urutkan <span class="caret"></span>
+				</button>
+				<ul class="dropdown-menu" role="menu">
+					<li><a href="#">Status pengaduan</a></li>
+					<li><a href="#">Tanggal</a></li>
+					<li><a href="#">Kategori</a></li>
+				</ul>
+			</div>
 		</div>
 		<div class="clearfix"></div>
 		<br>
 		<div class="row list-pengaduan">
 			<div class="row">
 				<div class="col-sm-9">
-					<h2><a href="#">Tanggul Sungai Cikapundung Jebol</a></h2>
+					<h2><a href="detail-pengaduan/1">Tanggul Sungai Cikapundung Jebol</a></h2>
 				</div>
 				<div class="col-sm-3 hidden-xs hidden-sm tanggal-pengaduan">19 Desember 2014</div>
 			</div>
@@ -43,14 +48,14 @@
 				<div class="col-xs-6 kategori"><span class="hidden-xs hidden-sm label label-primary">Infrastruktur</span></div>
 			</div>
 			<div class="kategori"><span class="hidden-md hidden-lg label label-primary">Infrastruktur</span></div>
-			<p>Cras mattis consectetur purus sit amet fermentum. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean lacinia bibendum nulla sed consectetur. Curabitur blandit tempus porttitor. Maecenas faucibus mollis interdum. Nullam quis risus eget urna mollis ornare vel eu le...<a href="#">Read more</a></p>
-			<button class="btn btn-warning">On Progress</button>
+			<p>Cras mattis consectetur purus sit amet fermentum. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean lacinia bibendum nulla sed consectetur. Curabitur blandit tempus porttitor. Maecenas faucibus mollis interdum. Nullam quis risus eget urna mollis ornare vel eu le...<a href="detail-pengaduan/1">Read more</a></p>
+			<button class="btn btn-warning">ON PROGRESS</button>
 		</div>
 		
 		<div class="row list-pengaduan">
 			<div class="row">
 				<div class="col-sm-9">
-					<h2><a href="#">Banyak Taik Kuda di Depan Kampus ITB Ganesha</a></h2>
+					<h2><a href="detail-pengaduan/1">Banyak Taik Kuda di Depan Kampus ITB Ganesha</a></h2>
 				</div>
 				<div class="col-sm-3 hidden-xs hidden-sm tanggal-pengaduan">2 April 2015</div>
 			</div>
@@ -62,14 +67,14 @@
 				<div class="col-xs-6 kategori"><span class="hidden-xs hidden-sm label label-primary">Kebersihan</span></div>
 			</div>
 			<div class="kategori"><span class="hidden-md hidden-lg label label-primary">Kebersihan</span></div>
-			<p>Cras mattis consectetur purus sit amet fermentum. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean lacinia bibendum nulla sed consectetur. Curabitur blandit tempus porttitor. Maecenas faucibus mollis interdum. Nullam quis risus eget urna mollis ornare vel eu le...<a href="#">Read more</a></p>
-			<button class="btn btn-default">Pending</button>
+			<p>Cras mattis consectetur purus sit amet fermentum. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean lacinia bibendum nulla sed consectetur. Curabitur blandit tempus porttitor. Maecenas faucibus mollis interdum. Nullam quis risus eget urna mollis ornare vel eu le...<a href="detail-pengaduan/1">Read more</a></p>
+			<button class="btn btn-default">PENDING</button>
 		</div>
 
 		<div class="row list-pengaduan">
 			<div class="row">
 				<div class="col-sm-9">
-					<h2><a href="#">Monyet Kabur dari Kebun Binatang ke Kampus ITB</a></h2>
+					<h2><a href="detail-pengaduan/2">Monyet Kabur dari Kebun Binatang ke Kampus ITB</a></h2>
 				</div>
 				<div class="col-sm-3 hidden-xs hidden-sm tanggal-pengaduan">12 Februari 2015</div>
 			</div>
@@ -81,8 +86,8 @@
 				<div class="col-xs-6 kategori"><span class="hidden-xs hidden-sm label label-primary">Umum</span></div>
 			</div>
 			<div class="kategori"><span class="hidden-md hidden-lg label label-primary">Umum</span></div>
-			<p>Cras mattis consectetur purus sit amet fermentum. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean lacinia bibendum nulla sed consectetur. Curabitur blandit tempus porttitor. Maecenas faucibus mollis interdum. Nullam quis risus eget urna mollis ornare vel eu le...<a href="#">Read more</a></p>
-			<button class="btn btn-success">Handled</button>
+			<p>Cras mattis consectetur purus sit amet fermentum. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean lacinia bibendum nulla sed consectetur. Curabitur blandit tempus porttitor. Maecenas faucibus mollis interdum. Nullam quis risus eget urna mollis ornare vel eu le...<a href="detail-pengaduan/2">Read more</a></p>
+			<button class="btn btn-success">HANDLED</button>
 		</div>
 
 		<!-- Pagination -->
