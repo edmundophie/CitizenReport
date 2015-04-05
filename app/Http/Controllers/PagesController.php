@@ -21,7 +21,6 @@ class PagesController extends Controller {
 	}
 
 	public function buatPengaduan() {
-<<<<<<< HEAD
 		return view('pages.buat_pengaduan');
 	}
 
@@ -29,11 +28,6 @@ class PagesController extends Controller {
 		return view('pages.status_pengaduan');
 	}
 	
-=======
-        return view('pages.buat_pengaduan');
-    }
-
->>>>>>> fdab9e8b4a6e79bc64eb9541a4857b521ddefdd2
 	public function detailPengaduan($id) {
 		if($id==1)
 			return view('pages.detail_pengaduan');
