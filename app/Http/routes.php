@@ -30,3 +30,4 @@ Route::get('/buat-pengaduan', 'PagesController@buatPengaduan');
 
 // Class
 Route::get('/pengaduan/{pengaduan}', 'PengaduanController@show');
+Route::post('/pengaduan/insert', 'PengaduanController@insert');
