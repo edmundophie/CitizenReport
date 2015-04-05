@@ -25,7 +25,8 @@ class PagesController extends Controller {
 
 	public function statusPengaduan() {
 		return view('pages.status_pengaduan');
-
+	}
+	
 	public function detailPengaduan($id) {
 		if($id==1)
 			return view('pages.detail_pengaduan');
