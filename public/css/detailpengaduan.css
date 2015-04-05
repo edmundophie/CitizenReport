@@ -1,8 +1,8 @@
 .list-pengaduan{
 	padding: 15px;
 	border: 1px solid gray;
-	border-bottom: 0;
-	box-shadow: 0px -1px 1px black;
+	//border-bottom: 0;
+	box-shadow: 0px 0px 0px black;
 	margin-bottom: 20px;
 }
 .list-pengaduan h2, .keterangan-status h3{
@@ -17,10 +17,20 @@
 .keterangan-status{
 	padding: 15px;
 	border: 1px solid gray;
-	border-top:0;
-	box-shadow: 0px 1px 1px black;
+	//border-top:0;
+	box-shadow: 0px 0px 0px black;
 	margin-bottom: 20px;
 }
+
+.status-pengerjaan{
+    padding: 15px;
+    border: 1px solid gray;
+    //border-top:0;
+    //border-bottom: 0;
+    box-shadow: 0px 0px 0px black;
+    margin-bottom: 20px;
+}
+
 .komentar + .clearfix{
 	margin-bottom: 10px;
 }

@@ -55,9 +55,9 @@ return [
 		'mysql' => [
 			'driver'    => 'mysql',
 			'host'      => 'akhfa.in',
-			'database'  => 'pengaduan_masyarakat',
-			'username'  => 'chobits',
-			'password'  => 'chobitsu',
+			'database'  => 'ppl_pengaduan',
+			'username'  => 'ppl_pengaduan',
+			'password'  => 'pplk1',
 			'charset'   => 'utf8',
 			'collation' => 'utf8_unicode_ci',
 			'prefix'    => '',
