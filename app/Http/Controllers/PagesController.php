@@ -5,6 +5,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\DB;
 
 use Illuminate\Http\Request;
+use App\Kategori;
 
 class PagesController extends Controller {
 
@@ -21,7 +22,8 @@ class PagesController extends Controller {
 	}
 
 	public function buatPengaduan() {
-		return view('pages.buat_pengaduan');
+		$listKategori = Kategori::getListKategori();
+		return view('pages.buat_pengaduan', compact('listKategori'));
 	}
 
 	public function statusPengaduan() {

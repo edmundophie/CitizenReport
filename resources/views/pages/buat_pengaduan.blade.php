@@ -89,15 +89,9 @@
 				<label for="inputKategori" class="col-sm-2 control-label">Kategori</label>
 				<div class="col-sm-10">
 					<select class="form-control" name="kategori" id="inputKategori">
-						<option value="kriminal dan keamanan">Kriminal dan Keamanan</option>
-						<option value="pelayanan publik">Pelayanan Publik</option>
-						<option value="infrastruktur">Infrastruktur Kota</option>
-						<option value="kebersihan">Kebersihan</option>
-						<option value="kriminal">Korupsi/Pungli</option>
-						<option value="tata ruang dan wilayah">Tata Ruang dan Wilayah</option>
-						<option value="sosial">Sosial</option>
-						<option value="lalulintas">Lalu Lintas</option>
-						<option value="umum">Umum</option>
+						@foreach($listKategori as $kategori)
+						<option value="{{ $kategori['nama'] }}">{{ $kategori['nama'] }}</option>
+						@endforeach
 					</select>
 				</div>
 			</div>

@@ -23,4 +23,8 @@ class Kategori {
     public function getDataKategori(){
         return $this->dataKategori;
     }
+
+    public static function getListKategori() {
+    	return KategoriModel::all();
+    }
 } 
