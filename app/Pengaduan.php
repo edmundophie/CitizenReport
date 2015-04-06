@@ -19,7 +19,6 @@ class Pengaduan {
     }
 
     public function setAduan($slug){
-
         $this->dataPengaduan = PengaduanModel::where('slug', $slug)->first();
 
         $this->kategori = new Kategori();
@@ -77,8 +76,7 @@ class Pengaduan {
         $this->dataPengaduan['slug'] = $slug;
     }
 
-    public function savePengaduan()
-    {
+    public function savePengaduan(){
         $pengaduan = new PengaduanModel();
         $pengaduan->judul = $this->dataPengaduan['judul'];
         $pengaduan->id_kategori = $this->dataPengaduan['id_kategori'];
@@ -88,6 +86,13 @@ class Pengaduan {
         $pengaduan->id_masyarakat = $this->dataPengaduan['id_masyarakat'];
         $pengaduan->id_status = $this->dataPengaduan['id_status'];
         $pengaduan->slug = $this->dataPengaduan['slug'];
+        $pengaduan->save();
+    }
+
+    public static function updateStatus($slug, $idStatus, $komentarStatus){
+        $pengaduan = PengaduanModel::where('slug', $slug)->first();
+        $pengaduan->id_status = $idStatus;
+        $pengaduan->komentar_status = $komentarStatus;
         $pengaduan->save();
     }
 

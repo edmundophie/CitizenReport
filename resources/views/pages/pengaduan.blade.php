@@ -9,7 +9,7 @@
 	<ol class="breadcrumb">
 	  <li><a href="{{ URL::asset('index') }}">Home</a></li>
 	  <li><a href="{{ URL::asset('daftar-pengaduan') }}">Daftar Pengaduan</a></li>
-	  <li class="">Tanggul-Sungai-Cikapundung-Jebol</li>
+	  <li class="">{{ $pengaduan->getDataAduan()['judul'] }}</li>
 	</ol>
 @stop
 
