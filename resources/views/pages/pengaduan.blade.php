@@ -1,6 +1,6 @@
 @extends('pages.master')
 @section('title')
-	Tanggul Sungai Cikapundung Jebol - Citizen Report
+	{{ $pengaduan->getDataAduan()['judul'] }} - Citizen Report
 @stop
 @section('css')
 	<link rel="stylesheet" href="{{ URL::asset('css/detailpengaduan.css') }}">

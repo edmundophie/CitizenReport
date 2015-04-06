@@ -29,12 +29,18 @@ class PengaduanController extends Controller {
 
         $listStatus = Status::getListStatus();
 
+        $id_status = StatusModel::where('nama', 'finished')->first()['id'];
+
 		if($user_role=="SKPD") {
 			return view('pages.skpd.pengaduan', compact('pengaduan', 'listStatus'));
 		} else if ($user_role=="ADMIN") {
-			return view('admin.pengaduan', compact('pengaduan'));
+			return view('pages.admin.pengaduan', compact('pengaduan'));
 		} else { // if logged in as MASYARAKAT
-			return view('pages.pengaduan', compact('pengaduan'));
+            if($id_user == $pengaduan->getDataAduan()['id_masyarakat'] AND $pengaduan->getDataAduan()['id_status'] == $id_status){
+                return view('pages.pengaduan2', compact('pengaduan'));
+            }else{
+                return view('pages.pengaduan', compact('pengaduan'));
+            }
 		}
 	}
 
