@@ -20,7 +20,7 @@ class Pengaduan {
 
     public function setAduan($slug){
         $this->dataPengaduan =  PengaduanModel::where('slug', $slug)->first();
-
+        
         $this->status = new Status;
         $this->status->setDataStatus($dataPengaduan['id_status']);       
     }
