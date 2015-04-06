@@ -21,6 +21,7 @@ class CreatePengaduanTable extends Migration {
 			$table->text('deskripsi');
 			$table->integer('id_masyarakat')->unsigned();
 			$table->integer('id_status')->unsigned();
+            $table->string('komentar_status')->nullable();
 			$table->string('laporan')->nullable();
 			$table->text('feedback')->nullable();
 			$table->timestamps();

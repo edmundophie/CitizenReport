@@ -26,3 +26,5 @@ Route::get('/buat-pengaduan', 'PagesController@buatPengaduan');
 Route::get('/pengaduan/{slug}', 'PengaduanController@show');
 
 Route::post('/pengaduan/insert', 'PengaduanController@insert');
+
+Route::post('/pengaduan/ubah-status', 'PengaduanController@ubahStatus');

@@ -15,5 +15,7 @@ class Status {
 		return $this->dataStatus;
 	}
 
-
+    public static function getListStatus(){
+        return StatusModel::all();
+    }
 }

@@ -15,20 +15,31 @@ class PengaduanController extends Controller {
 
 	public function show($slug) {
 		// Session stub
-		Session::put('role', 'MASYARAKAT');
+		Session::put('role', 'SKPD');
 		$user_role = Session::get('role');
 
         $pengaduan = new Pengaduan();
         $pengaduan->setAduan($slug);
 
+        $listStatus = Status::getListStatus();
+
 		if($user_role=="SKPD") {
-			return view('skpd.pengaduan', compact('pengaduan'));
+			return view('pages.skpd.pengaduan', compact('pengaduan', 'listStatus'));
 		} else if ($user_role=="ADMIN") {
 			return view('admin.pengaduan', compact('pengaduan'));
 		} else { // if logged in as MASYARAKAT
 			return view('pages.pengaduan', compact('pengaduan'));
 		}
 	}
+
+    public function ubahStatus(Request $request){
+        $idStatus = $request->get('status');
+        $komentarStatus = $request->get('komentar_status');
+        $slug = $request->get('slug');
+        Pengaduan::updateStatus($slug, $idStatus, $komentarStatus);
+
+        return redirect('pengaduan/'.$slug);
+    }
 
 	public function insert(Request $request) {
 		// Session stub
