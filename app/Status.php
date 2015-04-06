@@ -1,9 +1,19 @@
 <?php namespace App;
 
-use Illuminate\Database\Eloquent\Model;
+class Status {
+	private $dataStatus;
 
-class Status extends Model {
+    public function __constructor(){
 
-	protected  $table = "status";
+    }
 
-} 
+    public function setDataStatus($id) {
+        $this->dataStatus = StatusModel::where('id', $id)->first();
+    }
+
+	public function getDataStatus() {
+		return $this->dataStatus;
+	}
+
+
+}
