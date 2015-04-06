@@ -88,9 +88,9 @@
 			<div class="form-group">
 				<label for="inputKategori" class="col-sm-2 control-label">Kategori</label>
 				<div class="col-sm-10">
-					<select class="form-control" name="kategori" id="inputKategori">
+					<select class="form-control" name="id_kategori" id="inputKategori">
 						@foreach($listKategori as $kategori)
-						<option value="{{ $kategori['nama'] }}">{{ $kategori['nama'] }}</option>
+						<option value="{{ $kategori['id'] }}">{{ $kategori['nama'] }}</option>
 						@endforeach
 					</select>
 				</div>

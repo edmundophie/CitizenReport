@@ -23,6 +23,7 @@ class PagesController extends Controller {
 
 	public function buatPengaduan() {
 		$listKategori = Kategori::getListKategori();
+		
 		return view('pages.buat_pengaduan', compact('listKategori'));
 	}
 

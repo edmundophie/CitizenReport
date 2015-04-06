@@ -6,10 +6,14 @@ use App\Pengaduan;
 use Illuminate\Http\Request;
 
 use Illuminate\Support\Facades\Session;
-use Symfony\Component\Console\Input\Input;
+use Input;
 use App\Kategori;
+use App\KategoriModel;
 use App\Status;
+use App\StatusModel;
+use App\PengaduanModel;
 use Illuminate\Support\Str;
+
 
 class PengaduanController extends Controller {
 
@@ -38,8 +42,7 @@ class PengaduanController extends Controller {
 		// Form handling
 		$judul = $request->get('judul');
 		$deskripsi = $request->get('deskripsi');
-		$kategori = Kategori::where('nama', $request->get('kategori'))->first();
-		$status = Status::where('nama', 'pending')->first();
+		$status = StatusModel::where('nama', 'pending')->first();
 		
 		// lampiran
 		date_default_timezone_set("UTC");
@@ -57,7 +60,7 @@ class PengaduanController extends Controller {
 		// Save to database
 		$pengaduan = new PengaduanModel;
 		$pengaduan->judul = $judul;
-		$pengaduan->id_kategori = $kategori->id;
+		$pengaduan->id_kategori = $request->get('id_kategori');
 		$pengaduan->lampiran = $lampiran_filename;
 		$pengaduan->gambar = $gambar_filename;
 		$pengaduan->deskripsi = $deskripsi;
@@ -67,7 +70,7 @@ class PengaduanController extends Controller {
 		
 		$pengaduan->save();
 
-		return view('pages.buat_pengaduan');
+		return redirect('buat-pengaduan');
 	}
 
 	public function generateSlug($title, $model)
