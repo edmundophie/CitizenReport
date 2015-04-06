@@ -25,28 +25,22 @@
 @section('body')
 <div class="row grids_of_3">
 				<div class="col-md-4 grid1_of_3">
-					  <h2>Statistik</h2>
+					  <h2>Adukan</h2>
 					  <img src="images/icon1.png" class="img-responsive"/>
 					  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-				     <div class="rd_more1">
-						<a href="single-page.html"><button class="btn_style">lebih lanjut</button></a>
-					</div>					
+				     
 				</div>
 				<div class="col-md-4 grid1_of_3">
-					<h2>Social Media</h2>
+					<h2>Monitor</h2>
 					  <img src="images/icon2.png" class="img-responsive"/>
 					  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-				      <div class="rd_more1">
-						<a href="single-page.html"><button class="btn_style">lebih lanjut</button></a>
-					</div>					
+				      					
 				</div>
 				<div class="col-md-4 grid1_of_3">
-					<h2>Trending</h2>
+					<h2>Terima Hasilnya</h2>
 					  <img src="images/icon3.png" class="img-responsive"/>
 					  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-				     <div class="rd_more1">
-						<a href="single-page.html"><button class="btn_style">lebih lanjut</button></a>
-					</div>	
+				     
 				</div>
 			    <div class="clearfix"></div>
 	</div>

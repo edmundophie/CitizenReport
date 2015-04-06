@@ -49,8 +49,13 @@
                     <div class="col-xs-6 kategori"><span class="hidden-xs hidden-sm label label-primary">{{ $pengaduan->getNamaKategori() }}</span></div>
                 </div>
                 <div class="kategori"><span class="hidden-md hidden-lg label label-primary">{{ $pengaduan->getNamaKategori() }}</span></div>
+<<<<<<< HEAD
                 {!! $pengaduan->getDeskripsiSingkat() !!}...<a href="detail-pengaduan/{{ $pengaduan->getDataAduan()['slug'] }}">Read more</a></p>
                 <button class="btn btn-{{ $pengaduan->getStatus()->getDataStatus()['color_code']}}">{{ $pengaduan->getNamaStatus() }}</button>
+=======
+                {!! $pengaduan->getDeskripsiSingkat() !!}...<a href="pengaduan/{{ $pengaduan->getDataAduan()['slug'] }}">Read more</a></p>
+                <button class="btn btn-warning">{{ $pengaduan->getNamaStatus() }}</button>
+>>>>>>> 4b411a60801a27a3e57bfb0d14787777d5c572b1
             </div>
         @endforeach
 

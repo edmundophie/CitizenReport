@@ -19,24 +19,32 @@ class PengaduanController extends Controller {
 
 	public function show($slug) {
 		// Session stub
-		Session::put('role', 'MASYARAKAT');
+		Session::put('role', 'SKPD');
+        Session::put('id_user', '2');
 		$user_role = Session::get('role');
+        $id_user = Session::get('id_user');
 
         $pengaduan = new Pengaduan();
         $pengaduan->setAduan($slug);
 
         $listStatus = Status::getListStatus();
 
+        $id_status = StatusModel::where('nama', 'finished')->first()['id'];
+
 		if($user_role=="SKPD") {
 			return view('pages.skpd.pengaduan', compact('pengaduan', 'listStatus'));
 		} else if ($user_role=="ADMIN") {
-			return view('admin.pengaduan', compact('pengaduan'));
+			return view('pages.admin.pengaduan', compact('pengaduan'));
 		} else { // if logged in as MASYARAKAT
-			return view('pages.pengaduan', compact('pengaduan'));
+            if($id_user == $pengaduan->getDataAduan()['id_masyarakat'] AND $pengaduan->getDataAduan()['id_status'] == $id_status){
+                return view('pages.pengaduan2', compact('pengaduan'));
+            }else{
+                return view('pages.pengaduan', compact('pengaduan'));
+            }
 		}
 	}
 
-    public function ubahStatus(Request $request){
+    public function updateStatus(Request $request){
         $idStatus = $request->get('status');
         $komentarStatus = $request->get('komentar_status');
         $slug = $request->get('slug');
@@ -45,9 +53,34 @@ class PengaduanController extends Controller {
         return redirect('pengaduan/'.$slug);
     }
 
+    public function addFeedback(Request $request){
+        $feedback = $request->get('feedback');
+        $komentar_feedback = $request->get('feedback_comment');
+        $slug = $request->get('slug');
+        Pengaduan::addFeedback($slug, $feedback, $komentar_feedback);
+
+        return redirect('pengaduan/'.$slug);
+    }
+
+    public function uploadReport(Request $request){
+        $id_kategori = $request->get('kategori');
+        $slug = $request->get('slug');
+
+        // laporan
+        date_default_timezone_set("UTC");
+        $laporan = Input::file('laporan');
+        $ext = $laporan->getClientOriginalExtension();
+        $laporan_filename = $id_kategori."-".(Date("YmdHis", time())).".". $ext;
+        $laporan->move(public_path().'/pengaduan-laporan', $laporan_filename);
+
+        Pengaduan::addLaporan($slug, $laporan_filename);
+
+        return redirect('pengaduan/'.$slug);
+    }
+
 	public function insert(Request $request) {
 		// Session stub
-		Session::put('id_user', '1');
+		Session::put('id_user', '2');
 		$id_user = Session::get('id_user');
 
 		// Form handling

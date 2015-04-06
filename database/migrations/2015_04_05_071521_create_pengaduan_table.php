@@ -24,6 +24,7 @@ class CreatePengaduanTable extends Migration {
             $table->string('komentar_status')->nullable();
 			$table->string('laporan')->nullable();
 			$table->text('feedback')->nullable();
+            $table->string('komentar_feedback')->nullable();
 			$table->timestamps();
 		});
 

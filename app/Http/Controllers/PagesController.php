@@ -16,7 +16,6 @@ class PagesController extends Controller {
 	}
 
 	public function daftarPengaduan($sortBy) {
-
         $listPengaduan = Pengaduan::getListPengaduan($sortBy);
         //return $listPengaduan[0]->getDataAduan()['judul'];
 
