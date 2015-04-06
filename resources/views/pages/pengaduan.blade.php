@@ -8,7 +8,7 @@
 @section('breadcrumb')
 	<ol class="breadcrumb">
 	  <li><a href="{{ URL::asset('index') }}">Home</a></li>
-	  <li><a href="{{ URL::asset('daftar-pengaduan') }}">Daftar Pengaduan</a></li>
+	  <li><a href="{{ URL::asset('daftar-pengaduan/default') }}">Daftar Pengaduan</a></li>
 	  <li class="">{{ $pengaduan->getDataAduan()['slug'] }}</li>
 	</ol>
 @stop
@@ -41,7 +41,7 @@
 			{!! $pengaduan->getDataAduan()['deskripsi'] !!}
 			<hr>
 			<div class="progress">
-				<div class="progress-bar progress-bar-{{ $pengaduan->getStatus()->getColorCode() }} progress-bar-striped" role="progressbar" aria-valuenow="{{ $pengaduan->getProgress() }}" aria-valuemin="0" aria-valuemax="100" style="width: {{ $pengaduan->getProgress() }}%">
+				<div class="progress-bar progress-bar-{{ $pengaduan->getStatus()->getDataStatus()['color_code'] }} progress-bar-striped" role="progressbar" aria-valuenow="{{ $pengaduan->getProgress() }}" aria-valuemin="0" aria-valuemax="100" style="width: {{ $pengaduan->getProgress() }}%">
 					<span>{{ $pengaduan->getNamaStatus() }}</span>
 				</div>
 			</div>

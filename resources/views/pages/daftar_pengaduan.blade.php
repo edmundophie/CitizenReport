@@ -37,7 +37,7 @@
             <div class="row list-pengaduan">
                 <div class="row">
                     <div class="col-sm-9">
-                        <h2><a href="pengaduan/{{ $pengaduan->getDataAduan()['slug'] }}">{{ $pengaduan->getDataAduan()['judul'] }}</a></h2>
+                        <h2><a href="{{ URL::asset('pengaduan/'.$pengaduan->getDataAduan()['slug']) }}">{{ $pengaduan->getDataAduan()['judul'] }}</a></h2>
                     </div>
                     <div class="col-sm-3 hidden-xs hidden-sm tanggal-pengaduan">{{ $pengaduan->getDate() }}</div>
                 </div>
