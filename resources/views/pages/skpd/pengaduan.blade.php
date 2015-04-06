@@ -42,7 +42,7 @@
 				<div class="col-xs-6 kategori"><span class="label label-primary">Infrastruktur</span></div>
 			</div>
 			<br>
-			<div class="col-xs-12 col-sm-6 col-md-3 gambar-pengaduan"><img src="{{ URL::asset('images/tanggul.jpg') }}" class="img-responsive img-thumbnail" alt="Gambar pengaduan"></div>
+			<div class="col-xs-12 col-sm-6 col-md-3 gambar-pengaduan"><img src="{{ URL::asset('pengaduan-gambar/'.$pengaduan->getDataAduan()['gambar']) }}" class="img-responsive img-thumbnail" alt="Gambar pengaduan"></div>
 			{!! $pengaduan->getDataAduan()['deskripsi'] !!}
 			<hr>
 			<div class="progress">

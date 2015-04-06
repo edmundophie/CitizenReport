@@ -20,7 +20,9 @@ class PengaduanController extends Controller {
 	public function show($slug) {
 		// Session stub
 		Session::put('role', 'MASYARAKAT');
+        Session::put('id_user', '2');
 		$user_role = Session::get('role');
+        $id_user = Session::get('id_user');
 
         $pengaduan = new Pengaduan();
         $pengaduan->setAduan($slug);
@@ -47,7 +49,7 @@ class PengaduanController extends Controller {
 
 	public function insert(Request $request) {
 		// Session stub
-		Session::put('id_user', '1');
+		Session::put('id_user', '2');
 		$id_user = Session::get('id_user');
 
 		// Form handling
