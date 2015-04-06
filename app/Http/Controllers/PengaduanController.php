@@ -1,16 +1,17 @@
 <?php namespace App\Http\Controllers;
 
 use App\Http\Requests;
-use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Session;
+use App\Pengaduan;
 
 use Illuminate\Http\Request;
+
 use Session;
 use Input;
 use App\Pengaduan;
 use App\Kategori;
 use App\Status;
 use Str;
-
 class PengaduanController extends Controller {
 
 	public function show($pengaduan) {
@@ -20,11 +21,13 @@ class PengaduanController extends Controller {
 
 		if($user_role=="SKPD") {
 			return view('skpd.pengaduan', compact('pengaduan'));
+        if($user_role=="SKPD") {
+			return view('skpd.pengaduan', compact('aduan'));
 		} else if ($user_role=="ADMIN") {
-			return view('admin.pengaduan', compact('pengaduan'));
+			return view('admin.pengaduan', compact('aduan'));
 		}
 		else { // if logged in as MASYARAKAT
-			return view('pages.pengaduan', compact('pengaduan'));
+			return view('pages.pengaduan', compact('aduan'));
 		}
 	}
 
