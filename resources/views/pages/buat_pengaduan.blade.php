@@ -78,7 +78,7 @@
 	<div class="col-sm-6 pengaduan-form">
 		<h2 class="title">Buat Pengaduan</h2>
 		<hr>
-		<form class="form-horizontal" enctype="multipart/form-data">
+		{!! Form::open(array('url' => 'pengaduan/insert', 'method' => 'post', 'class' => 'form-horizontal', 'files' => 'true')) !!}
 			<div class="form-group">
 				<label for="inputJudul" class="col-sm-2 control-label">Judul</label>
 				<div class="col-sm-10">
@@ -89,12 +89,12 @@
 				<label for="inputKategori" class="col-sm-2 control-label">Kategori</label>
 				<div class="col-sm-10">
 					<select class="form-control" name="kategori" id="inputKategori">
-						<option value="kriminal">Kriminal dan Keamanan</option>
-						<option value="pelayanan_publik">Pelayanan Publik</option>
-						<option value="infrastruktur_kota">Infrastruktur Kota</option>
+						<option value="kriminal dan keamanan">Kriminal dan Keamanan</option>
+						<option value="pelayanan publik">Pelayanan Publik</option>
+						<option value="infrastruktur">Infrastruktur Kota</option>
 						<option value="kebersihan">Kebersihan</option>
 						<option value="kriminal">Korupsi/Pungli</option>
-						<option value="tata_ruang">Tata Ruang dan Wilayah</option>
+						<option value="tata ruang dan wilayah">Tata Ruang dan Wilayah</option>
 						<option value="sosial">Sosial</option>
 						<option value="lalulintas">Lalu Lintas</option>
 						<option value="umum">Umum</option>
@@ -124,7 +124,7 @@
 					<button type="submit" class="btn btn-default">Laporkan</button>
 				</div>
 			</div>
-		</form>
+		{!! Form::close() !!}
 	</div>
 	</div>
 @stop

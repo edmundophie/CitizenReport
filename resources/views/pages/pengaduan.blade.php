@@ -18,7 +18,7 @@
 		<div class="row list-pengaduan">
 			<div class="row">
 				<div class="col-sm-9">
-					<h2>{{ $aduan->getJudul() }}</h2>
+					<h2>{{ $pengaduan->judul }}</h2>
 				</div>
 				<div class="col-sm-3 hidden-xs hidden-sm tanggal-pengaduan">19 Desember 2014</div>
 			</div>
@@ -27,22 +27,22 @@
 					Pelapor : <a href="#">Ridwan Kamil</a>
 				</div>
 				<div class="col-xs-6 visible-xs visible-sm tanggal-pengaduan">19 Desember 2014</div>
-				<div class="col-xs-6 kategori"><span class="hidden-xs hidden-sm label label-primary">{{ $aduan->getKategori()->getNama() }}</span></div>
+				<div class="col-xs-6 kategori"><span class="hidden-xs hidden-sm label label-primary">{{ $pengaduan->kategori->nama }}</span></div>
 			</div>
 			<div class="row hidden-xs hidden-sm">
 				<div class="col-sm-12"><a href="#"><span class="glyphicon glyphicon-paperclip"></span></a> Lampiran tersedia</div>
 			</div>
 			<div class="row hidden-md hidden-lg">
 				<div class="col-xs-6"><a href="#"><span class="glyphicon glyphicon-paperclip"></span></a> Lampiran tersedia</div>
-				<div class="col-xs-6 kategori"><span class="label label-primary">{{ $aduan->getKategori()->getNama() }}</span></div>
+				<div class="col-xs-6 kategori"><span class="label label-primary">{{ $pengaduan->kategori->nama }}</span></div>
 			</div>
 			<br>
 			<div class="col-xs-12 col-sm-6 col-md-3 gambar-pengaduan"><img src="{{ URL::asset('images/tanggul.jpg') }}" class="img-responsive img-thumbnail" alt="Gambar pengaduan"></div>
-			{{ $aduan->getDeskripsi() }}
+			{{ $pengaduan->deskripsi }}
 			<hr>
 			<div class="progress">
 				<div class="progress-bar progress-bar-warning progress-bar-striped" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: 40%">
-					<span>{{ $aduan->getStatus()->getNama() }}</span>
+					<span>{{ $pengaduan->status->nama }}</span>
 				</div>
 			</div>
 		</div>
