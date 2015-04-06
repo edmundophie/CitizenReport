@@ -10,5 +10,21 @@ namespace App;
 
 
 class Kategori {
+    private $dataKategori;
 
+    public function __construct(){
+
+    }
+
+    public function setKategoti($idKategori){
+        $this->dataKategori = KategoriModel::where('id', $idKategori)->first();
+    }
+
+    public function getDataKategori(){
+        return $this->dataKategori;
+    }
+
+    public static function getListKategori() {
+    	return KategoriModel::all();
+    }
 } 

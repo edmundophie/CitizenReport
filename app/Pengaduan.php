@@ -19,10 +19,14 @@ class Pengaduan {
     }
 
     public function setAduan($slug){
-        $this->dataPengaduan =  PengaduanModel::where('slug', $slug)->first();
-        
+
+        $this->dataPengaduan = PengaduanModel::where('slug', $slug)->first();
+
+        $this->kategori = new Kategori;
+        $this->kategori->setKategoti($this->dataPengaduan['id_kategori']);
+
         $this->status = new Status;
-        $this->status->setDataStatus($dataPengaduan['id_status']);       
+        $this->status->setDataStatus($this->dataPengaduan['id_status']);
     }
 
     public function getDataAduan(){
@@ -30,7 +34,7 @@ class Pengaduan {
     }
 
     public function getNamaKategori(){
-        return $this->namaKategori;
+        return $this->kategori->getDataKategori()['nama'];
     }
 
     public function getNamaStatus(){
@@ -38,6 +42,10 @@ class Pengaduan {
     }
 
     public function getProgress(){
-        return $this->status->getDatStatus()['progress'];
+        return $this->status->getDataStatus()['progress'];
+    }
+
+    public function getDate() {
+     return date('d F Y', strtotime($this->dataPengaduan['created_at']));
     }
 } 

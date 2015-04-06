@@ -20,13 +20,13 @@
 				<div class="col-sm-9">
 					<h2>{{ $pengaduan->getDataAduan()['judul'] }}</h2>
 				</div>
-				<div class="col-sm-3 hidden-xs hidden-sm tanggal-pengaduan">19 Desember 2014</div>
+				<div class="col-sm-3 hidden-xs hidden-sm tanggal-pengaduan">{{ $pengaduan->getDate() }}</div>
 			</div>
 			<div class="row">
 				<div class="col-xs-6">
 					Pelapor : <a href="#">Ridwan Kamil</a>
 				</div>
-				<div class="col-xs-6 visible-xs visible-sm tanggal-pengaduan">19 Desember 2014</div>
+				<div class="col-xs-6 visible-xs visible-sm tanggal-pengaduan">{{ $pengaduan->getDate() }}</div>
 				<div class="col-xs-6 kategori"><span class="hidden-xs hidden-sm label label-primary">{{ $pengaduan->getNamaKategori() }}</span></div>
 			</div>
 			<div class="row hidden-xs hidden-sm">
