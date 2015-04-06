@@ -11,12 +11,6 @@
 |
 */
 
-// Model binding
-Route::bind('pengaduan', function($slug)
-{
-	return App\Pengaduan::where('slug', $slug)->first();
-});
-
 // Main pages
 Route::get('/', 'PagesController@index');
 
@@ -29,6 +23,6 @@ Route::get('/statistik', 'PagesController@statistik');
 Route::get('/buat-pengaduan', 'PagesController@buatPengaduan');
 
 // Class
-Route::get('/pengaduan/{pengaduan}', 'PengaduanController@show');
+Route::get('/pengaduan/{slug}', 'PengaduanController@show');
 
 Route::post('/pengaduan/insert', 'PengaduanController@insert');

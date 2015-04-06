@@ -1,8 +1,14 @@
-<?php namespace App;
+<?php
+/**
+ * Created by PhpStorm.
+ * User: Sakurai
+ * Date: 4/6/2015
+ * Time: 11:19 AM
+ */
 
-use Illuminate\Database\Eloquent\Model;
+namespace App;
 
-class Kategori extends Model {
 
-	protected $table = 'kategori';
+class Kategori {
+
 } 

@@ -5,19 +5,21 @@ use App\Pengaduan;
 
 use Illuminate\Http\Request;
 
-use Symfony\Component\HttpFoundation\Session\Session;
-use Input;
-use App\Pengaduan;
+use Illuminate\Support\Facades\Session;
+use Symfony\Component\Console\Input\Input;
 use App\Kategori;
 use App\Status;
-use Str;
+use Illuminate\Support\Str;
 
 class PengaduanController extends Controller {
 
-	public function show($pengaduan) {
+	public function show($slug) {
 		// Session stub
 		Session::put('role', 'MASYARAKAT');
 		$user_role = Session::get('role');
+
+        $pengaduan = new Pengaduan();
+        $pengaduan->setAduan($slug);
 
 		if($user_role=="SKPD") {
 			return view('skpd.pengaduan', compact('pengaduan'));
@@ -47,13 +49,13 @@ class PengaduanController extends Controller {
 		$lampiran->move(public_path().'/pengaduan-lampiran', $lampiran_filename);	
 		
 		// gambar
-		$gambar = Input::file('gambar');+
+		$gambar = Input::file('gambar');
 		$ext = $gambar->getClientOriginalExtension();
 		$gambar_filename = $id_user."-".(Date("YmdHis", time())).".".$ext;
 		$gambar->move(public_path().'/pengaduan-gambar', $gambar_filename);
 
 		// Save to database
-		$pengaduan = new Pengaduan;
+		$pengaduan = new PengaduanModel;
 		$pengaduan->judul = $judul;
 		$pengaduan->id_kategori = $kategori->id;
 		$pengaduan->lampiran = $lampiran_filename;
