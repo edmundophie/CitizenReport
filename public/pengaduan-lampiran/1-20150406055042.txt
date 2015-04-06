@@ -1,0 +1,6 @@
+-daftar gambar diisi!
+-tujuan penulisan dilengkapin, bilang bahwa dokumen ditulis sebagai acuan, untuk memberi gambaran solusi, bagi pihak pengembang gunanya apa, bagi pihak client gunanya apa
+-di bagian 3 desain proses bisnis, proses bisnis pertiketat maksudnya apa ya? typo kykny, tolong dibenerin
+-di proses bisnis yg berubah kalau bisa ditunjukin SInya perannya dimana dengan cara nambah aktor baru yaitu SInya itu
+-di bagian jaringan, meskipun jaringan lokal ada tidak router atau semacamnya? kalo ada jelasin, terus jangan lupa ditambahin juga di hardwarenya
+-batasan implementasi ditambahin bahwa yg dibikin masi prototype, terus tambahin jg menangani apa saja

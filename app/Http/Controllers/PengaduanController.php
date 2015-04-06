@@ -43,7 +43,8 @@ class PengaduanController extends Controller {
 		$judul = $request->get('judul');
 		$deskripsi = $request->get('deskripsi');
 		$status = StatusModel::where('nama', 'pending')->first();
-		
+		$id_kategori = $request->get('id_kategori');
+
 		// lampiran
 		date_default_timezone_set("UTC");
 		$lampiran = Input::file('lampiran');
@@ -58,17 +59,16 @@ class PengaduanController extends Controller {
 		$gambar->move(public_path().'/pengaduan-gambar', $gambar_filename);
 
 		// Save to database
-		$pengaduan = new PengaduanModel;
-		$pengaduan->judul = $judul;
-		$pengaduan->id_kategori = $request->get('id_kategori');
-		$pengaduan->lampiran = $lampiran_filename;
-		$pengaduan->gambar = $gambar_filename;
-		$pengaduan->deskripsi = $deskripsi;
-		$pengaduan->id_masyarakat = $id_user;
-		$pengaduan->id_status = $status->id;
-		$pengaduan->slug = $this->generateSlug($judul, $pengaduan);
-		
-		$pengaduan->save();
+		$pengaduan = new Pengaduan();
+		$pengaduan->setJudul($judul);
+		$pengaduan->setIdKategori($id_kategori);
+		$pengaduan->setLampiran($lampiran_filename);
+		$pengaduan->setGambar($gambar_filename);
+		$pengaduan->setDeskripsi($deskripsi);
+		$pengaduan->setIdMasyarakat($id_user);
+		$pengaduan->setIdStatus($status->id);
+		$pengaduan->setSlug($this->generateSlug($judul, new PengaduanModel()));
+		$pengaduan->savePengaduan();
 
 		return redirect('buat-pengaduan');
 	}
