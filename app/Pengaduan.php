@@ -17,6 +17,7 @@ class Pengaduan{
     private $komentarStatus;
     private $laporan;
     private $feedback;
+    private $result;
 
     public function __construct($id){
         $this->id = $id;
@@ -29,6 +30,12 @@ class Pengaduan{
         $this->feedback  = DB::table('pengaduan')->where('id', $id)->pluck('feedback');
         $this->kategori = new Kategori($id);
         $this->status = new Status($id);
+
+        $this->result = DB::select('select * from pengaduan where id = :id', ['id' => $id]);
+    }
+
+    public function getPelapor(){
+        return $this->result;
     }
 
     public function getJudul(){

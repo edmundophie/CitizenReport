@@ -15,14 +15,16 @@ class PengaduanController extends Controller {
 
         $aduan = new Pengaduan($pengaduan);
 
-        if($user_role=="SKPD") {
+        /*if($user_role=="SKPD") {
 			return view('skpd.pengaduan', compact('aduan'));
 		} else if ($user_role=="ADMIN") {
 			return view('admin.pengaduan', compact('aduan'));
 		}
 		else { // if logged in as MASYARAKAT
 			return view('pages.pengaduan', compact('aduan'));
-		}
+		}*/
+
+        return $aduan->getPelapor();
 	}
 
 }
