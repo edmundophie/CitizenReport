@@ -54,7 +54,7 @@
 
         <div class="row status-pengerjaan">
             <h3>Status</h3>
-            {!! Form::open(array('url' => 'pengaduan/ubah-status', 'method' => 'post')) !!}
+            {!! Form::open(array('url' => 'pengaduan/update-status', 'method' => 'post')) !!}
                 <div class="form-group">
                     <div class="col-xs-12 col-sm-4 selectContainer" id="pilihanstatus">
                         <select name="status" class="form-control" title="Pilih status pengerjaan">

@@ -45,17 +45,21 @@
 					<span>{{ $pengaduan->getNamaStatus() }}</span>
 				</div>
 			</div>
-			<div class="konfirmasi-section">
-				<button class="btn btn-primary col-xs-12 col-sm-3 col-md-2">Ucapkan Terima Kasih</button>
-				<div class="col-xs-12 col-sm-9 col-md-4 keluhan">
-					<div class="input-group">
-						<input type="text" class="form-control" placeholder="Keluhan...">
-						<span class="input-group-btn">
-							<button class="btn btn-warning" type="button">Complaint</button>
-						</span>
-					</div>
-				</div>
-			</div>
+            <div class="konfirmasi-section">
+            {!! Form::open(array('url' => 'pengaduan/add-feedback', 'method' => 'post')) !!}
+                <button class="btn btn-primary col-xs-12 col-sm-3 col-md-2" name="feedback" value="accepted">Ucapkan Terima Kasih</button>
+
+                <input type="hidden" name="slug" value="{{ $pengaduan->getDataAduan()['slug'] }}">
+                <div class="col-xs-12 col-sm-9 col-md-4 keluhan">
+                    <div class="input-group">
+                        <input type="text" class="form-control" placeholder="Keluhan..." name="feedback_comment">
+                        <span class="input-group-btn">
+                            <button class="btn btn-warning" name="feedback" value="rejected">Complaint</button>
+                        </span>
+                    </div>
+                </div>
+            {!! Form::close() !!}
+            </div>
 			<div class="clearfix"></div>
 		</div>
 		

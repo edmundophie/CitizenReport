@@ -18,8 +18,6 @@ class PagesController extends Controller {
         $daftarAduan = new ArrayPengaduan();
         $listPengaduan = $daftarAduan->getListAduan();
 
-        //return $listPengaduan[0]->getDataAduan()['judul'];
-
 		return view('pages.daftar_pengaduan', compact('listPengaduan'));
 	}
 

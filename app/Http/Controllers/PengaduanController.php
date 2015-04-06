@@ -44,11 +44,20 @@ class PengaduanController extends Controller {
 		}
 	}
 
-    public function ubahStatus(Request $request){
+    public function updateStatus(Request $request){
         $idStatus = $request->get('status');
         $komentarStatus = $request->get('komentar_status');
         $slug = $request->get('slug');
         Pengaduan::updateStatus($slug, $idStatus, $komentarStatus);
+
+        return redirect('pengaduan/'.$slug);
+    }
+
+    public function addFeedback(Request $request){
+        $feedback = $request->get('feedback');
+        $komentar_feedback = $request->get('feedback_comment');
+        $slug = $request->get('slug');
+        Pengaduan::addFeedback($slug, $feedback, $komentar_feedback);
 
         return redirect('pengaduan/'.$slug);
     }

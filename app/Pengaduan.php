@@ -114,6 +114,19 @@ class Pengaduan {
         $pengaduan->save();
     }
 
+    public static function addFeedback($slug, $feedback, $comment){
+        $pengaduan = PengaduanModel::where('slug', $slug)->first();
+
+        if($feedback == 'accepted'){
+            $pengaduan->id_status = StatusModel::where('nama', 'closed')->first()['id'];
+        }else{
+            $pengaduan->komentar_feedback = $comment;
+        }
+        $pengaduan->feedback = $feedback;
+
+        $pengaduan->save();
+    }
+
     public function getDate() {
         return date('d F Y', strtotime($this->dataPengaduan['created_at']));
     }
