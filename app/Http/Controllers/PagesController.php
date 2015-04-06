@@ -1,5 +1,6 @@
 <?php namespace App\Http\Controllers;
 
+use App\ArrayPengaduan;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\DB;
@@ -14,7 +15,12 @@ class PagesController extends Controller {
 	}
 
 	public function daftarPengaduan() {
-		return view('pages.daftar_pengaduan');
+        $daftarAduan = new ArrayPengaduan();
+        $listPengaduan = $daftarAduan->getListAduan();
+
+        //return $listPengaduan[0]->getDataAduan()['judul'];
+
+		return view('pages.daftar_pengaduan', compact('listPengaduan'));
 	}
 
 	public function statistik() {

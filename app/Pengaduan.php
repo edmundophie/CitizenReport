@@ -44,8 +44,22 @@ class Pengaduan {
         return $this->status->getDataStatus()['progress'];
     }
 
+    public function getDeskripsiSingkat(){
+        return substr($this->dataPengaduan['deskripsi'], 0, 300);
+    }
+
     public function setJudul($judul){
         $this->dataPengaduan['judul'] = $judul;
+    }
+
+    public function setKategori($idKategori){
+        $this->kategori = new Kategori();
+        $this->kategori->setKategori($idKategori);
+    }
+
+    public function setStatus($idStatus){
+        $this->status = new Status;
+        $this->status->setDataStatus($idStatus);
     }
 
     public function setIdKategori($idKategori){
@@ -74,6 +88,10 @@ class Pengaduan {
 
     public function setSlug($slug){
         $this->dataPengaduan['slug'] = $slug;
+    }
+
+    public function setCreatedDate($date){
+        $this->dataPengaduan['created_at'] = $date;
     }
 
     public function savePengaduan(){
