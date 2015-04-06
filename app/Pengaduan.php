@@ -11,9 +11,8 @@ namespace App;
 
 class Pengaduan {
     private $dataPengaduan;
-    private $namaKategori;
-    private $namaStatus;
-    private $progress;
+    private $kategori;
+    private $status;
 
     public function __constructor(){
 
@@ -21,9 +20,9 @@ class Pengaduan {
 
     public function setAduan($slug){
         $this->dataPengaduan =  PengaduanModel::where('slug', $slug)->first();
-        $this->namaKategori = KategoriModel::where('id', $this->dataPengaduan['id'])->first()->nama;
-        $this->namaStatus = Status::where('id', $this->dataPengaduan['id'])->first()->nama;
-        $this->progress = Status::where('id', $this->dataPengaduan['id'])->first()->progress;
+
+        $this->status = new Status;
+        $this->status->setDataStatus($dataPengaduan['id_status']);       
     }
 
     public function getDataAduan(){
@@ -35,10 +34,10 @@ class Pengaduan {
     }
 
     public function getNamaStatus(){
-        return $this->namaStatus;
+        return $this->status->getDataStatus()['nama'];
     }
 
     public function getProgress(){
-        return $this->progress;
+        return $this->status->getDatStatus()['progress'];
     }
 } 
