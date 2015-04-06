@@ -19,7 +19,7 @@ class PengaduanController extends Controller {
 
 	public function show($slug) {
 		// Session stub
-		Session::put('role', 'SKPD');
+		Session::put('role', 'MASYARAKAT');
 		$user_role = Session::get('role');
 
         $pengaduan = new Pengaduan();

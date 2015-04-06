@@ -33,62 +33,26 @@
 		</div>
 		<div class="clearfix"></div>
 		<br>
-		<div class="row list-pengaduan">
-			<div class="row">
-				<div class="col-sm-9">
-					<h2><a href="pengaduan/tanggul-sungai-cikapundung-jebol">Tanggul Sungai Cikapundung Jebol</a></h2>
-				</div>
-				<div class="col-sm-3 hidden-xs hidden-sm tanggal-pengaduan">19 Desember 2014</div>
-			</div>
-			<div class="row">
-				<div class="col-xs-6">
-					Pelapor : <a href="#">Ridwan Kamil</a>
-				</div>
-				<div class="col-xs-6 visible-xs visible-sm tanggal-pengaduan">19 Desember 2014</div>
-				<div class="col-xs-6 kategori"><span class="hidden-xs hidden-sm label label-primary">Infrastruktur</span></div>
-			</div>
-			<div class="kategori"><span class="hidden-md hidden-lg label label-primary">Infrastruktur</span></div>
-			<p>Cras mattis consectetur purus sit amet fermentum. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean lacinia bibendum nulla sed consectetur. Curabitur blandit tempus porttitor. Maecenas faucibus mollis interdum. Nullam quis risus eget urna mollis ornare vel eu le...<a href="detail-pengaduan/1">Read more</a></p>
-			<button class="btn btn-warning">ON PROGRESS</button>
-		</div>
-		
-		<div class="row list-pengaduan">
-			<div class="row">
-				<div class="col-sm-9">
-					<h2><a href="detail-pengaduan/1">Banyak Taik Kuda di Depan Kampus ITB Ganesha</a></h2>
-				</div>
-				<div class="col-sm-3 hidden-xs hidden-sm tanggal-pengaduan">2 April 2015</div>
-			</div>
-			<div class="row">
-				<div class="col-xs-6">
-					Pelapor : <a href="#">Prof. Akhmaloka</a>
-				</div>
-				<div class="col-xs-6 visible-xs visible-sm tanggal-pengaduan">2 April 2015</div>
-				<div class="col-xs-6 kategori"><span class="hidden-xs hidden-sm label label-primary">Kebersihan</span></div>
-			</div>
-			<div class="kategori"><span class="hidden-md hidden-lg label label-primary">Kebersihan</span></div>
-			<p>Cras mattis consectetur purus sit amet fermentum. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean lacinia bibendum nulla sed consectetur. Curabitur blandit tempus porttitor. Maecenas faucibus mollis interdum. Nullam quis risus eget urna mollis ornare vel eu le...<a href="detail-pengaduan/1">Read more</a></p>
-			<button class="btn btn-default">PENDING</button>
-		</div>
-
-		<div class="row list-pengaduan">
-			<div class="row">
-				<div class="col-sm-9">
-					<h2><a href="detail-pengaduan/monyet-kabur-dari-kebun-binatang-ke-kampus-ITB">Monyet Kabur dari Kebun Binatang ke Kampus ITB</a></h2>
-				</div>
-				<div class="col-sm-3 hidden-xs hidden-sm tanggal-pengaduan">12 Februari 2015</div>
-			</div>
-			<div class="row">
-				<div class="col-xs-6">
-					Pelapor : <a href="#">Jokowi</a>
-				</div>
-				<div class="col-xs-6 visible-xs visible-sm tanggal-pengaduan">12 Februari 2015</div>
-				<div class="col-xs-6 kategori"><span class="hidden-xs hidden-sm label label-primary">Umum</span></div>
-			</div>
-			<div class="kategori"><span class="hidden-md hidden-lg label label-primary">Umum</span></div>
-			<p>Cras mattis consectetur purus sit amet fermentum. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean lacinia bibendum nulla sed consectetur. Curabitur blandit tempus porttitor. Maecenas faucibus mollis interdum. Nullam quis risus eget urna mollis ornare vel eu le...<a href="detail-pengaduan/2">Read more</a></p>
-			<button class="btn btn-success">HANDLED</button>
-		</div>
+		@foreach($listPengaduan as $pengaduan)
+            <div class="row list-pengaduan">
+                <div class="row">
+                    <div class="col-sm-9">
+                        <h2><a href="pengaduan/{{ $pengaduan->getDataAduan()['slug'] }}">{{ $pengaduan->getDataAduan()['judul'] }}</a></h2>
+                    </div>
+                    <div class="col-sm-3 hidden-xs hidden-sm tanggal-pengaduan">{{ $pengaduan->getDate() }}</div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-6">
+                        Pelapor : <a href="#">Ridwan Kamil</a>
+                    </div>
+                    <div class="col-xs-6 visible-xs visible-sm tanggal-pengaduan">{{ $pengaduan->getDate() }}</div>
+                    <div class="col-xs-6 kategori"><span class="hidden-xs hidden-sm label label-primary">{{ $pengaduan->getNamaKategori() }}</span></div>
+                </div>
+                <div class="kategori"><span class="hidden-md hidden-lg label label-primary">{{ $pengaduan->getNamaKategori() }}</span></div>
+                {!! $pengaduan->getDeskripsiSingkat() !!}...<a href="detail-pengaduan/{{ $pengaduan->getDataAduan()['slug'] }}">Read more</a></p>
+                <button class="btn btn-warning">{{ $pengaduan->getNamaStatus() }}</button>
+            </div>
+        @endforeach
 
 		<!-- Pagination -->
 		<nav>

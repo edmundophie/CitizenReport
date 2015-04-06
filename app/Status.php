@@ -16,6 +16,16 @@ class Status {
 	}
 
     public static function getListStatus(){
-        return StatusModel::all();
+        $stat = null;
+        $i = 0;
+
+        foreach(StatusModel::all() as $status){
+            if($status['id'] != 1 && $status['id'] != 5 && $status['id'] != 6){
+                $stat[$i] = $status;
+            }
+            $i++;
+        }
+
+        return $stat;
     }
 }
