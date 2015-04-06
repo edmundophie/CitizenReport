@@ -51,7 +51,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 		    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 		      <ul class="menu nav navbar-nav ">
 		        <li @yield('home_active')><a href="{{ URL::asset('index') }}">home</a></li>
-		        <li @yield('daftar_pengaduan_active')><a href="{{ URL::asset('daftar-pengaduan') }}">daftar pengaduan</a></li>
+		        <li @yield('daftar_pengaduan_active')><a href="{{ URL::asset('daftar-pengaduan/default') }}">daftar pengaduan</a></li>
 		        <li @yield('statistik_active')><a href="{{ URL::asset('statistik') }}">statistik</a></li>
 		        <li @yield('buat_pengaduan_active')><a href="{{ URL::asset('buat-pengaduan') }}">buat pengaduan</a></li>
 		        <li id="loggedin-menu">

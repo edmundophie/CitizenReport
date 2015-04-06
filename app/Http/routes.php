@@ -16,7 +16,7 @@ Route::get('/', 'PagesController@index');
 
 Route::get('/index', 'PagesController@index');
 
-Route::get('/daftar-pengaduan', 'PagesController@daftarPengaduan');
+Route::get('/daftar-pengaduan/{sort}', 'PagesController@daftarPengaduan');
 
 Route::get('/statistik', 'PagesController@statistik');
 

@@ -25,9 +25,9 @@
 					Urutkan <span class="caret"></span>
 				</button>
 				<ul class="dropdown-menu" role="menu">
-					<li><a href="#">Status pengaduan</a></li>
-					<li><a href="#">Tanggal</a></li>
-					<li><a href="#">Kategori</a></li>
+					<li><a href="{{ URL::asset('daftar-pengaduan/status')}}">Status pengaduan</a></li>
+					<li><a href="{{ URL::asset('daftar-pengaduan/tanggal')}}">Tanggal</a></li>
+					<li><a href="{{ URL::asset('daftar-pengaduan/kategori')}}">Kategori</a></li>
 				</ul>
 			</div>
 		</div>

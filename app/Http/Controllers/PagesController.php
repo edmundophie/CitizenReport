@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\DB;
 
 use Illuminate\Http\Request;
 use App\Kategori;
+use App\Pengaduan;
 
 class PagesController extends Controller {
 
@@ -14,10 +15,9 @@ class PagesController extends Controller {
 		return view("pages.index");
 	}
 
-	public function daftarPengaduan() {
-        $daftarAduan = new ArrayPengaduan();
-        $listPengaduan = $daftarAduan->getListAduan();
+	public function daftarPengaduan($sortBy) {
 
+        $listPengaduan = Pengaduan::getListPengaduan($sortBy);
         //return $listPengaduan[0]->getDataAduan()['judul'];
 
 		return view('pages.daftar_pengaduan', compact('listPengaduan'));
