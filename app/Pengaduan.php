@@ -127,6 +127,12 @@ class Pengaduan {
         $pengaduan->save();
     }
 
+    public static function addLaporan($slug, $laporan_filename){
+        $pengaduan = PengaduanModel::where('slug', $slug)->first();
+        $pengaduan->laporan = $laporan_filename;
+        $pengaduan->save();
+    }
+
     public function getDate() {
         return date('d F Y', strtotime($this->dataPengaduan['created_at']));
     }

@@ -19,7 +19,7 @@ class PengaduanController extends Controller {
 
 	public function show($slug) {
 		// Session stub
-		Session::put('role', 'MASYARAKAT');
+		Session::put('role', 'SKPD');
         Session::put('id_user', '2');
 		$user_role = Session::get('role');
         $id_user = Session::get('id_user');
@@ -58,6 +58,22 @@ class PengaduanController extends Controller {
         $komentar_feedback = $request->get('feedback_comment');
         $slug = $request->get('slug');
         Pengaduan::addFeedback($slug, $feedback, $komentar_feedback);
+
+        return redirect('pengaduan/'.$slug);
+    }
+
+    public function uploadReport(Request $request){
+        $id_kategori = $request->get('kategori');
+        $slug = $request->get('slug');
+
+        // laporan
+        date_default_timezone_set("UTC");
+        $laporan = Input::file('laporan');
+        $ext = $laporan->getClientOriginalExtension();
+        $laporan_filename = $id_kategori."-".(Date("YmdHis", time())).".". $ext;
+        $laporan->move(public_path().'/pengaduan-laporan', $laporan_filename);
+
+        Pengaduan::addLaporan($slug, $laporan_filename);
 
         return redirect('pengaduan/'.$slug);
     }
