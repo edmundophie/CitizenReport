@@ -50,7 +50,7 @@
                 </div>
                 <div class="kategori"><span class="hidden-md hidden-lg label label-primary">{{ $pengaduan->getNamaKategori() }}</span></div>
                 {!! $pengaduan->getDeskripsiSingkat() !!}...<a href="detail-pengaduan/{{ $pengaduan->getDataAduan()['slug'] }}">Read more</a></p>
-                <button class="btn btn-warning">{{ $pengaduan->getNamaStatus() }}</button>
+                <button class="btn btn-{{ $pengaduan->getStatus()->getDataStatus()['color_code']}}">{{ $pengaduan->getNamaStatus() }}</button>
             </div>
         @endforeach
 

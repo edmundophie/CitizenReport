@@ -2,6 +2,7 @@
 
 class Status {
 	private $dataStatus;
+    private $colorCode;
 
     public function __constructor(){
 

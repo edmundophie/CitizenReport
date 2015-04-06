@@ -150,4 +150,8 @@ class Pengaduan {
     public function getDate() {
         return date('d F Y', strtotime($this->dataPengaduan['created_at']));
     }
+
+    public function getStatus() {
+        return $this->status;
+    }
 } 
