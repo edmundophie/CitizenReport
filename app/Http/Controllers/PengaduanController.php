@@ -38,7 +38,7 @@ class PengaduanController extends Controller {
 		// Form handling
 		$judul = $request->get('judul');
 		$deskripsi = $request->get('deskripsi');
-		$kategori = Kategori::where('nama', $request->get('kategori'))->first();
+		$kategori = KategoriModel::where('nama', $request->get('kategori'))->first();
 		$status = Status::where('nama', 'pending')->first();
 		
 		// lampiran
@@ -55,17 +55,16 @@ class PengaduanController extends Controller {
 		$gambar->move(public_path().'/pengaduan-gambar', $gambar_filename);
 
 		// Save to database
-		$pengaduan = new PengaduanModel;
-		$pengaduan->judul = $judul;
-		$pengaduan->id_kategori = $kategori->id;
-		$pengaduan->lampiran = $lampiran_filename;
-		$pengaduan->gambar = $gambar_filename;
-		$pengaduan->deskripsi = $deskripsi;
-		$pengaduan->id_masyarakat = $id_user;
-		$pengaduan->id_status = $status->id;
-		$pengaduan->slug = $this->generateSlug($judul, $pengaduan);
-		
-		$pengaduan->save();
+		$pengaduan = new Pengaduan();
+		$pengaduan->setJudul($judul);
+		$pengaduan->setIdKategori($kategori->id);
+		$pengaduan->setLampiran($lampiran_filename);
+		$pengaduan->setGambar($gambar_filename);
+		$pengaduan->setDeskripsi($deskripsi);
+		$pengaduan->setIdMasyarakat($id_user);
+		$pengaduan->setIdStatus($status->id);
+		$pengaduan->setSlug($this->generateSlug($judul, $pengaduan));
+		$pengaduan->savePengaduan();
 
 		return view('pages.buat_pengaduan');
 	}

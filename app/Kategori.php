@@ -16,12 +16,11 @@ class Kategori {
 
     }
 
-    public function setKategoti($idKategori){
+    public function setKategori($idKategori){
         $this->dataKategori = KategoriModel::where('id', $idKategori)->first();
     }
 
     public function getDataKategori(){
         return $this->dataKategori;
     }
-
 } 
