@@ -51,7 +51,7 @@
 			{!! $pengaduan->getDataAduan()['deskripsi'] !!}
 			<hr>
 			<div class="progress">
-				<div class="progress-bar progress-bar-warning progress-bar-striped" role="progressbar" aria-valuenow="{{ $pengaduan->getProgress() }}" aria-valuemin="0" aria-valuemax="100" style="width: {{ $pengaduan->getProgress() }}%">
+				<div class="progress-bar progress-bar-{{ $pengaduan->getStatus()->getDataStatus()['color_code'] }} progress-bar-striped" role="progressbar" aria-valuenow="{{ $pengaduan->getProgress() }}" aria-valuemin="0" aria-valuemax="100" style="width: {{ $pengaduan->getProgress() }}%">
 					<span>{{ $pengaduan->getNamaStatus() }}</span>
 				</div>
 			</div>
