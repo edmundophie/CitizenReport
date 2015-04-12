@@ -12,4 +12,9 @@ class PengaduanModel extends Model{
     {
         return ucwords($value);
     }
+
+    public function getCreatedAtAttribute($value)
+    {
+        return date('d M Y', strtotime($this->attributes['created_at']));
+    }
 }

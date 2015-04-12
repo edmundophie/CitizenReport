@@ -17,6 +17,10 @@
 
 @section('body')
 	<div class="body-container">
+	@if(Session::get('message')=="PENGADUAN INSERTED")
+	<div class="alert alert-success" role="alert"><strong>Terima kasih!</strong> Pengaduan anda akan segera kami proses.</div>	
+	@endif
+
 	<div class="col-sm-6 keterangan">
 		<div class="panel panel-default">
 			<div class="panel-heading">

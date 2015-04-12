@@ -54,10 +54,10 @@ return [
 
 		'mysql' => [
 			'driver'    => 'mysql',
-			'host'      => 'akhfa.in',
+			'host'      => '127.0.0.1',
 			'database'  => 'ppl_pengaduan',
-			'username'  => 'ppl_pengaduan',
-			'password'  => 'pplk1',
+			'username'  => 'root',
+			'password'  => ''	,
 			'charset'   => 'utf8',
 			'collation' => 'utf8_unicode_ci',
 			'prefix'    => '',

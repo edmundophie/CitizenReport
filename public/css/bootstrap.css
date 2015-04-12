@@ -1992,11 +1992,11 @@ select[multiple].input-lg {
 }
 .btn {
   display: inline-block;
-  padding: 6px 12px;
+  padding: 9px 28px;
   margin-bottom: 0;
   font-size: 14px;
   font-weight: normal;
-  line-height: 1.42857143;
+  line-height:20px;
   text-align: center;
   white-space: nowrap;
   vertical-align: middle;

@@ -11,7 +11,7 @@
 		<div class="col-md-8">
 			<div class="col-md-10 slider_text">
 				<h2>Punya Keluhan Untuk Pemkot Bandung ?</h2>
-				<h3>Disini Tempatnya</h3>
+				<h3>Didieu Tempatna</h3>
 			</div>
 		</div>
 		<div class="col-md-4">
@@ -23,23 +23,23 @@
 @stop
 
 @section('body')
-<div class="row grids_of_3">
+	<div class="row grids_of_3">
 				<div class="col-md-4 grid1_of_3">
 					  <h2>Adukan</h2>
 					  <img src="images/icon1.png" class="img-responsive"/>
-					  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+					  <p>Laporkan pengaduan, keluhan, dan saran anda untuk pemerintah kota Bandung. Instansi kami yang terkait akan segera menindaklanjutinya</p>
 				     
 				</div>
 				<div class="col-md-4 grid1_of_3">
 					<h2>Monitor</h2>
 					  <img src="images/icon2.png" class="img-responsive"/>
-					  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+					  <p>Anda dapat memantau perkembangan dari aduan anda dan mendapatkan keterangan langsung dari instansi yang menangani pengaduan anda.</p>
 				      					
 				</div>
 				<div class="col-md-4 grid1_of_3">
 					<h2>Terima Hasilnya</h2>
 					  <img src="images/icon3.png" class="img-responsive"/>
-					  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+					  <p>Instansi terkait akan menangani pengaduan anda dan anda dapat memberikan feedback serta penilaian terhadap hasil penanganannya.</p>
 				     
 				</div>
 			    <div class="clearfix"></div>

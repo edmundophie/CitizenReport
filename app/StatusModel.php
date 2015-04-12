@@ -9,7 +9,7 @@ class StatusModel extends Model {
 
 	public function getNamaAttribute($value)
     {
-        return ucfirst($value);
+        return ucwords($value);
     }
 
     public function getColorCodeAttribute() {
@@ -22,7 +22,9 @@ class StatusModel extends Model {
             return  "info";
         else if($nama == "finished")
             return  "success";
-        else
+        else if($nama == "closed")
             return  "danger";
+        else
+            return  "default";
     }
 } 

@@ -4,6 +4,7 @@ use App\ArrayPengaduan;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\DB;
+use Session;
 
 use Illuminate\Http\Request;
 use App\Kategori;
@@ -16,10 +17,30 @@ class PagesController extends Controller {
 	}
 
 	public function daftarPengaduan($sortBy) {
-        $listPengaduan = Pengaduan::getListPengaduan($sortBy);
-        //return $listPengaduan[0]->getDataAduan()['judul'];
+		// Session stub
+		// Session::put('role', 'ADMIN');
+		// Session::put('role', 'SKPD');
+		Session::put('role', 'MASYARAKAT');
+        Session::put('id_user', '2');
+		$user_role = Session::get('role');
+        $id_user = Session::get('id_user');
 
-		return view('pages.daftar_pengaduan', compact('listPengaduan'));
+    	$listPengaduan = Pengaduan::getListPengaduan($sortBy, null);
+        
+        if($user_role=="ADMIN") {
+        	$listKategori = Kategori::getListKategori();
+			return view('pages.admin.daftar_pengaduan', compact('listPengaduan', 'listKategori'));
+		}
+		else 
+			return view('pages.daftar_pengaduan', compact('listPengaduan'));
+	}
+
+	public function daftarPengaduanByKategori($id_kategori) {
+    	$listPengaduan = Pengaduan::getListPengaduan('default', $id_kategori);
+        
+    	$listKategori = Kategori::getListKategori();
+		return view('pages.admin.daftar_pengaduan', compact('listPengaduan', 'listKategori'));
+		
 	}
 
 	public function statistik() {

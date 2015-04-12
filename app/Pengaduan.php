@@ -48,18 +48,29 @@ class Pengaduan {
         return substr($this->dataPengaduan['deskripsi'], 0, 300);
     }
 
-    public static function getListPengaduan($sortBy) {
+    public static function getListPengaduan($sortBy, $id_kategori) {
         $array;
         $i = 0;
 
-        if($sortBy=="default")
-            $model = PengaduanModel::all();
-        else if($sortBy=="tanggal")
-            $model = PengaduanModel::orderBy('created_at', 'DESC')->get();
-        else if($sortBy=="kategori")
-            $model = PengaduanModel::orderBy('id_kategori', 'DESC')->get();
-        else if($sortBy=="status") 
-            $model = PengaduanModel::orderBy('id_status', 'DESC')->get();
+        if($id_kategori!=null) {
+            if($sortBy=="default")
+                $model = PengaduanModel::where('id_kategori', $id_kategori)->get();
+            else if($sortBy=="tanggal")
+                $model = PengaduanModel::where('id_kategori', $id_kategori)->orderBy('created_at', 'DESC')->get();
+            else if($sortBy=="kategori")
+                $model = PengaduanModel::where('id_kategori', $id_kategori)->orderBy('id_kategori', 'DESC')->get();
+            else if($sortBy=="status") 
+                $model = PengaduanModel::where('id_kategori', $id_kategori)->orderBy('id_status', 'ASC')->get();
+        } else {
+            if($sortBy=="default")
+                $model = PengaduanModel::all();
+            else if($sortBy=="tanggal")
+                $model = PengaduanModel::orderBy('created_at', 'DESC')->get();
+            else if($sortBy=="kategori")
+                $model = PengaduanModel::orderBy('id_kategori', 'DESC')->get();
+            else if($sortBy=="status") 
+                $model = PengaduanModel::orderBy('id_status', 'ASC')->get();
+        }
 
         foreach($model as $pengaduan){
             $temp = new Pengaduan();
@@ -77,7 +88,7 @@ class Pengaduan {
             $array[$i] = $temp;
             $i++;
         }
-
+        
         return $array;
     }
 
@@ -164,10 +175,6 @@ class Pengaduan {
         $pengaduan = PengaduanModel::where('slug', $slug)->first();
         $pengaduan->laporan = $laporan_filename;
         $pengaduan->save();
-    }
-
-    public function getDate() {
-        return date('d F Y', strtotime($this->dataPengaduan['created_at']));
     }
 
     public function getStatus() {

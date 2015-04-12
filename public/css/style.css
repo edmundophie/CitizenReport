@@ -123,8 +123,6 @@ body {
 }
 .btn{
 	color: #ffffff;
-	padding: 9px 28px;
-	line-height:20px;
 	/*text-transform: uppercase;*/
 	border: none;
 	outline:none;
@@ -133,6 +131,8 @@ body {
 	-o-transition: all 0.3s ease-in-out;
 	transition: all 0.3s ease-in-out;
 }
+
+
 .btn:hover{
 	color:#ffffff;
 }

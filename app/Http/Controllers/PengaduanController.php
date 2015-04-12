@@ -14,7 +14,6 @@ use App\StatusModel;
 use App\PengaduanModel;
 use Illuminate\Support\Str;
 
-
 class PengaduanController extends Controller {
 
 	public function show($slug) {
@@ -36,11 +35,7 @@ class PengaduanController extends Controller {
 		} else if ($user_role=="ADMIN") {
 			return view('pages.admin.pengaduan', compact('pengaduan'));
 		} else { // if logged in as MASYARAKAT
-            if($id_user == $pengaduan->getDataAduan()['id_masyarakat'] AND $pengaduan->getDataAduan()['id_status'] == $id_status){
-                return view('pages.pengaduan2', compact('pengaduan'));
-            }else{
                 return view('pages.pengaduan', compact('pengaduan'));
-            }
 		}
 	}
 
@@ -92,15 +87,23 @@ class PengaduanController extends Controller {
 		// lampiran
 		date_default_timezone_set("UTC");
 		$lampiran = Input::file('lampiran');
-		$ext = $lampiran->getClientOriginalExtension();
-		$lampiran_filename = $id_user."-".(Date("YmdHis", time())).".". $ext;
-		$lampiran->move(public_path().'/pengaduan-lampiran', $lampiran_filename);	
-		
+		if($lampiran!=null) {
+			$ext = $lampiran->getClientOriginalExtension();
+			$lampiran_filename = $id_user."-".(Date("YmdHis", time())).".". $ext;
+			$lampiran->move(public_path().'/pengaduan-lampiran', $lampiran_filename);	
+		} else {
+			$lampiran_filename = "NULL";
+		}
+
 		// gambar
 		$gambar = Input::file('gambar');
-		$ext = $gambar->getClientOriginalExtension();
-		$gambar_filename = $id_user."-".(Date("YmdHis", time())).".".$ext;
-		$gambar->move(public_path().'/pengaduan-gambar', $gambar_filename);
+		if($gambar!=null) {
+			$ext = $gambar->getClientOriginalExtension();
+			$gambar_filename = $id_user."-".(Date("YmdHis", time())).".".$ext;
+			$gambar->move(public_path().'/pengaduan-gambar', $gambar_filename);
+		} else {
+			$gambar_filename = "NULL";
+		}
 
 		// Save to database
 		$pengaduan = new Pengaduan();
@@ -113,8 +116,14 @@ class PengaduanController extends Controller {
 		$pengaduan->setIdStatus($status->id);
 		$pengaduan->setSlug($this->generateSlug($judul, new PengaduanModel()));
 		$pengaduan->savePengaduan();
+		return redirect('buat-pengaduan')->with('message', "PENGADUAN INSERTED");
+	}
 
-		return redirect('buat-pengaduan');
+	public function delete($slug) {
+		$pengaduan = PengaduanModel::where('slug', $slug);
+		$pengaduan->delete();
+
+		return redirect('daftar-pengaduan/default')->with('message', 'PENGADUAN DELETED');
 	}
 
 	public function generateSlug($title, $model)

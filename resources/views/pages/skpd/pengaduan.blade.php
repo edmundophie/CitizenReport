@@ -35,21 +35,27 @@
 				<div class="col-xs-6 visible-xs visible-sm tanggal-pengaduan">{{ $pengaduan->getDate() }}</div>
 				<div class="col-xs-6 kategori"><span class="hidden-xs hidden-sm label label-primary">{{ $pengaduan->getNamaKategori() }}</span></div>
 			</div>
-
+            @if($pengaduan->getDataAduan()['lampiran'] != "NULL")
 			<div class="row hidden-xs hidden-sm">
 				<div class="col-sm-12"><a href="#"><span class="glyphicon glyphicon-paperclip"></span></a> Lampiran tersedia</div>
 			</div>
-
+            @endif
 			<div class="row hidden-md hidden-lg">
-				<div class="col-xs-6"><a href="#"><span class="glyphicon glyphicon-paperclip"></span></a> Lampiran tersedia</div>
-				<div class="col-xs-6 kategori"><span class="label label-primary">Infrastruktur</span></div>
+				@if($pengaduan->getDataAduan()['lampiran'] != "NULL")
+                <div class="col-xs-6"><a href="#"><span class="glyphicon glyphicon-paperclip"></span></a> Lampiran tersedia</div>
+                <div class="col-xs-6 kategori"><span class="label label-primary">{{ $pengaduan->getNamaKategori() }}</span></div>
+                @else
+                <div class="col-xs-12 kategori"><span class="label label-primary">{{ $pengaduan->getNamaKategori() }}</span></div>
+                @endif
 			</div>
 
 			<br>
-
+            @if($pengaduan->getDataAduan()['gambar']!="NULL")
 			<div class="col-xs-12 col-sm-6 col-md-3 gambar-pengaduan"><img src="{{ URL::asset('pengaduan-gambar/'.$pengaduan->getDataAduan()['gambar']) }}" class="img-responsive img-thumbnail" alt="Gambar pengaduan"></div>
-			{!! $pengaduan->getDataAduan()['deskripsi'] !!}
-			<hr>
+			@endif
+            {!! $pengaduan->getDataAduan()['deskripsi'] !!}
+            <div class="clearfix"></div>
+            <hr>
 			<div class="progress">
 				<div class="progress-bar progress-bar-{{ $pengaduan->getStatus()->getDataStatus()['color_code'] }} progress-bar-striped" role="progressbar" aria-valuenow="{{ $pengaduan->getProgress() }}" aria-valuemin="0" aria-valuemax="100" style="width: {{ $pengaduan->getProgress() }}%">
 					<span>{{ $pengaduan->getNamaStatus() }}</span>

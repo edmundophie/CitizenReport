@@ -18,12 +18,16 @@ Route::get('/index', 'PagesController@index');
 
 Route::get('/daftar-pengaduan/{sort}', 'PagesController@daftarPengaduan');
 
+Route::get('/daftar-pengaduan/kategori/{id_kategori}', 'PagesController@daftarPengaduanByKategori');
+
 Route::get('/statistik', 'PagesController@statistik');
 
 Route::get('/buat-pengaduan', 'PagesController@buatPengaduan');
 
 // Class
 Route::get('/pengaduan/{slug}', 'PengaduanController@show');
+
+Route::get('/pengaduan/{slug}/delete', 'PengaduanController@delete');
 
 Route::post('/pengaduan/insert', 'PengaduanController@insert');
 
