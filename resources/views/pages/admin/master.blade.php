@@ -20,7 +20,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <![endif]-->
 <link rel="shortcut icon" type="image/png" href="{{ URL::asset('images/favicon.png') }}">
 <!--  webfonts  -->
-<!-- <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,700' rel='stylesheet' type='text/css'> -->
+<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,700' rel='stylesheet' type='text/css'>
 <!-- // webfonts  -->
 <link href="{{ URL::asset('css/style.css') }}" rel="stylesheet" type="text/css" media="all" />
 @yield('css')
@@ -82,13 +82,16 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 		<div class="row  footer">
 			<div class="col-md-3 span1_of_4">
 				<h4>tentang kami</h4>
-				<p>Citizen Report bertujuan untuk mengakomodasi pengaduan masyarakat Bandung dan berfungsi sebagai jembatan komunikasi antara masyarakat dan SKPD di kota Bandung. </p>
-				<h5>Alamat</h5>
-				<p class="top">Jl. Wastukancana No 2 Bandung</p>
-				<p>Phone:(022) 4234892</p>	
+				<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry .....</p>
+				<h5>Address</h5>
+				<p class="top">500 Lorem Ipsum Dolor Sit,</p>
+				<p>22-56-2-9 Sit Amet,</p>
+				<p>USA</p>
+				<p>Phone:(00) 222 666 444</p>
+				<p>Fax: (000) 000 00 00 0</p>
 			</div>
 			<div class="col-md-3 span1_of_4">
-				<h4>Komentar terbaru</h4>
+				<h4>Aduan terbaru</h4>
 				<span><a href="#"> Fusce scelerisque massa vitae </a></span>
 				<p>25 april 2013</p>
 				<span><a href="#">Pellentesque bibendum ante </a></span>
@@ -103,7 +106,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 				<span><a href="#">It is a long established fact that a reader will looking layout.</a></span>
 			</div>
 			<div class="col-md-3 span1_of_4">
-				<h4>statistik</h4>
+				<h4>statistik aduan</h4>
 
 				<h5>100 pengaduan sudah ditindaklanjuti</h5>
 				<h5>72 pengaduan pending</h5>
