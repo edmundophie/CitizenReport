@@ -25,14 +25,14 @@
 				<div class="col-sm-9">
 					<h2>{{ $pengaduan->getDataAduan()['judul'] }}</h2>
 				</div>
-				<div class="col-sm-3 hidden-xs hidden-sm tanggal-pengaduan">{{ $pengaduan->getDate() }}</div>
+				<div class="col-sm-3 hidden-xs hidden-sm tanggal-pengaduan">{{ $pengaduan->getDataAduan()['created_at'] }}</div>
 			</div>
 
 			<div class="row">
 				<div class="col-xs-6">
 					Pelapor : <a href="#">Ridwan Kamil</a>
 				</div>
-				<div class="col-xs-6 visible-xs visible-sm tanggal-pengaduan">{{ $pengaduan->getDate() }}</div>
+				<div class="col-xs-6 visible-xs visible-sm tanggal-pengaduan">{{ $pengaduan->getDataAduan()['created_at'] }}</div>
 				<div class="col-xs-6 kategori"><span class="hidden-xs hidden-sm label label-primary">{{ $pengaduan->getNamaKategori() }}</span></div>
 			</div>
             @if($pengaduan->getDataAduan()['lampiran'] != "NULL")
@@ -108,25 +108,36 @@
 
 		<div class="row keterangan-status">
 			<h3>Komentar</h3>
+            @if($pengaduan->getDataAduan()['id_skpd']==Session::get('id_user'))
 			<div class="beri-komentar">
-				<div class="form-group">
-					<textarea class="form-control" name="komentar" id="inputKomentar" rows="3"></textarea>
-				</div>
-				<div class="form-group">
-					<button class="btn btn-default col-xs-12 col-sm-3">Beri komentar</button>
-				</div>
-			</div>
-			<div class="clearfix"></div>
+            {!! Form::open(array('url' => 'komentar/insert', 'method' => 'post')) !!}
+                <input type="hidden" name="id_pengaduan" value="{{$pengaduan->getDataAduan()['id']}}">
+                <input type="hidden" name="slug" value="{{ $pengaduan->getDataAduan()['slug'] }}">
+                <div class="form-group">
+                    <textarea class="form-control" name="komentar" id="inputKomentar" rows="3"></textarea>
+                </div>
+                <div class="form-group">
+                    <button type="submit" class="btn btn-default col-xs-12 col-sm-3">Beri komentar</button>
+                </div>
+            {!! Form::close() !!}
+            </div>
+            <div class="clearfix"></div>
+            @endif
 			<hr>
-			<div class="komentar">
-				<img src="{{ URL::asset('images/avatar-dinaspu.png') }}" class="col-xs-1 img-circle" alt="dinas-pu">
-				<p class="col-xs-10 bg-warning">Tanggul sedang diperbaiki dan akan memakan waktu kira-kira 30 hari kerja</p>
-			</div>
-			<div class="clearfix"></div>
-			<div class= "komentar">
-				<p class="col-xs-offset-1 col-xs-10 bg-info">Oke baik pak. Terima kasih atas konfirmasinya.</p>
-				<img src="{{ URL::asset('images/avatar-emil.png') }}" class="col-xs-1 img-circle" alt="ridwan-kamil">
-			</div>
+            @foreach($listKomentar as $komentar)
+                @if($komentar->is_skpd)
+                    <div class="komentar">
+                        <img src="{{ URL::asset('avatar/'.$komentar->avatar) }}" class="col-xs-1 img-circle" alt="dinas-pu">
+                        <p class="col-xs-10 bg-info">{{ $komentar->komentar }}</p>
+                    </div>
+                @else
+                    <div class= "komentar">
+                        <p class="col-xs-offset-1 col-xs-10 bg-warning">{{ $komentar->komentar }}</p>
+                        <img src="{{ URL::asset('avatar/'.$komentar->avatar) }}" class="col-xs-1 img-circle" alt="ridwan-kamil">
+                    </div>
+                @endif
+                <div class="clearfix"></div>
+            @endforeach
 		</div>
 	</div>
 

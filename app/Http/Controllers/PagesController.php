@@ -31,8 +31,12 @@ class PagesController extends Controller {
         	$listKategori = Kategori::getListKategori();
 			return view('pages.admin.daftar_pengaduan', compact('listPengaduan', 'listKategori'));
 		}
-		else 
+		else if($user_role=="SKPD") {
+			return view('pages.skpd.daftar_pengaduan', compact('listPengaduan'));
+		}
+		else {
 			return view('pages.daftar_pengaduan', compact('listPengaduan'));
+		}
 	}
 
 	public function daftarPengaduanByKategori($id_kategori) {
@@ -55,5 +59,9 @@ class PagesController extends Controller {
 
 	public function statusPengaduan() {
 		return view('pages.status_pengaduan');
+	}
+
+	public function login() {
+		return view('login');
 	}
 }

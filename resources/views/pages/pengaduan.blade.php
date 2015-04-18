@@ -76,30 +76,36 @@
 		
 		<div class="row keterangan-status">
 			<h3>Komentar</h3>
+			@if($pengaduan->getDataAduan()['id_masyarakat']==Session::get('id_user'))
 			<div class="beri-komentar">
+			{!! Form::open(array('url' => 'komentar/insert', 'method' => 'post')) !!}
+				<input type="hidden" name="id_pengaduan" value="{{$pengaduan->getDataAduan()['id']}}">
+				<input type="hidden" name="slug" value="{{ $pengaduan->getDataAduan()['slug'] }}">
 				<div class="form-group">
 					<textarea class="form-control" name="komentar" id="inputKomentar" rows="3"></textarea>
 				</div>
 				<div class="form-group">
-					<button class="btn btn-default col-xs-12 col-sm-3">Beri komentar</button>
+					<button type="submit" class="btn btn-default col-xs-12 col-sm-3">Beri komentar</button>
 				</div>
+			{!! Form::close() !!}
 			</div>
 			<div class="clearfix"></div>
+			@endif
 			<hr>
-			<div class="komentar">
-				<img src="{{ URL::asset('images/avatar-dinaspu.png') }}" class="col-xs-1 img-circle" alt="dinas-pu">
-				<p class="col-xs-10 bg-warning">Monyet sedang dikejar ke kampus oleh petugas kami</p>
-			</div>
-			<div class="clearfix"></div>
-			<div class= "komentar">
-				<p class="col-xs-offset-1 col-xs-10 bg-info">Oke baik pak. Terima kasih atas konfirmasinya.</p>
-				<img src="{{ URL::asset('images/avatar-emil.png') }}" class="col-xs-1 img-circle" alt="ridwan-kamil">
-			</div>
-			<div class="clearfix"></div>
-			<div class="komentar">
-				<img src="{{ URL::asset('images/avatar-dinaspu.png') }}" class="col-xs-1 img-circle" alt="dinas-pu">
-				<p class="col-xs-10 bg-success">Monyet sudah tertangkap pagi ini</p>
-			</div>
+			@foreach($listKomentar as $komentar)
+				@if($komentar->is_skpd)
+					<div class="komentar">
+						<img src="{{ URL::asset('avatar/'.$komentar->avatar) }}" class="col-xs-1 img-circle" alt="dinas-pu">
+						<p class="col-xs-10 bg-info">{{ $komentar->komentar }}</p>
+					</div>
+				@else
+					<div class= "komentar">
+						<p class="col-xs-offset-1 col-xs-10 bg-warning">{{ $komentar->komentar }}</p>
+						<img src="{{ URL::asset('avatar/'.$komentar->avatar) }}" class="col-xs-1 img-circle" alt="ridwan-kamil">
+					</div>
+				@endif
+				<div class="clearfix"></div>
+			@endforeach
 		</div>
 	</div>
 @stop

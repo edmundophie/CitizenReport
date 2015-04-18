@@ -12,13 +12,16 @@ use App\KategoriModel;
 use App\Status;
 use App\StatusModel;
 use App\PengaduanModel;
+use App\KomentarModel;
 use Illuminate\Support\Str;
 
 class PengaduanController extends Controller {
 
 	public function show($slug) {
 		// Session stub
-		Session::put('role', 'ADMIN');
+		Session::put('role', 'SKPD');
+		// Session::put('role', 'SKPD');
+		// Session::put('role', 'ADMIN');
         Session::put('id_user', '2');
 		$user_role = Session::get('role');
         $id_user = Session::get('id_user');
@@ -27,15 +30,14 @@ class PengaduanController extends Controller {
         $pengaduan->setAduan($slug);
 
         $listStatus = Status::getListStatus();
-
-        $id_status = StatusModel::where('nama', 'finished')->first()['id'];
+        $listKomentar = KomentarModel::where('id_pengaduan', $pengaduan->getDataAduan()['id'])->get();
 
 		if($user_role=="SKPD") {
-			return view('pages.skpd.pengaduan', compact('pengaduan', 'listStatus'));
+			return view('pages.skpd.pengaduan', compact('pengaduan', 'listStatus', 'listKomentar'));
 		} else if ($user_role=="ADMIN") {
 			return view('pages.admin.pengaduan', compact('pengaduan'));
 		} else { // if logged in as MASYARAKAT
-                return view('pages.pengaduan', compact('pengaduan'));
+                return view('pages.pengaduan', compact('pengaduan', 'listKomentar'));
 		}
 	}
 

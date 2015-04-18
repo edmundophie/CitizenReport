@@ -54,16 +54,18 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 		        <li @yield('daftar_pengaduan_active')><a href="{{ URL::asset('daftar-pengaduan/default') }}">daftar pengaduan</a></li>
 		        <li @yield('statistik_active')><a href="{{ URL::asset('statistik') }}">statistik</a></li>
 		        <li @yield('buat_pengaduan_active')><a href="{{ URL::asset('buat-pengaduan') }}">buat pengaduan</a></li>
-	        	
-		      </ul>
-		      <ul class="menu nav navbar-nav navbar-right">
-		      	<li id="loggedin-menu">
-		        	welcome, <a href="#">edmund</a>
-		        	<!-- <li id="notification-menu"> -->
-		        	<a href="#" class="glyphicon glyphicon-bell"></a>
-	        		<!-- </li>  -->
-	        	</li>
-		      </ul>
+		      	<li id="notification-menu">
+	        		<a href="#" style="padding-left:8px"><span class="glyphicon glyphicon-bell"></span></a>
+        		</li> 
+        		<li>
+		      		<a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-expanded="false">
+						{{ Session::get('username')}} <span class="caret"></span>
+					</a>
+					<ul class="dropdown-menu" role="menu">
+						<li><a href="">Pengaduanku</a></li>
+						<li><a href="{{URL::to('logout')}}">Logout</a></li>
+					</ul>
+        		</li>
 		    </div><!-- /.navbar-collapse -->
 		  </div><!-- /.container-fluid -->
 		</nav>
