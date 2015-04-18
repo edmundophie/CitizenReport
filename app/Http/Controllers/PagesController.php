@@ -9,21 +9,22 @@ use Session;
 use Illuminate\Http\Request;
 use App\Kategori;
 use App\Pengaduan;
+use App\SKPDModel;
+use App\KategoriModel;
 
 class PagesController extends Controller {
 
 	public function index() {
-		return view("pages.index");
+        $user_role = Session::get('role');
+        if($user_role=="ADMIN") {
+        	return $this->daftarPengaduan("default");
+		} else	
+			return view("pages.index");
 	}
 
 	public function daftarPengaduan($sortBy) {
-		// Session stub
-		// Session::put('role', 'ADMIN');
-		// Session::put('role', 'SKPD');
-		Session::put('role', 'MASYARAKAT');
-        Session::put('id_user', '2');
-		$user_role = Session::get('role');
-        $id_user = Session::get('id_user');
+		$id_user = Session::get('id_user');
+        $user_role = Session::get('role');
 
     	$listPengaduan = Pengaduan::getListPengaduan($sortBy, null);
         
@@ -31,9 +32,9 @@ class PagesController extends Controller {
         	$listKategori = Kategori::getListKategori();
 			return view('pages.admin.daftar_pengaduan', compact('listPengaduan', 'listKategori'));
 		}
-		else if($user_role=="SKPD") {
-			return view('pages.skpd.daftar_pengaduan', compact('listPengaduan'));
-		}
+		// else if($user_role=="SKPD") {
+		// 	return view('pages.skpd.daftar_pengaduan', compact('listPengaduan'));
+		// }
 		else {
 			return view('pages.daftar_pengaduan', compact('listPengaduan'));
 		}
@@ -59,6 +60,18 @@ class PagesController extends Controller {
 
 	public function statusPengaduan() {
 		return view('pages.status_pengaduan');
+	}
+
+	public function manajemenSKPD() {
+		$listSKPD = SKPDModel::all();
+		$listKategori = KategoriModel::all();
+		return view('pages.admin.manajemen_skpd', compact('listSKPD', 'listKategori'));
+	}
+	
+	public function editSKPD($id_skpd) {
+		$skpd = SKPDModel::where('id_user', $id_skpd)->first();
+		$listKategori = KategoriModel::all();
+		return view('pages.admin.edit_skpd', compact('skpd', 'listKategori'));	
 	}
 
 	public function login() {

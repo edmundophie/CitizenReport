@@ -16,7 +16,7 @@ class SessionController extends Controller {
 		if(count($user)<1)
 			return redirect('login');
 		else {
-			Session::put('id', $user->id);
+			Session::put('id_user', $user->id);
 			Session::put('username', $user->username);
 			Session::put('role', $user->role);
 			return redirect('index');

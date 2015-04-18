@@ -1,4 +1,4 @@
-@extends('pages.master')
+@extends('pages.admin.master')
 @section('title')
 	Daftar Pengaduan - Citizen Report
 @stop

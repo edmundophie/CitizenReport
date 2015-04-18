@@ -54,6 +54,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 		        <li @yield('daftar_pengaduan_active')><a href="{{ URL::asset('daftar-pengaduan/default') }}">daftar pengaduan</a></li>
 		        <li @yield('statistik_active')><a href="{{ URL::asset('statistik') }}">statistik</a></li>
 		        <li @yield('buat_pengaduan_active')><a href="{{ URL::asset('buat-pengaduan') }}">buat pengaduan</a></li>
+		      	@if(Session::has('role'))
 		      	<li id="notification-menu">
 	        		<a href="#" style="padding-left:8px"><span class="glyphicon glyphicon-bell"></span></a>
         		</li> 
@@ -66,6 +67,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 						<li><a href="{{URL::to('logout')}}">Logout</a></li>
 					</ul>
         		</li>
+        		@endif
 		    </div><!-- /.navbar-collapse -->
 		  </div><!-- /.container-fluid -->
 		</nav>
