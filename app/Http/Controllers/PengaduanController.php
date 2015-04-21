@@ -127,4 +127,10 @@ class PengaduanController extends Controller {
 	 
 	    return ($slugCount > 0) ? "{$slug}-{$slugCount}" : $slug;
 	}
+	public function kirim($slug){
+		$idStatus = StatusModel::where('nama', 'forwarded')->first()['id'];
+		Pengaduan::updateStatus($slug, $idStatus, NULL);
+
+        return redirect('pengaduan/'.$slug);		
+	}
 }
