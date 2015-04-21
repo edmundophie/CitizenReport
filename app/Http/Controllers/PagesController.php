@@ -67,6 +67,11 @@ class PagesController extends Controller {
 		$listKategori = KategoriModel::all();
 		return view('pages.admin.manajemen_skpd', compact('listSKPD', 'listKategori'));
 	}
+
+	public function manajemenKategori() {
+		$listKategori = KategoriModel::all();
+		return view('pages.admin.manajemen_kategori', compact('listKategori'));
+	}
 	
 	public function editSKPD($id_skpd) {
 		$skpd = SKPDModel::where('id_user', $id_skpd)->first();

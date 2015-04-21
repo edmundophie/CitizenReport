@@ -51,7 +51,15 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 		    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 		      <ul class="menu nav navbar-nav">
 		        <li @yield('daftar_pengaduan_active')><a href="{{ URL::asset('daftar-pengaduan/default') }}">daftar pengaduan</a></li>
-		        <li @yield('manajemen_skpd_active')><a href="{{ URL::asset('manajemen-skpd') }}">manajemen skpd</a></li>
+		        <li >
+		      		<a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-expanded="false">
+						Manajemen <span class="caret"></span>
+					</a>
+					<ul class="dropdown-menu" role="menu">
+						<li><a href="{{URL::to('manajemen-skpd')}}">SKPD</a></li>
+						<li><a href="{{URL::to('manajemen-kategori')}}">Kategori</a></li>
+					</ul>
+		        </li>
 		        <li @yield('buat_pengaduan_active')><a href="{{ URL::asset('buat-pengaduan') }}">buat pengaduan</a></li>
 		      	@if(Session::has('role'))
 		      	<li id="notification-menu">

@@ -28,6 +28,8 @@ Route::get('/buat-pengaduan', 'PagesController@buatPengaduan');
 
 Route::get('/manajemen-skpd', 'PagesController@manajemenSKPD');
 
+Route::get('/manajemen-kategori', 'PagesController@manajemenKategori');
+
 Route::get('/edit-skpd/{id_skpd}', 'PagesController@editSKPD');
 
 Route::get('logout', 'SessionController@logout');
@@ -49,8 +51,12 @@ Route::post('/komentar/insert', 'KomentarController@insert');
 
 Route::post('/login', 'SessionController@login');
 
-Route::post('/manajemen_skpd', 'SKPDController@insert');
+Route::post('/manajemen-skpd', 'SKPDController@insert');
 
 Route::get('/delete-skpd/{id_skpd}', 'SKPDController@delete');
 
 Route::post('/update-skpd', 'SKPDController@update');
+
+Route::post('/manajemen-kategori', 'KategoriController@insert');
+
+Route::get('/delete-kategori/{id_kategori}', 'KategoriController@delete');
