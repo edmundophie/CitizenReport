@@ -7,7 +7,7 @@
 @stop
 @section('breadcrumb')
 	<ol class="breadcrumb">
-	  <li><a href="index">Home</a></li>
+	  <li><a href="{{ URL::asset('index') }}">Home</a></li>
 	  <li class="">Daftar Pengaduan</li>
 	</ol>
 @stop

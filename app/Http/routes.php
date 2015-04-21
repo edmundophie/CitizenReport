@@ -39,6 +39,8 @@ Route::get('/pengaduan/{slug}', 'PengaduanController@show');
 
 Route::get('/pengaduan/{slug}/delete', 'PengaduanController@delete');
 
+Route::get('/pengaduan/{slug}/kirim', 'PengaduanController@kirim');
+
 Route::post('/pengaduan/insert', 'PengaduanController@insert');
 
 Route::post('/pengaduan/update-status', 'PengaduanController@updateStatus');

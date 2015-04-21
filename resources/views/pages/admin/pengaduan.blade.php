@@ -12,7 +12,7 @@
 @section('breadcrumb')
 	<ol class="breadcrumb">
 	  <li><a href="{{ URL::asset('index') }}">Home</a></li>
-	  <li><a href="{{ URL::asset('daftar-pengaduan') }}">Daftar Pengaduan</a></li>
+	  <li><a href="{{ URL::asset('daftar-pengaduan/default') }}">Daftar Pengaduan</a></li>
 	  <li class="">{{ $pengaduan->getDataAduan()['judul'] }}</li>
 	</ol>
 @stop
@@ -20,6 +20,9 @@
 @section('body')
 
 	<div class="body-container">
+		@if(Session::get('message')=="PENGADUAN TERKIRIM")
+		<div class="alert alert-success" role="alert"><strong>Pengaduan terkirim!</strong> Pengaduan berhasil dikirim ke SKPD terkait.</div>	
+		@endif
 		<div class="row list-pengaduan">
 			<div class="row">
 				<div class="col-sm-9">
@@ -60,7 +63,10 @@
 					<span>{{ $pengaduan->getNamaStatus() }}</span>
 				</div>
 			</div>
-			<a href="{{ URL::to('pengaduan/'.$pengaduan->getDataAduan()['slug'].'/delete') }}" onclick="return confirm('Anda yakin ingin menghapus pengaduan ini?')" class="btn btn-danger col-xs-12 col-sm-3 col-md-2"><span class="glyphicon glyphicon-trash"></span> Hapus</a>
+			<a href="{{ URL::to('pengaduan/'.$pengaduan->getDataAduan()['slug'].'/delete') }}" onclick="return confirm('Anda yakin ingin menghapus pengaduan ini?')" class="btn btn-danger col-xs-12 col-sm-3 col-md-2" style="margin-right:5px"><span class="glyphicon glyphicon-trash"></span> Hapus</a>
+			@if($pengaduan->getNamaStatus()=="Pending")
+			<a href="{{ URL::to('pengaduan/'.$pengaduan->getDataAduan()['slug'].'/kirim') }}" onclick="return confirm('Anda yakin ingin meneruskan pengaduan ke SKPD terkait?')" class="btn btn-success col-xs-12 col-sm-3 col-md-2"><span class="glyphicon glyphicon-send"></span> Kirim ke SKPD</a>
+			@endif		
 		</div>
 
 		<div class="row keterangan-status">
