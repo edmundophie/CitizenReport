@@ -131,6 +131,6 @@ class PengaduanController extends Controller {
 		$idStatus = StatusModel::where('nama', 'forwarded')->first()['id'];
 		Pengaduan::updateStatus($slug, $idStatus, NULL);
 
-        return redirect('pengaduan/'.$slug);		
+        return redirect('pengaduan/'.$slug)->with('message', 'PENGADUAN TERKIRIM');		
 	}
 }

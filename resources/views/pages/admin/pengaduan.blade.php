@@ -20,6 +20,9 @@
 @section('body')
 
 	<div class="body-container">
+		@if(Session::get('message')=="PENGADUAN TERKIRIM")
+		<div class="alert alert-success" role="alert"><strong>Pengaduan terkirim!</strong> Pengaduan berhasil dikirim ke SKPD terkait.</div>	
+		@endif
 		<div class="row list-pengaduan">
 			<div class="row">
 				<div class="col-sm-9">
