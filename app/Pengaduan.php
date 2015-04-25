@@ -7,12 +7,14 @@
  */
 
 namespace App;
+use Illuminate\Database\Eloquent\Model;
 
-
-class Pengaduan {
+class Pengaduan extends model{
     private $dataPengaduan;
     private $kategori;
     private $status;
+
+    protected $table = 'pengaduan';
 
     public function __constructor(){
 
