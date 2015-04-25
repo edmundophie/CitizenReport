@@ -26,16 +26,19 @@ class PagesController extends Controller {
 		$id_user = Session::get('id_user');
         $user_role = Session::get('role');
 
-    	$listPengaduan = Pengaduan::getListPengaduan($sortBy, null);
         
         if($user_role=="ADMIN") {
+			$listPengaduan = Pengaduan::getListPengaduan($sortBy, null);
         	$listKategori = Kategori::getListKategori();
 			return view('pages.admin.daftar_pengaduan', compact('listPengaduan', 'listKategori'));
 		}
-		// else if($user_role=="SKPD") {
-		// 	return view('pages.skpd.daftar_pengaduan', compact('listPengaduan'));
-		// }
+		else if($user_role=="SKPD") {
+			$id_kategori = DB::table('penanggungjawab')->where('id_skpd', Session::get('id_user'))->first()->id_kategori;
+			$listPengaduan = Pengaduan::getListPengaduan('default', $id_kategori);
+			return view('pages.skpd.daftar_pengaduan', compact('listPengaduan'));
+		}
 		else {
+			$listPengaduan = Pengaduan::getListPengaduan($sortBy, null);
 			return view('pages.daftar_pengaduan', compact('listPengaduan'));
 		}
 	}

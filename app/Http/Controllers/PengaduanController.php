@@ -113,11 +113,27 @@ class PengaduanController extends Controller {
 		return redirect('buat-pengaduan')->with('message', "PENGADUAN INSERTED");
 	}
 
+	public function forward($slug) {
+		$pengaduan = PengaduanModel::where('slug', $slug)->first();
+		$pengaduan->id_status = 2;
+		$pengaduan->save();
+
+		return redirect('daftar-pengaduan/default')->with('message', 'FORWARDED');
+	}
+
+	public function reject($slug) {
+		$pengaduan = PengaduanModel::where('slug', $slug)->first();
+		$pengaduan->id_status = 6;
+		$pengaduan->save();
+
+		return redirect('daftar-pengaduan/default')->with('message', 'REJECTED');
+	}
+
 	public function delete($slug) {
 		$pengaduan = PengaduanModel::where('slug', $slug);
 		$pengaduan->delete();
 
-		return redirect('daftar-pengaduan/default')->with('message', 'PENGADUAN DELETED');
+		return redirect('daftar-pengaduan/default')->with('message', 'DELETED');
 	}
 
 	public function generateSlug($title, $model)

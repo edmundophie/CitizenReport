@@ -17,8 +17,14 @@
 
 @section('body')
 	<div class="body-container">
-		@if(Session::get('message')=="PENGADUAN DELETED")
-		<div class="alert alert-danger" role="alert"><strong>Sudah dihapus!</strong>  Pengaduan berhasil dihapus dari database.</div>	
+		@if(Session::has('message'))
+			@if(Session::get('message')=="FORWARDED")
+				<div class="alert alert-success" role="alert"><strong>Sudah diteruskan!</strong>  Pengaduan berhasil diteruskan ke SKPD.</div>	
+			@elseif(Session::get('message')=="REJECTED")
+				<div class="alert alert-success" role="alert"><strong>Sudah ditolak!</strong>  Pengaduan telah ditolak.</div>	
+			@elseif(Session::get('message')=="DELETED")
+				<div class="alert alert-success" role="alert"><strong>Sudah dihapus!</strong>  Pengaduan berhasil dihapus dari database.</div>	
+			@endif
 		@endif
 
 		<!-- Single button -->
@@ -70,9 +76,19 @@
 					<td>{{ $pengaduan->getDataAduan()['created_at'] }}</td>
 					<td><span class="label label-{{ $pengaduan->getStatus()->getDataStatus()['color_code'] }}">{{ $pengaduan->getNamaStatus() }}</span></td>
 					<td>
-						<a class="btn btn-sm btn-block btn-danger" href="{{ URL::to('pengaduan/'.$pengaduan->getDataAduan()['slug'].'/delete') }}" onclick="return confirm('Anda yakin ingin menghapus pengaduan ini?')">
-							<span class="glyphicon glyphicon-trash"></span> Hapus
-						</a>
+						<div class="dropdown">
+							<button class="btn btn-sm btn-block btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true">
+							Aksi
+							<span class="caret"></span>
+							</button>
+							<ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+								@if($pengaduan->getDataAduan()['id_status']==1)
+								<li role="presentation"><a role="menuitem" tabindex="-1" href="{{ URL::to('pengaduan/'.$pengaduan->getDataAduan()['slug'].'/forward') }}"><span class="glyphicon glyphicon-share-alt"></span> Forward</a></li>
+								<li role="presentation"><a role="menuitem" tabindex="-1" href="{{ URL::to('pengaduan/'.$pengaduan->getDataAduan()['slug'].'/reject') }}" onclick="return confirm('Anda yakin ingin menolak pengaduan ini?')"><span class="glyphicon glyphicon-ban-circle"></span> Reject</a></li>
+								@endif
+								<li role="presentation"><a role="menuitem" tabindex="-1" href="{{ URL::to('pengaduan/'.$pengaduan->getDataAduan()['slug'].'/delete') }}" onclick="return confirm('Anda yakin ingin menghapus pengaduan ini?')"><span class="glyphicon glyphicon-trash"></span> Hapus</a></li>
+							</ul>
+						</div>
 					</td>
 				</tr>
 				@endforeach

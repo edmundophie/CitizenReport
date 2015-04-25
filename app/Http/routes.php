@@ -37,6 +37,10 @@ Route::get('logout', 'SessionController@logout');
 // Class
 Route::get('/pengaduan/{slug}', 'PengaduanController@show');
 
+Route::get('/pengaduan/{slug}/forward', 'PengaduanController@forward');
+
+Route::get('/pengaduan/{slug}/reject', 'PengaduanController@reject');
+
 Route::get('/pengaduan/{slug}/delete', 'PengaduanController@delete');
 
 Route::get('/pengaduan/{slug}/kirim', 'PengaduanController@kirim');
