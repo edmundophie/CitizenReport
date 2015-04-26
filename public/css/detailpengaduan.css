@@ -38,35 +38,6 @@
 	padding: 6px 12px;
 }
 
-#bootstrapSelectForm .selectContainer {
-     Adjust feedback icon position 
-    left: 0px;
-    height: 38px;
-}
-
-#pilihanstatus{
-    margin-left: -15px;
-    margin-bottom: 15px;
-    margin-top: 15px;
-    height: 38px;
-}
-
-#inputLaporan{
-    margin-left: -15px;
-    height: 38px;
-}
-
-.laporan{
-    height: 38px;
-    margin-bottom: 20px;
-    overflow: hidden;
-    border-radius: 4px;
-}
-
-#uploadButton{
-    //margin-right: 80px;
-}
-
 /* Large */
 @media only screen and (min-width: 1200px) {
 

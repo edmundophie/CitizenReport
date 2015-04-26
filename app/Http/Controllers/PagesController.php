@@ -18,8 +18,11 @@ class PagesController extends Controller {
         $user_role = Session::get('role');
         if($user_role=="ADMIN") {
         	return $this->daftarPengaduan("default");
-		} else	
+		} else	if($user_role=="SKPD") {
+			return $this->daftarPengaduan("default");
+		} else {
 			return view("pages.index");
+		}
 	}
 
 	public function daftarPengaduan($sortBy) {
