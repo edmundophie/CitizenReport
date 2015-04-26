@@ -16,8 +16,6 @@ class SessionController extends Controller {
 		$password = $request->get('password');
 		$user = UserModel::where('username', $username)->where('password', $password)->first();
 
-		//dd($user)
-		//$daftar_pengaduan = "";
 		if ($user->role == "MASYARAKAT") {
 			$daftar_pengaduan = Pengaduan::where('id_masyarakat',$user->id)->where('id_status',6)->get(); // status rejected
 		} else if ($user->role == "SKPD") {
@@ -25,7 +23,6 @@ class SessionController extends Controller {
 		} else {
 			$daftar_pengaduan = "";
 		}
-		
 
 		if(count($user)<1)
 			return redirect('login');
@@ -35,12 +32,9 @@ class SessionController extends Controller {
 			Session::put('role', $user->role);
 			
 			if ($user->role != "ADMIN") {
-				$notifikasi = "Maaf, pengaduan Anda dengan rincian berikut<BR>";
-				foreach ($daftar_pengaduan as $pengaduan) {
-					$notifikasi .= "Judul : ".$pengaduan->judul.".Dikirim pada : ".$pengaduan->created_at."<BR>";
+				if (!empty($daftar_pengaduan)) {
+					Session::flash('notification',$daftar_pengaduan);
 				}
-				$notifikasi .= "dengan berbagai pertimbangan tidak kami tindak lanjuti";
-				Session::flash('notification',$notifikasi);
 			}
 			
 			return redirect('index');
