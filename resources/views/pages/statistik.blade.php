@@ -25,10 +25,9 @@
 
 <script>
     window.onload = function(){
-        var canvas = new Raphael(document.getElementById('paneldiv'), 500, 250);
-        canvas.setSize();
+        var pie = new Raphael(document.getElementById('paneldiv'), 500, 250);
 
-        canvas.piechart(
+        pie.piechart(
             100,
             120,
             100,
@@ -44,8 +43,40 @@
             ]}
         );
 
-        //canvas.circle(320, 400, 180).animate({fill: "#223fa3", stroke: "#000", "stroke-width": 80, "stroke-opacity": 0.5}, 2000);
-        //canvas.circle(50, 50, 20).attr({fill: "#ff0000", stroke: "#fff", "stroke-width": 2}).darker(6);
+        var line = new Raphael(document.getElementById('paneldiv2'), 500, 250);
+
+        var x = 10;
+        var y = 10;
+        var xlen = 450;
+        var ylen = 225;
+        var gutter = 20;
+        var xdata = [0, 2, 4, 6, 8, 10];
+        var chrt = line.linechart(x, y, xlen, ylen, xdata,
+            [
+                @foreach($jumAduan->jumlah as $temp)
+                    {{$temp}},
+                @endforeach
+            ],
+        {
+            gutter: gutter,
+            nostroke: false,
+            axis: "0 0 0 1",
+            symbol: "circle",
+            smooth: true
+        });
+
+        Raphael.g.axis(
+            x + gutter,
+            y + ylen - gutter,
+            xlen - 2 * gutter, null, null,
+            xdata.length - 1,
+            0, [
+                @foreach($jumAduan->date as $temp)
+                    "{{$temp}}",
+                @endforeach
+            ],
+            line
+        );
     };
 </script>
 
@@ -60,8 +91,8 @@
         </div>
 
         <div class="col-sm-6">
-            <div class="panel panel-default statistik-panel" id="paneldiv">
-                <h1>Distribusi Pengaduan Berdasarkan Kategori</h1>
+            <div class="panel panel-default statistik-panel" id="paneldiv2">
+                <h1>Jumlah Pengaduan Per Bulan</h1>
             </div>
         </div>
 
