@@ -227,6 +227,52 @@ class Pengaduan extends model{
         return $jumAduan;
     }
 
+    public static function getJumlahAduanClosedForNMonths($jumBulanTerakhir){
+        $jumAduan = new StatistikAduan();
+        $month = date('m');
+        $year = date('Y');
+
+        $j = 0;
+        for($i = $jumBulanTerakhir; $i >= 0; $i--){
+            $m = $month - $i;
+            $y = $year;
+
+            if($m <= 0){
+                $m = 12 + $m;
+                $y = $y - 1;
+            }
+
+            $bulanFormatted = Pengaduan::getMonthName($m);
+            $tahunFormatted = $y;
+
+            $dateStr = $bulanFormatted." ".$tahunFormatted;
+
+            $jumAduan->date[$j] = $dateStr;
+
+            $jumAduan->jumlah[$j] = Pengaduan::getJumlahAduanClosed($dateStr);
+
+            $j++;
+        }
+
+        return $jumAduan;
+    }
+
+    private static function getJumlahAduanClosed($date){
+        $idStatus = StatusModel::where('nama', 'closed')->first()['id'];
+        $aduan = PengaduanModel::all();
+        $jumlah = 0;
+
+        foreach ($aduan as $temp) {
+            $createdAt = $temp['created_at']."";
+
+            if (strpos($createdAt, $date) !== false && $temp['id_status'] == $idStatus){
+                $jumlah++;
+            }
+        }
+
+        return $jumlah;
+    }
+
     private static function getJumlahAduan($date){
         $aduan = PengaduanModel::all();
         $jumlah = 0;

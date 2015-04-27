@@ -63,7 +63,10 @@ class PagesController extends Controller {
         $jumAduan = new StatistikAduan();
         $jumAduan = Pengaduan::getJumlahAduanForNMonths(5);
 
-		return view('pages.statistik', compact('kategori', 'jumAduan'));
+        $jumAduanClosed = new StatistikAduan();
+        $jumAduanClosed = Pengaduan::getJumlahAduanClosedForNMonths(5);
+
+		return view('pages.statistik', compact('kategori', 'jumAduan', 'jumAduanClosed'));
 	}
 
 	public function buatPengaduan() {
