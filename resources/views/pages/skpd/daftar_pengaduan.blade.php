@@ -15,8 +15,25 @@
 	class="active"
 @stop
 
+@section('javascript')
+	<script src="//code.jquery.com/jquery.js"></script>
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+    <script>
+    	window.setTimeout(function () {
+		    $(".alert-success").slideUp(500, function () {
+		        $(this).remove();
+		    });
+		}, 9000);
+    </script>
+@stop
+
 @section('body')
+	<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+	<link rel="stylesheet" href="/css/app.css">
+
 	<div class="body-container">
+
+
 		<!-- Single button -->
 		<div class="text-right col-xs-12">
 			<div class="btn-group">
@@ -32,6 +49,21 @@
 		<div class="clearfix"></div>
 		<br>
 		<div class="col-xs-12">
+			@if (Session::has('notification'))
+				<div class="alert alert-success">
+					<h3> Your Notification </h3>
+					<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+					
+					Aduan baru yang masuk : <BR><BR>
+					@foreach (Session::get('notification') as $pengaduan)
+						Judul : "{{ $pengaduan->judul }}". Dikirim tanggal : {{ $pengaduan->created_at }} <BR>
+					@endforeach 
+		
+				</div>
+			@endif
+
+			{{Session::get('notification')}}
+			
 			<!-- List pengaduan -->
 			<table class="table table-striped">
 				<tr>

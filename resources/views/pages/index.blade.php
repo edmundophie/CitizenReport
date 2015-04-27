@@ -9,7 +9,11 @@
 	<script src="//code.jquery.com/jquery.js"></script>
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
     <script>
-    	$('div.alert').not('.alert-important').delay(3000).slideUp(300);
+    	window.setTimeout(function () {
+		    $(".alert-success").slideUp(500, function () {
+		        $(this).remove();
+		    });
+		}, 9000);
     </script>
 @stop
 
@@ -36,19 +40,17 @@
 	<div class="row grids_of_3">
 
 				@if (Session::has('notification'))
-					@if (!empty(Session::get('notification')))
-						<div class="alert alert-success">
-							<h3> Your Notification </h3>
-							<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-							
-							Maaf, pengaduan Anda dengan rincian berikut : <BR><BR>
-							@foreach (Session::get('notification') as $pengaduan)
-								Judul : "{{ $pengaduan->judul }}". Dikirim tanggal : {{ $pengaduan->created_at }} <BR>
-							@endforeach 
-							<BR>dengan berbagai pertimbangan tidak kami tindak lanjuti
-				
-						</div>
-					@endif
+					<div class="alert alert-success">
+						<h3> Your Notification </h3>
+						<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+						
+						Maaf, pengaduan Anda dengan rincian berikut : <BR><BR>
+						@foreach (Session::get('notification') as $pengaduan)
+							Judul : "{{ $pengaduan->judul }}". Dikirim tanggal : {{ $pengaduan->created_at }} <BR>
+						@endforeach 
+						<BR>dengan berbagai pertimbangan tidak kami tindak lanjuti
+			
+					</div>
 				@endif
 
 				<div class="col-md-4 grid1_of_3">

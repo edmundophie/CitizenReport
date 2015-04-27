@@ -31,10 +31,8 @@ class SessionController extends Controller {
 			Session::put('username', $user->username);
 			Session::put('role', $user->role);
 			
-			if ($user->role != "ADMIN") {
-				if (!empty($daftar_pengaduan)) {
-					Session::flash('notification',$daftar_pengaduan);
-				}
+			if (($user->role != "ADMIN") && ($daftar_pengaduan != "[]")) {
+				Session::flash('notification',$daftar_pengaduan);
 			}
 			
 			return redirect('index');
