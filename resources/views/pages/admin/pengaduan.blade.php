@@ -1,4 +1,4 @@
-@extends('pages.master')
+@extends('pages.admin.master')
 @section('title')
 	{{ $pengaduan->getDataAduan()['judul'] }} - Citizen Report
 @stop
