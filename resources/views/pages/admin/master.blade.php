@@ -53,9 +53,11 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 		        <li @yield('daftar_pengaduan_active')><a href="{{ URL::asset('daftar-pengaduan/default') }}">daftar pengaduan</a></li>
 		        <li @yield('manajemen_skpd_active')><a href="{{URL::to('manajemen-skpd')}}">Manajemen SKPD</a></li>
       			<li @yield('manajemen_kategori_active')><a href="{{URL::to('manajemen-kategori')}}">Manajemen Kategori</a></li>
+      		  </ul>
+      		  <ul class="menu nav navbar-nav navbar-right">
 		      	@if(Session::has('role'))
 		      	<li id="notification-menu">
-	        		<a href="#" style="padding-left:8px"><span class="glyphicon glyphicon-bell"></span></a>
+	        		<a href="#" style="padding-left:0px"><span class="glyphicon glyphicon-bell"></span></a>
         		</li> 
         		<li>
 		      		<a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-expanded="false">
@@ -66,6 +68,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 					</ul>
         		</li>
         		@endif
+        	  </ul>
 		    </div><!-- /.navbar-collapse -->
 		  </div><!-- /.container-fluid -->
 		</nav>
