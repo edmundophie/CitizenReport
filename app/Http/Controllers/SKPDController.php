@@ -23,7 +23,7 @@ class SKPDController extends Controller {
 		$skpd->telp = $request->get('telepon');
 		$skpd->save();
 
-		DB::table('penanggungjawab')
+		DB::table('ppl_citizenreport_penanggungjawab')
 			->insert(
 				array(
 					'id_kategori' => $request->get('id_kategori'),
@@ -52,7 +52,7 @@ class SKPDController extends Controller {
 		$skpd->telp = $request->get('telepon');
 		$skpd->save();
 
-		DB::table('penanggungjawab')
+		DB::table('ppl_citizenreport_penanggungjawab')
             ->where('id_skpd', $request->get('id_skpd'))
             ->update(array('id_kategori' => $request->get('id_kategori')));
             

@@ -12,12 +12,13 @@ class CreateUserTable extends Migration {
 	 */
 	public function up()
 	{
-		Schema::create('user', function(Blueprint $table)
+		Schema::create('ppl_citizenreport_user', function(Blueprint $table)
 		{
 			$table->increments('id');
 			$table->string('username');
 			$table->string('password');
 			$table->string('role');
+			$table->string('avatar')->default('default.jpg');
 			$table->timestamps();
 		});
 	}
@@ -29,7 +30,7 @@ class CreateUserTable extends Migration {
 	 */
 	public function down()
 	{
-		Schema::drop('user');
+		Schema::drop('ppl_citizenreport_user');
 	}
 
 }

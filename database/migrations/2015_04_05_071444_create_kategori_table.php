@@ -12,7 +12,7 @@ class CreateKategoriTable extends Migration {
 	 */
 	public function up()
 	{
-		Schema::create('kategori', function(Blueprint $table)
+		Schema::create('ppl_citizenreport_kategori', function(Blueprint $table)
 		{
 			$table->increments('id');
 			$table->string('nama');
@@ -28,7 +28,7 @@ class CreateKategoriTable extends Migration {
 	 */
 	public function down()
 	{
-		Schema::drop('kategori');
+		Schema::drop('ppl_citizenreport_kategori');
 	}
 
 }

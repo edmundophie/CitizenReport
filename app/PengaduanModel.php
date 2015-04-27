@@ -20,7 +20,7 @@ class PengaduanModel extends Model{
     }
 
     public function getIdSkpdAttribute($value) {
-    	$id_skpd = DB::table('penanggungjawab')->select('id_skpd')->where('id_kategori', $this->attributes['id_kategori'])->first()->id_skpd;
+    	$id_skpd = DB::table('ppl_citizenreport_penanggungjawab')->select('id_skpd')->where('id_kategori', $this->attributes['id_kategori'])->first()->id_skpd;
         return $id_skpd;
     }
 }
