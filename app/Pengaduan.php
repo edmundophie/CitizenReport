@@ -184,7 +184,7 @@ class Pengaduan extends model{
     }
 
     public static function getStatistikJumlah(){
-        $daftarKategori = new JumlahAduan();
+        $daftarKategori = new StatistikAduan();
 
         $i = 0;
         $kategori = KategoriModel::all();
@@ -195,5 +195,54 @@ class Pengaduan extends model{
         }
 
         return $daftarKategori;
+    }
+
+    public static function getJumlahAduanForNMonths($jumBulanTerakhir){
+        $jumAduan = new StatistikAduan();
+        $month = date('m');
+        $year = date('Y');
+
+        $j = 0;
+        for($i = $jumBulanTerakhir; $i >= 0; $i--){
+            $m = $month - $i;
+            $y = $year;
+
+            if($m <= 0){
+                $m = 12 + $m;
+                $y = $y - 1;
+            }
+
+            $bulanFormatted = Pengaduan::getMonthName($m);
+            $tahunFormatted = $y;
+
+            $dateStr = $bulanFormatted." ".$tahunFormatted;
+
+            $jumAduan->date[$j] = $dateStr;
+
+            $jumAduan->jumlah[$j] = Pengaduan::getJumlahAduan($dateStr);
+
+            $j++;
+        }
+
+        return $jumAduan;
+    }
+
+    private static function getJumlahAduan($date){
+        $aduan = PengaduanModel::all();
+        $jumlah = 0;
+
+        foreach ($aduan as $temp) {
+            $createdAt = $temp['created_at']."";
+
+            if (strpos($createdAt, $date) !== false){
+                $jumlah++;
+            }
+        }
+
+        return $jumlah;
+    }
+
+    private static function getMonthName($inp){
+        return date("M", strtotime(date("d-$inp-y")));
     }
 } 

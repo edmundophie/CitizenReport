@@ -9,7 +9,8 @@
 namespace App;
 
 
-class JumlahAduan {
+class StatistikAduan {
     public $jumlah;
     public $kategori;
+    public $date;
 }
