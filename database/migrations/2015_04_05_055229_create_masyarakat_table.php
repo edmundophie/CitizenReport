@@ -12,7 +12,7 @@ class CreateMasyarakatTable extends Migration {
 	 */
 	public function up()
 	{
-		Schema::create('masyarakat', function(Blueprint $table)
+		Schema::create('ppl_citizenreport_masyarakat', function(Blueprint $table)
 		{
 			$table->integer('id_user')->unsigned()->unique();
 			$table->string('nama');
@@ -21,7 +21,7 @@ class CreateMasyarakatTable extends Migration {
 			$table->timestamps();
 		});
 
-		Schema::table('masyarakat', function(Blueprint $table)
+		Schema::table('ppl_citizenreport_masyarakat', function(Blueprint $table)
 		{
 			$table->foreign('id_user')->references('id')->on('user')
 					->onDelete('cascade');
@@ -35,7 +35,7 @@ class CreateMasyarakatTable extends Migration {
 	 */
 	public function down()
 	{
-		Schema::drop('masyarakat');
+		Schema::drop('ppl_citizenreport_masyarakat');
 	}
 
 }

@@ -38,7 +38,7 @@ class PagesController extends Controller {
 			return view('pages.admin.daftar_pengaduan', compact('listPengaduan', 'listKategori'));
 		}
 		else if($user_role=="SKPD") {
-			$id_kategori = DB::table('penanggungjawab')->where('id_skpd', Session::get('id_user'))->first()->id_kategori;
+			$id_kategori = DB::table('ppl_citizenreport_penanggungjawab')->where('id_skpd', Session::get('id_user'))->first()->id_kategori;
 			$listPengaduan = Pengaduan::getListPengaduan('default', $id_kategori);
 			return view('pages.skpd.daftar_pengaduan', compact('listPengaduan'));
 		}

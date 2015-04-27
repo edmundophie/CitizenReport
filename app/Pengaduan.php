@@ -14,7 +14,7 @@ class Pengaduan extends model{
     private $kategori;
     private $status;
 
-    protected $table = 'pengaduan';
+    protected $table = 'ppl_citizenreport_pengaduan';
 
     public function __constructor(){
 

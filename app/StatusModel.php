@@ -4,7 +4,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class StatusModel extends Model {
 
-	protected  $table = "status";
+	protected  $table = "ppl_citizenreport_status";
 	protected $appends = array('color_code');
 
 	public function getNamaAttribute($value)

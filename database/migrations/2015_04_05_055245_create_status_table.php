@@ -12,11 +12,12 @@ class CreateStatusTable extends Migration {
 	 */
 	public function up()
 	{
-		Schema::create('status', function(Blueprint $table)
+		Schema::create('ppl_citizenreport_status', function(Blueprint $table)
 		{
 			$table->increments('id');
 			$table->string('nama');
 			$table->text('deskripsi');
+			$table->integer('progress');
 			$table->timestamps();
 		});
 	}
@@ -28,7 +29,7 @@ class CreateStatusTable extends Migration {
 	 */
 	public function down()
 	{
-		Schema::drop('status');
+		Schema::drop('ppl_citizenreport_status');
 	}
 
 }

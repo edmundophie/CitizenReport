@@ -12,7 +12,7 @@ class CreateAdminTable extends Migration {
 	 */
 	public function up()
 	{
-		Schema::create('admin', function(Blueprint $table)
+		Schema::create('ppl_citizenreport_admin', function(Blueprint $table)
 		{
 			$table->integer('id_user')->unsigned()->unique();
 			$table->string('nama');
@@ -20,7 +20,7 @@ class CreateAdminTable extends Migration {
 		});
 
 
-		Schema::table('admin', function(Blueprint $table)
+		Schema::table('ppl_citizenreport_admin', function(Blueprint $table)
 		{
 			$table->foreign('id_user')->references('id')->on('user')
 					->onDelete('cascade');
@@ -34,7 +34,7 @@ class CreateAdminTable extends Migration {
 	 */
 	public function down()
 	{
-		Schema::drop('admin');
+		Schema::drop('ppl_citizenreport_admin');
 	}
 
 }

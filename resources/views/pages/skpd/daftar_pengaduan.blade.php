@@ -32,7 +32,18 @@
 	<link rel="stylesheet" href="/css/app.css">
 
 	<div class="body-container">
-
+		@if (Session::has('notification'))
+			<div class="alert alert-success">
+				<h3> Your Notification </h3>
+				<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+				
+				Aduan baru yang masuk : <BR><BR>
+				@foreach (Session::get('notification') as $pengaduan)
+					Judul : "{{ $pengaduan->judul }}". Dikirim tanggal : {{ $pengaduan->created_at }} <BR>
+				@endforeach 
+	
+			</div>
+		@endif
 
 		<!-- Single button -->
 		<div class="text-right col-xs-12">
@@ -49,21 +60,7 @@
 		<div class="clearfix"></div>
 		<br>
 		<div class="col-xs-12">
-			@if (Session::has('notification'))
-				<div class="alert alert-success">
-					<h3> Your Notification </h3>
-					<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-					
-					Aduan baru yang masuk : <BR><BR>
-					@foreach (Session::get('notification') as $pengaduan)
-						Judul : "{{ $pengaduan->judul }}". Dikirim tanggal : {{ $pengaduan->created_at }} <BR>
-					@endforeach 
-		
-				</div>
-			@endif
 
-			{{Session::get('notification')}}
-			
 			<!-- List pengaduan -->
 			<table class="table table-striped">
 				<tr>

@@ -12,14 +12,14 @@ class CreatePenanggungjawabTable extends Migration {
 	 */
 	public function up()
 	{
-		Schema::create('penanggungjawab', function(Blueprint $table)
+		Schema::create('ppl_citizenreport_penanggungjawab', function(Blueprint $table)
 		{
 			$table->integer('id_kategori')->unsigned();
 			$table->integer('id_skpd')->unsigned();
 			$table->timestamps();
 		});
 
-		Schema::table('penanggungjawab', function(Blueprint $table)
+		Schema::table('ppl_citizenreport_penanggungjawab', function(Blueprint $table)
 		{
 			$table->foreign('id_kategori')->references('id')->on('kategori')
 					->onDelete('cascade');
@@ -35,7 +35,7 @@ class CreatePenanggungjawabTable extends Migration {
 	 */
 	public function down()
 	{
-		Schema::drop('penanggungjawab');
+		Schema::drop('ppl_citizenreport_penanggungjawab');
 	}
 
 }

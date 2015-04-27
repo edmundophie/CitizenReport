@@ -5,12 +5,12 @@ use DB;
 use App\KategoriModel;
 
 class SKPDModel extends Model {
-	protected $table = "skpd";
+	protected $table = "ppl_citizenreport_skpd";
 	protected $appends = array('id_kategori', 'kategori', 'username', 'password');
 	protected $primaryKey = 'id_user';
 
 	public function getKategoriAttribute($value) {
-		$id_kategori = DB::table('penanggungjawab')->where('id_skpd', $this->attributes['id_user'])->first()->id_kategori;
+		$id_kategori = DB::table('ppl_citizenreport_penanggungjawab')->where('id_skpd', $this->attributes['id_user'])->first()->id_kategori;
 		
 		$nama_kategori = KategoriModel::where('id', $id_kategori)->first()['nama'];
 
@@ -18,7 +18,7 @@ class SKPDModel extends Model {
 	}
 
 	public function getIdKategoriAttribute($value) {
-		$id_kategori = DB::table('penanggungjawab')->where('id_skpd', $this->attributes['id_user'])->first()->id_kategori;
+		$id_kategori = DB::table('ppl_citizenreport_penanggungjawab')->where('id_skpd', $this->attributes['id_user'])->first()->id_kategori;
 
 		return $id_kategori;
 	}

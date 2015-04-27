@@ -12,7 +12,7 @@ class CreateKomentarTable extends Migration {
 	 */
 	public function up()
 	{
-		Schema::create('komentar', function(Blueprint $table)
+		Schema::create('ppl_citizenreport_komentar', function(Blueprint $table)
 		{
 			$table->increments('id');
 			$table->integer('id_pengaduan')->unsigned();
@@ -21,7 +21,7 @@ class CreateKomentarTable extends Migration {
 			$table->timestamps();
 		});
 
-		Schema::table('komentar', function(Blueprint $table)
+		Schema::table('ppl_citizenreport_komentar', function(Blueprint $table)
 		{
 			$table->foreign('id_pengaduan')->references('id')->on('pengaduan');
 			$table->foreign('id_komentator')->references('id')->on('user');
@@ -35,7 +35,7 @@ class CreateKomentarTable extends Migration {
 	 */
 	public function down()
 	{
-		Schema::drop('komentar');
+		Schema::drop('ppl_citizenreport_komentar');
 	}
 
 }
