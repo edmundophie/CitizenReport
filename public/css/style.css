@@ -47,12 +47,12 @@ body {
 }
 .navbar-nav {
 	margin-top:2%;
-	margin-left: 10%;
+	margin-left: auto;
 }
 
 .navbar-right {
 	margin-top:2%;
-	margin-left: 10%;
+	margin-left: auto;
 }
 
 .navbar-brand {

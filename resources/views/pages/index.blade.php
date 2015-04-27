@@ -5,12 +5,11 @@
 @section('home_active')
 	class="active"
 @stop
-
 @section('javascript')
 	<script src="//code.jquery.com/jquery.js"></script>
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
     <script>
-    	$('#flash-overlay-modal').modal();
+    	$('div.alert').not('.alert-important').delay(3000).slideUp(300);
     </script>
 @stop
 
@@ -34,18 +33,24 @@
 	<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
 	<link rel="stylesheet" href="/css/app.css">
 
-	@if (Session::has('notification'))
-		@if (empty(Session::get('notification')))
-			<div class="container">
-				<div class="alert alert-success">
-					<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-					{{ Session::get('notification') }}
-				</div>
-			</div>
-		<@endif
-	@endif
-
 	<div class="row grids_of_3">
+
+				@if (Session::has('notification'))
+					@if (!empty(Session::get('notification')))
+						<div class="alert alert-success">
+							<h3> Your Notification </h3>
+							<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+							
+							Maaf, pengaduan Anda dengan rincian berikut : <BR><BR>
+							@foreach (Session::get('notification') as $pengaduan)
+								Judul : "{{ $pengaduan->judul }}". Dikirim tanggal : {{ $pengaduan->created_at }} <BR>
+							@endforeach 
+							<BR>dengan berbagai pertimbangan tidak kami tindak lanjuti
+				
+						</div>
+					@endif
+				@endif
+
 				<div class="col-md-4 grid1_of_3">
 					  <h2>Adukan</h2>
 					  <img src="images/icon1.png" class="img-responsive"/>

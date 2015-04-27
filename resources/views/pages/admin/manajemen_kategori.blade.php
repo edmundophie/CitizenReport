@@ -10,7 +10,7 @@
 	  <li class="">Manajemen SKPD</li>
 	</ol>
 @stop
-@section('manajemen_skpd_active')
+@section('manajemen_kategori_active')
 	class="active"
 @stop
 
