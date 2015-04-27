@@ -182,4 +182,18 @@ class Pengaduan extends model{
     public function getStatus() {
         return $this->status;
     }
+
+    public static function getStatistikJumlah(){
+        $daftarKategori = new JumlahAduan();
+
+        $i = 0;
+        $kategori = KategoriModel::all();
+        foreach($kategori as $temp){
+            $daftarKategori->kategori[$i] = $temp['nama'];
+            $daftarKategori->jumlah[$i] = PengaduanModel::where('id_kategori', $temp['id'])->count();
+            $i++;
+        }
+
+        return $daftarKategori;
+    }
 } 

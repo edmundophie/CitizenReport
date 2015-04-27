@@ -3,6 +3,7 @@
 use App\ArrayPengaduan;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use App\JumlahAduan;
 use Illuminate\Support\Facades\DB;
 use Session;
 
@@ -52,7 +53,11 @@ class PagesController extends Controller {
 	}
 
 	public function statistik() {
-		return view('pages.statistik');
+        $kategori = new JumlahAduan();
+        $kategori = Pengaduan::getStatistikJumlah();
+        //return $kategori->kategori[0]." ".$kategori->jumlah[0];
+
+		return view('pages.statistik', compact('kategori'));
 	}
 
 	public function buatPengaduan() {

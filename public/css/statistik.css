@@ -1,0 +1,10 @@
+.statistik-panel{
+    padding: 20px;
+}
+
+#paneldiv h1{
+    font-size: 20px;
+    font-weight: bold;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    text-align: center;
+}
