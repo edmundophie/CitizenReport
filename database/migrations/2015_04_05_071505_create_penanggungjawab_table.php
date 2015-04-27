@@ -21,9 +21,9 @@ class CreatePenanggungjawabTable extends Migration {
 
 		Schema::table('ppl_citizenreport_penanggungjawab', function(Blueprint $table)
 		{
-			$table->foreign('id_kategori')->references('id')->on('kategori')
+			$table->foreign('id_kategori')->references('id')->on('ppl_citizenreport_kategori')
 					->onDelete('cascade');
-			$table->foreign('id_skpd')->references('id_user')->on('skpd')
+			$table->foreign('id_skpd')->references('id_user')->on('ppl_citizenreport_skpd')
 					->onDelete('cascade');						
 		});
 	}

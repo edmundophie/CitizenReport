@@ -23,8 +23,8 @@ class CreateKomentarTable extends Migration {
 
 		Schema::table('ppl_citizenreport_komentar', function(Blueprint $table)
 		{
-			$table->foreign('id_pengaduan')->references('id')->on('pengaduan');
-			$table->foreign('id_komentator')->references('id')->on('user');
+			$table->foreign('id_pengaduan')->references('id')->on('ppl_citizenreport_pengaduan');
+			$table->foreign('id_komentator')->references('id')->on('ppl_citizenreport_user');
 		});
 	}
 

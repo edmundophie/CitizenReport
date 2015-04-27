@@ -23,7 +23,7 @@ class CreateSkpdTable extends Migration {
 
 		Schema::table('ppl_citizenreport_skpd', function(Blueprint $table)
 		{
-			$table->foreign('id_user')->references('id')->on('user')
+			$table->foreign('id_user')->references('id')->on('ppl_citizenreport_user')
 					->onDelete('cascade');
 		});
 	}

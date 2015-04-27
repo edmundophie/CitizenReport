@@ -23,7 +23,7 @@ class CreateMasyarakatTable extends Migration {
 
 		Schema::table('ppl_citizenreport_masyarakat', function(Blueprint $table)
 		{
-			$table->foreign('id_user')->references('id')->on('user')
+			$table->foreign('id_user')->references('id')->on('ppl_citizenreport_user')
 					->onDelete('cascade');
 		});
 	}

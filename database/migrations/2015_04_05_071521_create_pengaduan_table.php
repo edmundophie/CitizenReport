@@ -31,9 +31,9 @@ class CreatePengaduanTable extends Migration {
 		});
 
 		Schema::table('ppl_citizenreport_pengaduan', function(Blueprint $table) {
-			$table->foreign('id_kategori')->references('id')->on('kategori');
-			$table->foreign('id_masyarakat')->references('id_user')->on('masyarakat');
-			$table->foreign('id_status')->references('id')->on('status');
+			$table->foreign('id_kategori')->references('id')->on('ppl_citizenreport_kategori');
+			$table->foreign('id_masyarakat')->references('id_user')->on('ppl_citizenreport_masyarakat');
+			$table->foreign('id_status')->references('id')->on('ppl_citizenreport_status');
 		});
 	}
 
