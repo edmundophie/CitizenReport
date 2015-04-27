@@ -4,7 +4,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class KategoriModel extends Model {
 
-	protected $table = 'kategori';
+	protected $table = 'ppl_citizenreport_kategori';
 	protected $appends = array('count');
 
 	public function getCountAttribute() {

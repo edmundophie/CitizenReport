@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\DB;
 
 class PengaduanModel extends Model{
-    protected $table = "pengaduan";
+    protected $table = "ppl_citizenreport_pengaduan";
     protected $appends = array('id_skpd');
 
     public function getJudulAttribute($value)

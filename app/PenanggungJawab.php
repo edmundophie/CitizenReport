@@ -5,5 +5,5 @@ use Illuminate\Database\Eloquent\Model;
 class PenanggungJawab extends Model {
 
 	//
-	protected $table = "penanggungjawab";
+	protected $table = "ppl_citizenreport_penanggungjawab";
 }

@@ -4,7 +4,7 @@ use Illuminate\Database\Eloquent\Model;
 use App\UserModel;
 
 class KomentarModel extends Model {
-	protected $table = "komentar";
+	protected $table = "ppl_citizenreport_komentar";
 	protected $appends = array('is_skpd', 'avatar');
 	//
 
