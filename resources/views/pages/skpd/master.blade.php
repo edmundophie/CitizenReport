@@ -50,8 +50,8 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 		    <!-- Collect the nav links, forms, and other content for toggling -->
 		    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 		      <ul class="menu nav navbar-nav">
-		        <li @yield('daftar_pengaduan_active')><a href="{{ URL::asset('daftar-pengaduan/default') }}">daftar pengaduan</a></li>
-		      	<li @yield('statistik_active')><a href="{{ URL::to('statistik') }}">statistik</a></li>
+		        <li @yield('daftar_pengaduan_active')><a href="{{ URL::asset('daftar-pengaduan/default') }}"><span class="glyphicon glyphicon-list"></span> daftar pengaduan</a></li>
+		      	<li @yield('statistik_active')><a href="{{ URL::to('statistik') }}"><span class="glyphicon glyphicon-equalizer"></span> statistik</a></li>
 		      </ul>
 		      <ul class="menu nav navbar-nav navbar-right">
 		      	@if(Session::has('role'))
@@ -59,11 +59,11 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 	        		<a href="#" style="padding-left:0px"><span class="glyphicon glyphicon-bell"></span></a>
         		</li> 
         		<li>
-		      		<a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-expanded="false">
+		      		<a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-expanded="false"><span class="glyphicon glyphicon-user"></span> 
 						{{ Session::get('username')}} <span class="caret"></span>
 					</a>
 					<ul class="dropdown-menu" role="menu">
-						<li><a href="{{URL::to('logout')}}">Logout</a></li>
+						<li><a href="{{URL::to('logout')}}"><span class="glyphicon glyphicon-share"></span> Logout</a></li>
 					</ul>
         		</li>
         		@endif

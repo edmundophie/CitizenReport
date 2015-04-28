@@ -6,8 +6,6 @@
 	class="active"
 @stop
 @section('javascript')
-	<script src="//code.jquery.com/jquery.js"></script>
-    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
     <script>
     	window.setTimeout(function () {
 		    $(".alert-success").slideUp(500, function () {
@@ -34,9 +32,6 @@
 @stop
 
 @section('body')
-	<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
-	<link rel="stylesheet" href="/css/app.css">
-
 	<div class="row grids_of_3">
 
 				@if (Session::has('notification'))

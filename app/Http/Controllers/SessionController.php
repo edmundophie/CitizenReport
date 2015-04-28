@@ -16,12 +16,12 @@ class SessionController extends Controller {
 		$username = $request->get('username');
 		$password = $request->get('password');
 		$user = UserModel::where('username', $username)->where('password', $password)->first();
-		$SKPD = PenanggungJawab::where('id_skpd',$user->id)->first();
 
 
 		if ($user->role == "MASYARAKAT") {
 			$daftar_pengaduan = Pengaduan::where('id_masyarakat',$user->id)->where('id_status',6)->get(); // status rejected
 		} else if ($user->role == "SKPD") {
+			$SKPD = PenanggungJawab::where('id_skpd',$user->id)->first();
 			$daftar_pengaduan = Pengaduan::where('id_kategori',$SKPD->id_kategori)->where('id_status',2)->get(); // status forwarded
 		} else {
 			$daftar_pengaduan = "";
@@ -37,7 +37,6 @@ class SessionController extends Controller {
 			if (($user->role != "ADMIN") && ($daftar_pengaduan != "[]")) {
 				Session::flash('notification',$daftar_pengaduan);
 			}
-			
 			return redirect('index');
 		}
 	}

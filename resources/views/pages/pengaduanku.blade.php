@@ -1,6 +1,6 @@
-@extends('pages.skpd.master')
+@extends('pages.master')
 @section('title')
-	Daftar Pengaduan - Citizen Report
+	Pengaduanku - Citizen Report
 @stop
 @section('css')
 	
@@ -8,38 +8,12 @@
 @section('breadcrumb')
 	<ol class="breadcrumb">
 	  <li><a href="{{ URL::asset('index') }}">Home</a></li>
-	  <li class="">Daftar Pengaduan</li>
+	  <li class="">Pengaduanku</li>
 	</ol>
-@stop
-@section('daftar_pengaduan_active')
-	class="active"
-@stop
-
-@section('javascript')
-    <script>
-    	window.setTimeout(function () {
-		    $(".alert-success").slideUp(500, function () {
-		        $(this).remove();
-		    });
-		}, 9000);
-    </script>
 @stop
 
 @section('body')
 	<div class="body-container">
-		@if (Session::has('notification'))
-			<div class="alert alert-success">
-				<h3> Your Notification </h3>
-				<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-				
-				Aduan baru yang masuk : <BR><BR>
-				@foreach (Session::get('notification') as $pengaduan)
-					Judul : "{{ $pengaduan->judul }}". Dikirim tanggal : {{ $pengaduan->created_at }} <BR>
-				@endforeach 
-	
-			</div>
-		@endif
-
 		<!-- Single button -->
 		<div class="text-right col-xs-12">
 			<div class="btn-group">

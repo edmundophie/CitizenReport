@@ -75,6 +75,11 @@ class PagesController extends Controller {
 		return view('pages.buat_pengaduan', compact('listKategori'));
 	}
 
+	public function pengaduanku($sortBy) {
+		$listPengaduan = Pengaduan::getListPengaduanByUser($sortBy, Session::get('id_user'));
+		return view('pages.pengaduanku', compact('listPengaduan'));
+	}
+
 	public function statusPengaduan() {
 		return view('pages.status_pengaduan');
 	}

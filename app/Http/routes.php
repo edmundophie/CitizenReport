@@ -26,6 +26,8 @@ Route::get('/statistik', 'PagesController@statistik');
 
 Route::get('/buat-pengaduan', 'PagesController@buatPengaduan');
 
+Route::get('/pengaduanku/{sortBy}', 'PagesController@pengaduanku');
+
 Route::get('/manajemen-skpd', 'PagesController@manajemenSKPD');
 
 Route::get('/manajemen-kategori', 'PagesController@manajemenKategori');

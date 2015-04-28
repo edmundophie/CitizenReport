@@ -50,10 +50,10 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 		    <!-- Collect the nav links, forms, and other content for toggling -->
 		    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 		      <ul class="menu nav navbar-nav">
-		        <li @yield('home_active')><a href="{{ URL::to('index') }}">home</a></li>
-		        <li @yield('daftar_pengaduan_active')><a href="{{ URL::to('daftar-pengaduan/default') }}">daftar pengaduan</a></li>
-		        <li @yield('statistik_active')><a href="{{ URL::to('statistik') }}">statistik</a></li>
-		        <li @yield('buat_pengaduan_active')><a href="{{ URL::to('buat-pengaduan') }}">buat pengaduan</a></li>
+		        <li @yield('home_active')><a href="{{ URL::to('index') }}"><span class="glyphicon glyphicon-home"></span> home</a></li>
+		        <li @yield('daftar_pengaduan_active')><a href="{{ URL::to('daftar-pengaduan/default') }}"><span class="glyphicon glyphicon-list"></span> daftar pengaduan</a></li>
+		        <li @yield('statistik_active')><a href="{{ URL::to('statistik') }}"><span class="glyphicon glyphicon-equalizer"></span> statistik</a></li>
+		        <li @yield('buat_pengaduan_active')><a href="{{ URL::to('buat-pengaduan') }}"><span class="glyphicon glyphicon-edit"></span> buat pengaduan</a></li>
 		      </ul>
 		      <ul class="menu nav navbar-nav navbar-right">
 		      	@if(Session::has('role'))
@@ -62,15 +62,15 @@ License URL: http://creativecommons.org/licenses/by/3.0/
         		</li> 
         		<li>
 		      		<a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-expanded="false">
-						{{ Session::get('username')}} <span class="caret"></span>
+						<span class="glyphicon glyphicon-user"></span> {{ Session::get('username')}} <span class="caret"></span>
 					</a>
 					<ul class="dropdown-menu" role="menu">
-						<li><a href="">Pengaduanku</a></li>
-						<li><a href="{{URL::to('logout')}}">Logout</a></li>
+						<li><a href="{{URL::to('pengaduanku/default')}}"><span class="glyphicon glyphicon-tasks"></span> Pengaduanku</a></li>
+						<li><a href="{{ URL::to('logout') }}"><span class="glyphicon glyphicon-share"></span> Logout</a></li>
 					</ul>
         		</li>
         		@else
-        		<li><a href="{{ URL::to('login') }}">login</a></li>
+        		<li><a href="{{ URL::to('login') }}"><span class="glyphicon glyphicon-user"></span> login</a></li>
         		@endif
         	  </ul>
 		    </div><!-- /.navbar-collapse -->

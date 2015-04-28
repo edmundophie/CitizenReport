@@ -94,6 +94,36 @@ class Pengaduan extends model{
         return $array;
     }
 
+    public static function getListPengaduanByUser($sortBy, $id_masyarakat) {
+        if($sortBy=="default")
+            $model = PengaduanModel::where('id_masyarakat', $id_masyarakat)->get();
+        else if($sortBy=="tanggal")
+            $model = PengaduanModel::where('id_masyarakat', $id_masyarakat)->orderBy('created_at', 'DESC')->get();
+        else if($sortBy=="status") 
+            $model = PengaduanModel::where('id_masyarakat', $id_masyarakat)->orderBy('id_status', 'ASC')->get();
+   
+        $array;
+        $i = 0;
+        foreach($model as $pengaduan){
+            $temp = new Pengaduan();
+            $temp->setJudul($pengaduan['judul']);
+            $temp->setSlug($pengaduan['slug']);
+            $temp->setIdStatus($pengaduan['id_status']);
+            $temp->setDeskripsi($pengaduan['deskripsi']);
+            $temp->setGambar($pengaduan['gambar']);
+            $temp->setIdKategori($pengaduan['id_kategori']);
+            $temp->setIdMasyarakat($pengaduan['id_masyarakat']);
+            $temp->setKategori($pengaduan['id_kategori']);
+            $temp->setStatus($pengaduan['id_status']);
+            $temp->setLampiran($pengaduan['lampiran']);
+            $temp->setCreatedDate($pengaduan['created_at']);
+            $array[$i] = $temp;
+            $i++;
+        }
+        
+        return $array;
+    }
+
     public function setJudul($judul){
         $this->dataPengaduan['judul'] = $judul;
     }
