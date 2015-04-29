@@ -3,15 +3,15 @@
 	Statistik - Citizen Report
 @stop
 @section('css')
-	<link rel="stylesheet" href="css/statistik.css">
+	<link rel="stylesheet" href="{{ URL::asset('css/statistik.css') }}">
 @stop
 @section('javascript')
-    <script type="text/javascript" src="js/raphael.js"></script>
-    <script type="text/javascript" src="js/g.raphael-min.js"></script>
-    <script type="text/javascript" src="js/g.bar-min.js"></script>
-    <script type="text/javascript" src="js/g.dot-min.js"></script>
-    <script type="text/javascript" src="js/g.line-min.js"></script>
-    <script type="text/javascript" src="js/g.pie-min.js"></script>
+    <script type="text/javascript" src="{{ URL::asset('js/raphael.js') }}"></script>
+    <script type="text/javascript" src="{{ URL::asset('js/g.raphael-min.js') }}"></script>
+    <script type="text/javascript" src="{{ URL::asset('js/g.bar-min.js') }}"></script>
+    <script type="text/javascript" src="{{ URL::asset('js/g.dot-min.js') }}"></script>
+    <script type="text/javascript" src="{{ URL::asset('js/g.line-min.js') }}"></script>
+    <script type="text/javascript" src="{{ URL::asset('js/g.pie-min.js') }}"></script>
 @stop
 @section('breadcrumb')
 	<ol class="breadcrumb">
@@ -62,7 +62,7 @@
             nostroke: false,
             axis: "0 0 0 1",
             symbol: "circle",
-            smooth: true
+            smooth: false
         });
 
         Raphael.g.axis(
@@ -95,7 +95,7 @@
 
         var txtAttr = { font: "12px 'Fontin Sans', Fontin-Sans, sans-serif" };
 
-        var barchart = bar.barchart(10, 10, 1000, 300, bardata, {gutter: 30, vgutter: 30, smooth: true, legend: ['a','b']});
+        var barchart = bar.barchart(10, 10, 1000, 300, bardata, {gutter: 30, vgutter: 30, smooth: false, legend: ['a','b']});
 
         var x, y;
         for (i = 0; i < data1.length; i++) {
@@ -143,6 +143,19 @@
         </div>
 
         <div class="col-sm-12">
+            <div class="row pull-left kategori">
+                <div class="btn-group">
+                    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                        Kategori <span class="caret"></span>
+                    </button>
+                    <ul class="dropdown-menu" role="menu">
+                        <li><a href="{{ URL::asset('statistik/') }}">Semua</a></li>
+                        @foreach($listKategori as $kategori)
+                            <li><a href="{{ URL::asset('statistik/'.$kategori['id']) }}">{{ $kategori['nama'] }}</a></li>
+                        @endforeach
+                    </ul>
+                </div>
+            </div>
             <div class="panel panel-default statistik-panel" id="paneldiv3">
 
             </div>

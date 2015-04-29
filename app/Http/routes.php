@@ -24,6 +24,8 @@ Route::get('/daftar-pengaduan/kategori/{id_kategori}', 'PagesController@daftarPe
 
 Route::get('/statistik', 'PagesController@statistik');
 
+Route::get('/statistik/{id_kategori}', 'PagesController@statistikByKategori');
+
 Route::get('/buat-pengaduan', 'PagesController@buatPengaduan');
 
 Route::get('/pengaduanku/{sortBy}', 'PagesController@pengaduanku');

@@ -318,7 +318,99 @@ class Pengaduan extends model{
         return $jumlah;
     }
 
+    public static function getJumlahAduanForNMonthsByCategory($jumBulanTerakhir, $id_kategori){
+        $jumAduan = new StatistikAduan();
+        $month = date('m');
+        $year = date('Y');
+
+        $j = 0;
+        for($i = $jumBulanTerakhir; $i >= 0; $i--){
+            $m = $month - $i;
+            $y = $year;
+
+            if($m <= 0){
+                $m = 12 + $m;
+                $y = $y - 1;
+            }
+
+            $bulanFormatted = Pengaduan::getMonthName($m);
+            $tahunFormatted = $y;
+
+            $dateStr = $bulanFormatted." ".$tahunFormatted;
+
+            $jumAduan->date[$j] = $dateStr;
+
+            $jumAduan->jumlah[$j] = Pengaduan::getJumlahAduanByCategory($dateStr, $id_kategori);
+
+            $j++;
+        }
+
+        return $jumAduan;
+    }
+
+    public static function getJumlahAduanClosedForNMonthsByCategory($jumBulanTerakhir, $id_kategori){
+        $jumAduan = new StatistikAduan();
+        $month = date('m');
+        $year = date('Y');
+
+        $j = 0;
+        for($i = $jumBulanTerakhir; $i >= 0; $i--){
+            $m = $month - $i;
+            $y = $year;
+
+            if($m <= 0){
+                $m = 12 + $m;
+                $y = $y - 1;
+            }
+
+            $bulanFormatted = Pengaduan::getMonthName($m);
+            $tahunFormatted = $y;
+
+            $dateStr = $bulanFormatted." ".$tahunFormatted;
+
+            $jumAduan->date[$j] = $dateStr;
+
+            $jumAduan->jumlah[$j] = Pengaduan::getJumlahAduanClosedByCategory($dateStr, $id_kategori);
+
+            $j++;
+        }
+
+        return $jumAduan;
+    }
+
+    private static function getJumlahAduanClosedByCategory($date, $id_kategori){
+        $idStatus = StatusModel::where('nama', 'closed')->first()['id'];
+        $aduan = PengaduanModel::all();
+        $jumlah = 0;
+
+        foreach ($aduan as $temp) {
+            $createdAt = $temp['created_at']."";
+
+            if (strpos($createdAt, $date) !== false && $temp['id_status'] == $idStatus && $temp['id_kategori'] == $id_kategori){
+                $jumlah++;
+            }
+        }
+
+        return $jumlah;
+    }
+
+    private static function getJumlahAduanByCategory($date, $id_kategori){
+        $aduan = PengaduanModel::all();
+        $jumlah = 0;
+
+        foreach ($aduan as $temp) {
+            $createdAt = $temp['created_at']."";
+
+            if (strpos($createdAt, $date) !== false && $temp['id_kategori'] == $id_kategori){
+                $jumlah++;
+            }
+        }
+
+        return $jumlah;
+    }
+
     private static function getMonthName($inp){
         return date("M", strtotime(date("d-$inp-y")));
     }
+
 } 

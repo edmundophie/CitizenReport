@@ -66,8 +66,27 @@ class PagesController extends Controller {
         $jumAduanClosed = new StatistikAduan();
         $jumAduanClosed = Pengaduan::getJumlahAduanClosedForNMonths(5);
 
-		return view('pages.statistik', compact('kategori', 'jumAduan', 'jumAduanClosed'));
+        $listKategori = Kategori::getListKategori();
+
+		return view('pages.statistik', compact('kategori', 'jumAduan', 'jumAduanClosed', 'listKategori'));
 	}
+
+    public function statistikByKategori($id_kategori){
+        $kategori = new StatistikAduan();
+        $kategori = Pengaduan::getStatistikJumlah();
+
+        $jumAduan = new StatistikAduan();
+        $jumAduan = Pengaduan::getJumlahAduanForNMonthsByCategory(5, $id_kategori);
+
+        $jumAduanClosed = new StatistikAduan();
+        $jumAduanClosed = Pengaduan::getJumlahAduanClosedForNMonthsByCategory(5, $id_kategori);
+
+        $listKategori = Kategori::getListKategori();
+
+        return view('pages.statistik', compact('kategori', 'jumAduan', 'jumAduanClosed', 'listKategori'));
+
+        //return $id_kategori."";
+    }
 
 	public function buatPengaduan() {
 		$listKategori = Kategori::getListKategori();
