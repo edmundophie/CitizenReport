@@ -55,9 +55,9 @@ return [
 		'mysql' => [
 			'driver'    => 'mysql',
 			'host'      => '127.0.0.1',
-			'database'  => 'ppl_pengaduan',
-			'username'  => 'root',
-			'password'  => ''	,
+			'database'  => 'ppl_bandung',
+			'username'  => 'ppl_bandung',
+			'password'  => 'ppl_bandung',
 			'charset'   => 'utf8',
 			'collation' => 'utf8_unicode_ci',
 			'prefix'    => '',
