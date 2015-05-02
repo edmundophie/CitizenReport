@@ -31,9 +31,9 @@
 			</tr>
 			</thead>
 			<tbody>
-			@foreach($listSKPD as $skpd)
+			<!-- @foreach($listSKPD as $skpd) -->
 			<tr>
-				<td>{{$skpd->nama}}</td>
+				<!-- <td>{{$skpd->nama}}</td> -->
 <!-- 				<td>{{$skpd->kategori}}</td> -->
 				<td>
 					<div class="pull-right">
@@ -42,7 +42,7 @@
 					</div>
 				</td>
 			</tr>		
-			@endforeach	
+			<!-- @endforeach	 -->
 			</tbody>
 		</table>
 	</div>
