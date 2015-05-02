@@ -7,7 +7,6 @@ use App\KategoriModel;
 class SKPDModel extends Model {
 	protected $table = "ppl_dukcapil_ktp";
 	protected $appends = array('id_kategori', 'kategori', 'username', 'password');
-	protected $primaryKey = 'id_user';
 
 	public function getKategoriAttribute($value) {
 		$id_kategori = DB::table('ppl_citizenreport_penanggungjawab')->where('id_skpd', $this->attributes['id'])->first()->id_kategori;
