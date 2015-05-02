@@ -9,8 +9,7 @@ class SKPDModel extends Model {
 	protected $appends = array('id_kategori', 'kategori', 'username', 'password');
 
 	public function getKategoriAttribute($value) {
-		$id_kategori = DB::table('ppl_citizenreport_penanggungjawab')->where('id_skpd', $this->attributes['id'])->first();//->id_kategori;
-		dd($id_kategori);
+		$id_kategori = DB::table('ppl_citizenreport_penanggungjawab')->where('id_skpd', $this->attributes['id'])->first()->id_kategori;
 		$nama_kategori = KategoriModel::where('id', $id_kategori)->first()['nama'];
 
 		return $nama_kategori;
