@@ -21,9 +21,9 @@ class PagesController extends Controller {
 	}
 
 	public function index(Request $request) {
-		Session::put('id_user', $request->get('id'));
-		$user = DB::table('ppl_dukcapil_ktp')->where('id', Session::get('id_user'))->first();
+		$user = DB::table('ppl_dukcapil_ktp')->where('id', $request->get('id'))->first();
 		$user_role = $user->role;
+		Session::put('id_user', $user->id);
 		Session::put('username', $user->username);
 		Session::put('role', $user_role);
         if($user_role=="ADMIN") {
