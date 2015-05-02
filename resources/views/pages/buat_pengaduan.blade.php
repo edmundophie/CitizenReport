@@ -86,7 +86,7 @@
 			<div class="form-group">
 				<label for="inputJudul" class="col-sm-2 control-label">Judul</label>
 				<div class="col-sm-10">
-					<input type="text" class="form-control" name="judul" id="inputJudul" placeholder="Judul">
+					<input type="text" class="form-control" name="judul" id="inputJudul" placeholder="Judul" required>
 				</div>
 			</div>
 			<div class="form-group">
@@ -114,7 +114,7 @@
 			<div class="form-group">
 				<label for="inputDeskripsi" class="col-sm-2 control-label">Deskripsi</label>
 				<div class="col-sm-10">
-					<textarea class="form-control" name="deskripsi" id="inputDeskripsi" cols="30" rows="10"></textarea>
+					<textarea class="form-control" name="deskripsi" id="inputDeskripsi" cols="30" rows="10"  required></textarea>
 				</div>
 			</div>
 			<div class="form-group">
