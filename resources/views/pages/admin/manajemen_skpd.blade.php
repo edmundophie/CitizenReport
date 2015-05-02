@@ -26,7 +26,7 @@
 			<thead>
 			<tr>
 				<th>Dinas</th>		
-				<th>Kategorix</th>
+				<th>Kategori</th>
 				<th class="col-xs-2"></th>
 			</tr>
 			</thead>
@@ -34,7 +34,7 @@
 			@foreach($listSKPD as $skpd)
 			<tr>
 				<td>{{$skpd->nama}}</td>
-				<td>{{$skpd->nama_kategori}}</td>
+				<td>{{$skpd->Masuk}}</td>
 				<td>
 					<div class="pull-right">
 					<a href="{{URL::to('edit-skpd/'.$skpd->id)}}" ><span class="glyphicon glyphicon-pencil text-success"> </span></a> 
