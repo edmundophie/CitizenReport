@@ -13,14 +13,14 @@ use Session;
 class SessionController extends Controller {
 
 	public function login(Request $request) {
-		$username = $request->get('username');
+		$nik = $request->get('nik');
 		$password = $request->get('password');
-		$user = UserModel::where('username', $username)->where('password', $password)->first();
+		$user = UserModel::where('nik', $nik)->where('password', $password)->first();
+		$user_role = strtoupper($user->role);
 
-
-		if ($user->role == "MASYARAKAT") {
+		if ($user_role == "MASYARAKAT") {
 			$daftar_pengaduan = Pengaduan::where('id_masyarakat',$user->id)->where('id_status',6)->get(); // status rejected
-		} else if ($user->role == "SKPD") {
+		} else if ($user_role == "SKPD") {
 			$SKPD = PenanggungJawab::where('id_skpd',$user->id)->first();
 			$daftar_pengaduan = Pengaduan::where('id_kategori',$SKPD->id_kategori)->where('id_status',2)->get(); // status forwarded
 		} else {
@@ -32,9 +32,9 @@ class SessionController extends Controller {
 		else {
 			Session::put('id_user', $user->id);
 			Session::put('username', $user->username);
-			Session::put('role', $user->role);
+			Session::put('role', $user_role);
 			
-			if (($user->role != "ADMIN") && ($daftar_pengaduan != "[]")) {
+			if (($user_role != "ADMIN") && ($daftar_pengaduan != "[]")) {
 				Session::flash('notification',$daftar_pengaduan);
 			}
 			return redirect('index');
@@ -43,7 +43,6 @@ class SessionController extends Controller {
 
 	public function logout() {
 		Session::flush();
-
 		return redirect('pages.index');
 	}
 

@@ -3,7 +3,7 @@
 use Illuminate\Database\Eloquent\Model;
 
 class UserModel extends Model {
-	protected $table = "ppl_citizenreport_user";
+	protected $table = "ppl_dukcapil_ktp";
 	//
 
 }

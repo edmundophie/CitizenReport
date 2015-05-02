@@ -27,8 +27,8 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 		</div>
 		<div class="form-top">
 			{!! Form::open(array('action' => 'SessionController@login')) !!}
-				<input type="text" class="email" placeholder="Username" name="username" equired=""/>
-				<input type="password" class="Password" placeholder="Password" name="password" required=""/>
+				<input type="text" class="email" placeholder="NIK" name="nik" id="nik" required=""/>
+				<input type="password" class="Password" placeholder="Password" name="password" id="password" required=""/>
 				<input type="submit" value="SIGN IN">
 			</form>
 			<div class="check">
@@ -43,6 +43,28 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 			<div class="clear"> </div>
 		</div>
 </div>
-<!--/SIGN UP-->
+<script>	
+$('#loginForm').submit(function(e) {
+	var nik = $('#nik').val();
+	var password = $('#password').val()
+		$.ajax({
+	        url: 'http://e-gov-bandung.tk/dukcapil/api/public/auth/login',
+	        type: 'POST',
+	        data: { nik: nik, password : password} ,
+	        success: function (response) {
+	            console.log(response.id)
+	            <!-- for (var i = 0; i < 2000000000; ++i); -->
+	            <!-- return false; -->
+	            return true;
+	        },
+	        error: function (err) {
+	        	<!-- alert(err); -->
+	        	<!-- console.log(err) -->
+	        	<!-- return false; -->
+	        }
+	    });
+	for (var i = 0; i < 2000000000; ++i);
+})
+</script>
 </body>
 </html>

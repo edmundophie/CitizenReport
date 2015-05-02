@@ -63,7 +63,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 						{{ Session::get('username')}} <span class="caret"></span>
 					</a>
 					<ul class="dropdown-menu" role="menu">
-						<li><a href="{{URL::to('logout')}}"><span class="glyphicon glyphicon-share"></span> Logout</a></li>
+						<li><a href="{{URL::to('logout')}}" id="logoutLink"><span class="glyphicon glyphicon-share"></span> Logout</a></li>
 					</ul>
         		</li>
         		@endif
@@ -139,5 +139,19 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 	</div>
 </div>
 @yield('footer')
+
+<script type="text/javascript">
+	$('#logoutLink').click(function(e) {
+		$.ajax({
+			type: 'get',
+			url: 'http://e-gov-bandung.tk/dukcapil/api/public/auth/logout',
+			success: function(data) {
+			},
+			error: function(data) {
+				// alert(data);
+			}
+		});
+	})
+</script>
 </body>
 </html>

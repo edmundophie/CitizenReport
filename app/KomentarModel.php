@@ -9,13 +9,14 @@ class KomentarModel extends Model {
 	//
 
 	public function getIsSkpdAttribute() {
-		if(UserModel::where('id', $this->attributes['id_komentator'])->first()['role']=="SKPD")
+		$role = UserModel::where('id', $this->attributes['id_komentator'])->first()['role'];
+		if(strtoupper($role)=="SKPD")
 			return true;
 		else
 			return false;
 	}
 
 	public function getAvatarAttribute() {
-		return UserModel::where('id', $this->attributes['id_komentator'])->first()['avatar'];
+		return "default.jpg";
 	}
 }

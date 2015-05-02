@@ -5,7 +5,7 @@ use DB;
 use App\KategoriModel;
 
 class SKPDModel extends Model {
-	protected $table = "ppl_citizenreport_skpd";
+	protected $table = "ppl_dukcapil_ktp";
 	protected $appends = array('id_kategori', 'kategori', 'username', 'password');
 	protected $primaryKey = 'id_user';
 
