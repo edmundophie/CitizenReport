@@ -1,6 +1,6 @@
 @extends('pages.admin.master')
 @section('title')
-	asdManajemen SKPD - Citizen Report
+	Manajemen SKPD - Citizen Report
 @stop
 @section('css')
 @stop
@@ -73,9 +73,9 @@
 				<label for="inputKategori" class="col-sm-3 control-label">Kategori</label>
 				<div class="col-sm-9">
 					<select class="form-control" name="id_kategori" id="inputKategori">
-						@foreach($listKategori as $kategori)
-						<option value="{{ $kategori['id'] }}">{{ $kategori['nama'] }}</option>
-						@endforeach
+						<!-- @foreach($listKategori as $kategori) -->
+						<!-- <option value="{{ $kategori['id'] }}">{{ $kategori['nama'] }}</option> -->
+						<!-- @endforeach -->
 					</select>
 				</div>
 			</div>
