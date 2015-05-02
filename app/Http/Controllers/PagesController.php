@@ -21,6 +21,7 @@ class PagesController extends Controller {
 	}
 
 	public function index(Request $request) {
+		$user_role;
 		if($request->get('id')!=9999) {
 			$user = DB::table('ppl_dukcapil_ktp')->where('id', $request->get('id'))->first();
 			$user_role = strtoupper($user->role);
