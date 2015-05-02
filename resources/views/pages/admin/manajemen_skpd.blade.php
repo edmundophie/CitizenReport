@@ -31,10 +31,7 @@
 			</tr>
 			</thead>
 			<tbody>
-			{{dd("tes1")}}
-			tes1
 			@foreach($listSKPD as $skpd)
-			{{dd("tes2")}}
 			tes2
 			<tr>
 				<td>{{$skpd->nama}}</td>
@@ -46,8 +43,6 @@
 					</div>
 				</td>
 			</tr>		
-			{{dd("tes3")}}	
-			tes3
 			@endforeach	
 			{{dd("tes4")}}
 			tes4
