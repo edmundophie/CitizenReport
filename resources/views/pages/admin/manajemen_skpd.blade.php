@@ -34,7 +34,7 @@
 			@foreach($listSKPD as $skpd)
 			<tr>
 				<td>{{$skpd->nama}}</td>
-				<td>{{$skpd->Masuk}}</td>
+				<td>{{$skpd->masuk}}</td>
 				<td>
 					<div class="pull-right">
 					<a href="{{URL::to('edit-skpd/'.$skpd->id)}}" ><span class="glyphicon glyphicon-pencil text-success"> </span></a> 
