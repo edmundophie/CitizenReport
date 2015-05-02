@@ -19,6 +19,33 @@
 	@if(Session::has('message'))
 	<div class="alert alert-success" role="alert"><strong>Berhasil!</strong> {{Session::get('message')}}</div>	
 	@endif
+	<div class="col-sm-6">
+		<h2 class="title">Daftar SKPD</h2>
+		<hr style="margin-top:0">
+		<table class="table table-striped table-hover">
+			<thead>
+			<tr>
+				<th>Dinas</th>		
+				<!-- <th>Kategori</th> -->
+				<th class="col-xs-2"></th>
+			</tr>
+			</thead>
+			<tbody>
+			<!-- @foreach($listSKPD as $skpd) -->
+			<tr>
+				<!-- <td>{{$skpd->nama}}</td> -->
+<!-- 				<td>{{$skpd->kategori}}</td> -->
+				<td>
+					<div class="pull-right">
+					<!-- <a href="{{URL::to('edit-skpd/'.$skpd['id'])}}" ><span class="glyphicon glyphicon-pencil text-success"> </span></a>  -->
+					<!-- <a href="{{URL::to('delete-skpd/'.$skpd['id'])}}" onclick="return confirm('Anda yakin ingin menghapus SKPD ini?')"> <span class="glyphicon glyphicon-remove text-danger"> </span></a> -->
+					</div>
+				</td>
+			</tr>		
+			<!-- @endforeach	 -->
+			</tbody>
+		</table>
+	</div>
 
 	<div class="col-sm-6">
 		<h2 class="title">Tambah SKPD</h2>
