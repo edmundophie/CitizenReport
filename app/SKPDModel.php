@@ -6,9 +6,9 @@ use App\KategoriModel;
 
 class SKPDModel extends Model {
 	protected $table = "ppl_dukcapil_ktp";
-	protected $appends = array('kategori', 'id_kategori');
+	protected $appends = array('kategorix', 'id_kategori');
 	
-	public function getKategoriAttribute() {
+	public function getKategorixAttribute() {
 		$id_kategori = DB::table('ppl_citizenreport_penanggungjawab')->where('id_skpd', $this->attributes['id'])->first()->id_kategori;
 		$nama_kategori = KategoriModel::where('id', $id_kategori)->first()['nama'];
 

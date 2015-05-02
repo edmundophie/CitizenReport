@@ -26,7 +26,7 @@
 			<thead>
 			<tr>
 				<th>Dinas</th>		
-				<th>Kategori</th>
+				<th>Kategorix</th>
 				<th class="col-xs-2"></th>
 			</tr>
 			</thead>
