@@ -18,7 +18,7 @@
 		    		var url = "{{url()}}/index?id="+data;
 		    		window.location.href = url;
 		    	} else { //redirect ke alamat login kalian
-		    		var url = "{{url()}}/login" 
+		    		var url = "{{url()}}/index?id=9999" 
 		    		window.location.href = url
 		    	}
 		    },
