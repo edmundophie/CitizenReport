@@ -21,7 +21,7 @@ class PagesController extends Controller {
 	}
 
 	public function index(Request $request) {
-		if($request->get('id')!=-99) {
+		if($request->get('id')!=9999) {
 			$user = DB::table('ppl_dukcapil_ktp')->where('id', $request->get('id'))->first();
 			$user_role = strtoupper($user->role);
 			Session::put('id_user', $user->id);
