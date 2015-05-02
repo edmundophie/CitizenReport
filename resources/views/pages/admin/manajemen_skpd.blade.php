@@ -31,6 +31,7 @@
 			</tr>
 			</thead>
 			<tbody>
+			{{dd($listSKPD)}}
 			@foreach($listSKPD as $skpd)
 			<tr>
 				<td>{{$skpd->nama}}</td>
