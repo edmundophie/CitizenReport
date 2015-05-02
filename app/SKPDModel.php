@@ -6,7 +6,7 @@ use App\KategoriModel;
 
 class SKPDModel extends Model {
 	protected $table = "ppl_dukcapil_ktp";
-	protected $appends = array('id_kategori', 'kategori', 'username', 'password');
+	protected $appends = array('id_kategori', 'kategori');
 
 	public function getKategoriAttribute($value) {
 		$id_kategori = DB::table('ppl_citizenreport_penanggungjawab')->where('id_skpd', $this->attributes['id'])->first()->id_kategori;
@@ -19,13 +19,5 @@ class SKPDModel extends Model {
 		$id_kategori = DB::table('ppl_citizenreport_penanggungjawab')->where('id_skpd', $this->attributes['id'])->first()->id_kategori;
 
 		return $id_kategori;
-	}
-
-	public function getUsernameAttribute($value) {
-		return UserModel::where('id', $this->attributes['id'])->first()['username'];
-	}
-
-	public function getPasswordAttribute($value) {
-		return UserModel::where('id', $this->attributes['id'])->first()['password'];
 	}
 }

@@ -34,8 +34,6 @@
 			@foreach($listSKPD as $skpd)
 			<tr>
 				<td>{{$skpd->nama}}</td>
-
-			{{dd("tes3")}}
 				<td>{{$skpd->kategori}}</td>
 
 			{{dd("tes4")}}
