@@ -8,7 +8,7 @@
 @section('breadcrumb')
 	<ol class="breadcrumb">
 	  <li><a href="{{ URL::asset('index') }}">Home</a></li>
-	  <li class="">Daftar Pengaduan</li>
+	  <li class="">Daftar Pengaduans</li>
 	</ol>
 @stop
 @section('daftar_pengaduan_active')
