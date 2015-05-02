@@ -57,7 +57,7 @@ class SKPDController extends Controller {
 		$user->password = $request->get('password');
 		$user->save();
 
-		$skpd = SKPDModel::where('id_user', $request->get('id_skpd'))->first();
+		$skpd = SKPDModel::where('id', $request->get('id_skpd'))->first();
 
 		$skpd->nama = $request->get('nama');
 		$skpd->alamat = $request->get('alamat');
