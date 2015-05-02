@@ -23,8 +23,9 @@ class PagesController extends Controller {
 	public function index(Request $request) {
 		Session::put('id_user', $request->get('id'));
 		$user = DB::table('ppl_dukcapil_ktp')->where('id', Session::get('id_user'))->first();
+		$user_role = $user->role;
 		Session::put('username', $user->username);
-		Session::put('role', $user->role);
+		Session::put('role', $user_role);
         if($user_role=="ADMIN") {
         	return $this->daftarPengaduan("default");
 		} else	if($user_role=="SKPD") {
