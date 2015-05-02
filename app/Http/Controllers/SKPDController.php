@@ -7,15 +7,17 @@ use Illuminate\Http\Request;
 use App\UserModel;
 use App\SKPDModel;
 use DB;
+use Hash;
 
 class SKPDController extends Controller {
 
 	public function insert(Request $request) {
 		$user = new UserModel;
 		$user->username = $request->get('username');
-		$user->password = $request->get('password');
+		$user->password = Hash::make($request->get('password'));
 		// Data asal skpd di tabel dukcapil
 		$user->nik = strval(rand(1000000000, 2000000000));
+		$user->nama = $request->get('nama');
 		$user->email = $request->get('username')."@yahoo.com";
 		$user->kota_lahir = "Bandung";
 		$user->tanggal_lahir = "1994-04-10";
