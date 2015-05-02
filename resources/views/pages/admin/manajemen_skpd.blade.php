@@ -31,8 +31,10 @@
 			</tr>
 			</thead>
 			<tbody>
+			{{dd("tes1")}}
 			tes1
 			@foreach($listSKPD as $skpd)
+			{{dd("tes2")}}
 			tes2
 			<tr>
 				<td>{{$skpd->nama}}</td>
@@ -43,9 +45,11 @@
 					<a href="{{URL::to('delete-skpd/'.$skpd['id'])}}" onclick="return confirm('Anda yakin ingin menghapus SKPD ini?')"> <span class="glyphicon glyphicon-remove text-danger"> </span></a>
 					</div>
 				</td>
-			</tr>			
+			</tr>		
+			{{dd("tes3")}}	
 			tes3
 			@endforeach	
+			{{dd("tes4")}}
 			tes4
 			</tbody>
 		</table>
