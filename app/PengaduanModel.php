@@ -16,7 +16,7 @@ class PengaduanModel extends Model{
 
     public function getCreatedAtAttribute($value)
     {
-        return date('d M Y HH:MM', strtotime($this->attributes['created_at']));
+        return date('d M Y H:i', strtotime($this->attributes['created_at']));
     }
 
     public function getIdSkpdAttribute($value) {
