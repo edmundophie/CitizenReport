@@ -37,7 +37,7 @@ class SessionController extends Controller {
 			if (($user_role != "ADMIN") && ($daftar_pengaduan != "[]")) {
 				Session::flash('notification',$daftar_pengaduan);
 			}
-			return redirect('index');
+			return redirect('index?id=-99');
 		}
 	}
 
