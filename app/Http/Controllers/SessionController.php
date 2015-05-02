@@ -37,13 +37,13 @@ class SessionController extends Controller {
 			if (($user_role != "ADMIN") && ($daftar_pengaduan != "[]")) {
 				Session::flash('notification',$daftar_pengaduan);
 			}
-			return redirect('index?id=9999');
+			return redirect('index');
 		}
 	}
 
 	public function logout() {
 		Session::flush();
-		return redirect('index');
+		return redirect('index?id=9999');
 	}
 
 }
