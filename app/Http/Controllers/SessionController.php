@@ -43,7 +43,7 @@ class SessionController extends Controller {
 
 	public function logout() {
 		Session::flush();
-		return redirect('pages.index');
+		return redirect('index');
 	}
 
 }
