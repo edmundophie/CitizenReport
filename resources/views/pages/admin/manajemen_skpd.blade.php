@@ -31,7 +31,7 @@
 			</tr>
 			</thead>
 			<tbody>
-			{{dd($listSKPD)}}
+
 			@foreach($listSKPD as $skpd)
 			<tr>
 				<td>{{$skpd->nama}}</td>
@@ -75,6 +75,7 @@
 				<label for="inputKategori" class="col-sm-3 control-label">Kategori</label>
 				<div class="col-sm-9">
 					<select class="form-control" name="id_kategori" id="inputKategori">
+					{{dd($listKategori)}}
 						@foreach($listKategori as $kategori)
 						<option value="{{ $kategori['id'] }}">{{ $kategori['nama'] }}</option>
 						@endforeach
