@@ -127,7 +127,7 @@ class PagesController extends Controller {
 	}
 	
 	public function editSKPD($id_skpd) {
-		$skpd = SKPDModel::where('id_user', $id_skpd)->first();
+		$skpd = SKPDModel::where('id', $id_skpd)->first();
 		$listKategori = KategoriModel::all();
 		return view('pages.admin.edit_skpd', compact('skpd', 'listKategori'));	
 	}
