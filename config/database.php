@@ -54,10 +54,10 @@ return [
 
 		'mysql' => [
 			'driver'    => 'mysql',
-			'host'      => '127.0.0.1',
+			'host'      => 'e-gov-bandung.tk',
 			'database'  => 'ppl_bandung',
-			'username'  => 'root',
-			'password'  => '',
+			'username'  => 'ppl_bandung',
+			'password'  => 'ppl_bandung',
 			'charset'   => 'utf8',
 			'collation' => 'utf8_unicode_ci',
 			'prefix'    => '',

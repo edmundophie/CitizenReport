@@ -12,7 +12,7 @@
 */
 
 // Main pages
-Route::get('/', 'PagesController@index');
+Route::get('/', 'PagesController@redirect');
 
 Route::get('/login', 'PagesController@login');
 

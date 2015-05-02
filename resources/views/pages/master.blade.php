@@ -7,7 +7,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <!DOCTYPE HTML>
 <html>
 <head>
-<title>MANTAP GAN@yield('title')</title>
+<title>@yield('title')</title>
 <!-- Bootstrap -->
 <!-- <link href="{{ URL::asset('css/bootstrap.min.css') }}" rel='stylesheet' type='text/css' /> -->
 <link href="{{ URL::asset('css/bootstrap-original.css') }}" rel='stylesheet' type='text/css' />
