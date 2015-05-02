@@ -129,6 +129,6 @@ class PagesController extends Controller {
 	}
 
 	public function login() {
-		return view('pages.index');
+		return view('login');
 	}
 }
