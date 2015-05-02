@@ -31,20 +31,22 @@
 			</tr>
 			</thead>
 			<tbody>
-
+			tes1
 			@foreach($listSKPD as $skpd)
+			tes2
 			<tr>
 				<td>{{$skpd->nama}}</td>
 				<td>{{$skpd->kategori}}</td>
 				<td>
 					<div class="pull-right">
 					<a href="{{URL::to('edit-skpd/'.$skpd['id'])}}" ><span class="glyphicon glyphicon-pencil text-success"> </span></a> 
-					<a href="{{URL::to('delete-skpd/'.$skpd->id)}}" onclick="return confirm('Anda yakin ingin menghapus SKPD ini?')"> <span class="glyphicon glyphicon-remove text-danger"> </span></a>
+					<a href="{{URL::to('delete-skpd/'.$skpd['id'])}}" onclick="return confirm('Anda yakin ingin menghapus SKPD ini?')"> <span class="glyphicon glyphicon-remove text-danger"> </span></a>
 					</div>
 				</td>
 			</tr>			
+			tes3
 			@endforeach	
-			
+			tes4
 			</tbody>
 		</table>
 	</div>
@@ -75,7 +77,6 @@
 				<label for="inputKategori" class="col-sm-3 control-label">Kategori</label>
 				<div class="col-sm-9">
 					<select class="form-control" name="id_kategori" id="inputKategori">
-					{{dd($listKategori)}}
 						@foreach($listKategori as $kategori)
 						<option value="{{ $kategori['id'] }}">{{ $kategori['nama'] }}</option>
 						@endforeach
