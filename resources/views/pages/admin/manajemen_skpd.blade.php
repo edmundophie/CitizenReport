@@ -1,6 +1,6 @@
 @extends('pages.admin.master')
 @section('title')
-	Manajemen SKPD - Citizen Report
+	asdManajemen SKPD - Citizen Report
 @stop
 @section('css')
 @stop
