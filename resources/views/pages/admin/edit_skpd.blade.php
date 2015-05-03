@@ -20,7 +20,7 @@
 		<h2 class="title">Edit SKPD</h2>
 		<hr style="margin-top:0">
 		{!! Form::open(array('action' => 'SKPDController@update', 'class' => 'form-horizontal')) !!}
-			<input type="hidden" name="id_skpd" value="{{$skpd->id_user}}">
+			<input type="hidden" name="id_skpd" value="{{$skpd->id}}">
 			<div class="form-group">
 				<label for="inputNama" class="col-sm-3 control-label">Nama SKPD</label>
 				<div class="col-sm-9">
