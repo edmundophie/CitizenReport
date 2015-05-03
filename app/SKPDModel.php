@@ -16,7 +16,6 @@ class SKPDModel extends Model {
 
 	public function getKategoriAttribute($value) {
 		$id_kategori = DB::table('ppl_citizenreport_penanggungjawab')->where('id_skpd', $this->attributes['id'])->first()->id_kategori;
-		dd($id_kategori);
 		return KategoriModel::where('id', $id_kategori)->first()['nama'];
 	}
 }
