@@ -32,6 +32,7 @@
 			</thead>
 			<tbody>
 			@foreach($listSKPD as $skpd)
+			{{dd($skpd)}}
 			<tr>
 				<td>{{$skpd->nama}}</td>
 				<td>{{$skpd->kategori}}</td>
