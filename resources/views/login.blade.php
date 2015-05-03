@@ -16,6 +16,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <!--webfonts-->
 <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600' rel='stylesheet' type='text/css'>
 <link href='http://fonts.googleapis.com/css?family=Fjord+One' rel='stylesheet' type='text/css'>
+<script type="text/javascript" src="{{ URL::asset('js/jquery.min.js') }}"></script>
 <!--//webfonts-->
 </head>
 <body>
@@ -53,7 +54,7 @@ $('#loginForm').submit(function(e) {
 	        data: { nik: nik, password : password} ,
 	        success: function (response) {
 	            console.log(response.id);
-	            var url = "{{url()}}";
+	            var url = "{{url()}}/";
 	            window.location.href = url;
 	            //return true;
 	        },
