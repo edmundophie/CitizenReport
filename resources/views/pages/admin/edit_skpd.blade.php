@@ -34,12 +34,6 @@
 				</div>
 			</div>
 			<div class="form-group">
-				<label for="inputTelepon" class="col-sm-3 control-label">Telepon</label>
-				<div class="col-sm-9">
-					<input type="text" class="form-control" name="telepon" id="inputTelepon" placeholder="Telepon" value="{{$skpd->telp	}}" required>
-				</div>
-			</div>
-			<div class="form-group">
 				<label for="inputKategori" class="col-sm-3 control-label">Kategori</label>
 				<div class="col-sm-9">
 					<select class="form-control" name="id_kategori" id="inputKategori">
@@ -58,18 +52,6 @@
 				<label for="inputUsername" class="col-sm-3 control-label">Username</label>
 				<div class="col-sm-9">
 					<input type="text" class="form-control" name="username" id="inputUsername" placeholder="Username" value="{{$skpd->username}}" required>
-				</div>
-			</div>
-			<div class="form-group">
-				<label for="inputPassword" class="col-sm-3 control-label">Password Baru</label>
-				<div class="col-sm-9">
-					<input type="text" class="form-control" name="password" id="inputPassword" placeholder="Password" value="{{$skpd->password}}" required>
-				</div>
-			</div>
-			<div class="form-group">
-				<label for="confirmPassword" class="col-sm-3 control-label">Ulangi Password</label>
-				<div class="col-sm-9">
-					<input type="text" class="form-control" name="confirmPassword" id="confirmPassword" placeholder="Konfirmasi Password" value="{{$skpd->password}}" required>
 				</div>
 			</div>
 			<div class="form-group">

@@ -63,12 +63,6 @@
 				</div>
 			</div>
 			<div class="form-group">
-				<label for="inputTelepon" class="col-sm-3 control-label">Telepon</label>
-				<div class="col-sm-9">
-					<input type="text" class="form-control" name="telepon" id="inputTelepon" placeholder="Telepon" required>
-				</div>
-			</div>
-			<div class="form-group">
 				<label for="inputKategori" class="col-sm-3 control-label">Kategori</label>
 				<div class="col-sm-9">
 					<select class="form-control" name="id_kategori" id="inputKategori">
