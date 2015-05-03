@@ -26,7 +26,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 			<img src="{{URL::asset('images/avtar.png')}}" />
 		</div>
 		<div class="form-top">
-			{!! Form::open(array('action' => 'SessionController@login')) !!}
+			<form id="loginForm">
 				<input type="text" class="email" placeholder="NIK" name="nik" id="nik" required=""/>
 				<input type="password" class="Password" placeholder="Password" name="password" id="password" required=""/>
 				<input type="submit" value="SIGN IN">
@@ -55,7 +55,9 @@ $('#loginForm').submit(function(e) {
 	            console.log(response.id)
 	            <!-- for (var i = 0; i < 2000000000; ++i); -->
 	            <!-- return false; -->
-	            return true;
+	            var url = "{{url()}}";
+	            window.location.href = url;
+	            //return true;
 	        },
 	        error: function (err) {
 	        	<!-- alert(err); -->
