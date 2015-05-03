@@ -116,7 +116,7 @@ class PagesController extends Controller {
 	}
 
 	public function manajemenSKPD() {
-		$listSKPD = DB::table('ppl_dukcapil_ktp')->where('role', "SKPD")->get();
+		$listSKPD = SKPDModel::where('role', "SKPD")->get();
 		$listKategori = KategoriModel::all();
 		return view('pages.admin.manajemen_skpd', compact('listSKPD', 'listKategori'));
 	}
