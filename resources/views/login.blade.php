@@ -32,15 +32,6 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 				<input type="password" class="Password" placeholder="Password" name="password" id="password" required=""/>
 				<input type="submit" value="SIGN IN">
 			</form>
-			<div class="check">
-				<div class="check-box">
-					<input type="checkbox" value="None" id="roundedTwo" name="check">
-					<label for="roundedTwo"> </label>
-				</div>
-				<div class="remember">
-					<p>Keep Me Logged In</p>
-				</div>
-			</div>
 			<div class="clear"> </div>
 		</div>
 </div>
