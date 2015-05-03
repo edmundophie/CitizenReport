@@ -52,9 +52,7 @@ $('#loginForm').submit(function(e) {
 	        type: 'POST',
 	        data: { nik: nik, password : password} ,
 	        success: function (response) {
-	            console.log(response.id)
-	            <!-- for (var i = 0; i < 2000000000; ++i); -->
-	            <!-- return false; -->
+	            console.log(response.id);
 	            var url = "{{url()}}";
 	            window.location.href = url;
 	            //return true;
