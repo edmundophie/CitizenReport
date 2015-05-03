@@ -32,9 +32,9 @@
 			</thead>
 			<tbody>
 			@foreach($listSKPD as $skpd)
-			{{dd($skpd)}}
 			<tr>
 				<td>{{$skpd->nama}}</td>
+				dd($skpd->kategori)
 				<td>{{$skpd->kategori}}</td>
 				<td>
 					<div class="pull-right">
