@@ -65,17 +65,17 @@
 			</div>
 			<a href="{{ URL::to('pengaduan/'.$pengaduan->getDataAduan()['slug'].'/delete') }}" onclick="return confirm('Anda yakin ingin menghapus pengaduan ini?')" class="btn btn-danger col-xs-12 col-sm-3 col-md-2" style="margin-right:5px"><span class="glyphicon glyphicon-trash"></span> Hapus</a>
 			@if($pengaduan->getNamaStatus()=="Pending")
-			<a href="{{ URL::to('pengaduan/'.$pengaduan->getDataAduan()['slug'].'/kirim') }}" onclick="return confirm('Anda yakin ingin meneruskan pengaduan ke SKPD terkait?')" class="btn btn-success col-xs-12 col-sm-3 col-md-2"><span class="glyphicon glyphicon-send"></span> Kirim ke SKPD</a>
+			<a href="{{ URL::to('pengaduan/'.$pengaduan->getDataAduan()['slug'].'/kirim') }}" onclick="return confirm('Anda yakin ingin meneruskan pengaduan ke SKPD terkait?')" class="btn btn-success col-xs-12 col-sm-3 col-md-2" style="margin-right:5px"><span class="glyphicon glyphicon-send"></span> Kirim ke SKPD</a>
 				@if(($pengaduan->getNamaKategori()=="Tata Ruang dan Bangunan") ||($pengaduan->getNamaKategori()=="Transportasi/Perhubungan"))
 				<div id="search-box">
-				    <div class="input-group row">
+				    <div class="input-group row col-xs-12">
 				      <input type="text" class="form-control" placeholder="Cari Alamat...">
 				      <div class="input-group-btn">
 				      	@if($pengaduan->getNamaKategori()=="Tata Ruang dan Bangunan")
-				        <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-expanded="false">Verifikasi IMB <span class="caret"></span></button>
+				        <button type="button" class="btn btn-primary" >Verifikasi IMB</button>
 				        @endif
 				        @if($pengaduan->getNamaKategori()=="Transportasi/Perhubungan")
-				        <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-expanded="false">Verifikasi Parkir <span class="caret"></span></button>
+				        <button type="button" class="btn btn-primary" >Verifikasi Parkir</button>
 				      	@endif
 				      </div><!-- /btn-group -->
 				    </div><!-- /input-group -->
