@@ -9,8 +9,8 @@ class IMBPermohonan extends Model {
 	protected $table = "ppl_imb_permohonans";
 	
 	public function getlistIMB($value){
-		$list = DB::table($this)
-					->join('ppl_imb_bangunans', $this->attributes['bangunan_nomor'], '=', 'ppl_imb_bangunans')
+		$list = DB::table("ppl_imb_permohonans")
+					->join('ppl_imb_bangunans', 'ppl_imb_permohonans.bangunan_nomor', '=', 'ppl_imb_bangunans.nomor')
 			        ->where('lokasi',$value)
 			        ->get();
 		return $list;
