@@ -82,6 +82,8 @@
 			@endif		
 		</div>
 		<div class="row hasil-verifikasi">
+			<h3>Hasil Verifikasi</h3>
+			<hr style="margin-top:0">
 			<table class="table table-striped">
 				<tr>
 					<th>Pemegang Hak</th>
