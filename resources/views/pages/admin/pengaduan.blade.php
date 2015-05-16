@@ -104,10 +104,10 @@
 				</tr>
 				@foreach($listIMB as $IMB)
 				<tr>
-					<td>{{ IMB->pemeganghak }}</td>
-					<td>{{ IMB->updated_at }}</td>
-					<td>{{ IMB->lokasi }}</td>
-					<td>{{ IMB->kategori }}</td>
+					<td>{{ $IMB->pemeganghak }}</td>
+					<td>{{ $IMB->updated_at }}</td>
+					<td>{{ $IMB->lokasi }}</td>
+					<td>{{ $IMB->kategori }}</td>
 				</tr>
 				@endforeach
 			</table>
