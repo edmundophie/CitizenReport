@@ -22,11 +22,9 @@
 	<div class="body-container">
 		@if(Session::get('message')=="PENGADUAN TERKIRIM")
 		<div class="alert alert-success" role="alert"><strong>Pengaduan terkirim!</strong> Pengaduan berhasil dikirim ke SKPD terkait.</div>	
-		@endif
-		@if(Session::get('message')=="HASIL VERIFIKASI ADA")
+		@elseif(Session::get('message')=="HASIL VERIFIKASI ADA")
 		<div class="alert alert-success" role="alert"><strong>Data ditemukan!</strong> Silahkan cek hasil verifikasi <a href="#hasil">di bawah ini.</a></div>	
-		@endif
-		@if(Session::get('message')=="HASIL VERIFIKASI TIDAK ADA")
+		@elseif(Session::get('message')=="HASIL VERIFIKASI TIDAK ADA")
 		<div class="alert alert-danger" role="alert"><strong>Data tidak ditemukan!</strong> Mohon maaf data tidak ditemukan.</div>	
 		@endif
 		<div class="row list-pengaduan">
@@ -80,8 +78,7 @@
 				    <div class="input-group-btn">
 				    @if($pengaduan->getNamaKategori()=="Tata Ruang dan Bangunan")
 				    <button type="submit" class="btn btn-primary" >Verifikasi IMB</button>
-				    @endif
-				    @if($pengaduan->getNamaKategori()=="Transportasi/Perhubungan")
+				    @elseif($pengaduan->getNamaKategori()=="Transportasi/Perhubungan")
 				    <button type="submit" class="btn btn-primary" >Verifikasi Parkir</button>
 				    @endif
 				    </div><!-- /btn-group -->
