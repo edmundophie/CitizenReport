@@ -91,7 +91,7 @@
 			@endif		
 		</div>
 		@if(Session::get('message')=="HASIL VERIFIKASI ADA")
-		$listIMB = Session::get('hasil');
+		<?php $listIMB = Session::get('hasil');?>
 		<div class="row hasil-verifikasi">
 			<h3>Hasil Verifikasi</h3>
 			<hr style="margin-top:0">
