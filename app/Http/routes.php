@@ -57,6 +57,8 @@ Route::post('/pengaduan/add-feedback', 'PengaduanController@addFeedback');
 
 Route::post('/pengaduan/upload-laporan', 'PengaduanController@uploadReport');
 
+Route::post('/pengaduan/verifikasi', 'PengaduanController@verifikasi');
+
 Route::post('/komentar/insert', 'KomentarController@insert');
 
 Route::post('/login', 'SessionController@login');

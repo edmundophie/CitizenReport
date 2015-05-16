@@ -94,6 +94,14 @@
 					<th>Lokasi</th>
 					<th>Kategori</th>
 				</tr>
+				@foreach($listIMB as $IMB)
+				<tr>
+					<td>$IMB['pemeganghak']</td>
+					<th>$IMB['updated_at']-></th>
+					<th>$IMB['lokasi']</th>
+					<th>$IMB['kategori']</th>
+				</tr>
+				@endforeach
 			</table>
 		</div>
 		<div class="row keterangan-status">
