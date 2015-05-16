@@ -24,7 +24,7 @@
 		<div class="alert alert-success" role="alert"><strong>Pengaduan terkirim!</strong> Pengaduan berhasil dikirim ke SKPD terkait.</div>	
 		@endif
 		@if(Session::get('message')=="HASIL VERIFIKASI ADA")
-		<div class="alert alert-success" role="alert"><strong>Data ditemukan!</strong> Silahkan cek hasil verifikasi di bawah ini.</div>	
+		<div class="alert alert-success" role="alert"><strong>Data ditemukan!</strong> Silahkan cek hasil verifikasi <a href="#hasil">di bawah ini.</a></div>	
 		@endif
 		@if(Session::get('message')=="HASIL VERIFIKASI TIDAK ADA")
 		<div class="alert alert-danger" role="alert"><strong>Data tidak ditemukan!</strong> Mohon maaf data tidak ditemukan.</div>	
@@ -92,7 +92,7 @@
 		</div>
 		@if(Session::get('message')=="HASIL VERIFIKASI ADA")
 		<?php $listIMB = Session::get('hasil');?>
-		<div class="row hasil-verifikasi">
+		<div class="row hasil-verifikasi" id="hasil">
 			<h3>Hasil Verifikasi</h3>
 			<hr style="margin-top:0">
 			<table class="table table-striped">
