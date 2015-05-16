@@ -90,7 +90,7 @@
 				@endif
 			@endif		
 		</div>
-		@if(Session::get('message')=="HASIL VERIFIKASI")
+		@if(Session::get('message')=="HASIL VERIFIKASI ADA")
 		Session::get('hasil')
 		<div class="row hasil-verifikasi">
 			<h3>Hasil Verifikasi</h3>
