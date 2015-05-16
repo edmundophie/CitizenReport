@@ -43,7 +43,7 @@
 		<div class="clearfix"></div>
 		<br>
 		<div class="list-group col-xs-3">
-<div id="search-box">
+<!-- <div id="search-box">
     <div class="input-group">
 
       <input type="text" class="form-control" placeholder="Alamat...">
@@ -52,9 +52,9 @@
         <ul class="dropdown-menu dropdown-menu-right" role="menu">
           <li><a href="#">Cari Ijin Parkir</a></li>
         </ul>
-      </div><!-- /btn-group -->
-    </div><!-- /input-group -->
-</div><!-- /.row -->
+      </div>
+    </div>
+</div>-->
 			<br>
 			<a href="{{ URL::to('/daftar-pengaduan/default') }}" class="list-group-item">Semua </a>
 			@foreach($listKategori as $kategori)

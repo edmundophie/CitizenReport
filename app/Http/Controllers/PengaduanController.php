@@ -152,14 +152,24 @@ class PengaduanController extends Controller {
 	}
 	public function verifikasi(Request $request){
 		$slug = $request->get('slug');
+		$kategori = $request->get('kategori');
 		$alamat = $request->get('alamat');
-		$listIMB = Verifier::getlistIMB($alamat);
+		if($kategori == "Tata Ruang dan Bangunan"){
+			$listHasil = Verifier::getlistIMB($alamat);
+		}
+		else if($kategori == "Transportasi/Perhubungan"){
+			$listHasil = Verifier::getlistParkir($alamat);
+		}
+		else{
+			$listHasil = null;
+		}
 
-		if (count($listIMB) <= 0 ){
+		if (count($listHasil) <= 0 ){
 			return redirect('pengaduan/'.$slug)->with('message', 'HASIL VERIFIKASI TIDAK ADA');
 		}
 		else{
-			return redirect('pengaduan/'.$slug)->with('message', 'HASIL VERIFIKASI ADA')->with('hasil',$listIMB);
+			return redirect('pengaduan/'.$slug)->with('message', 'HASIL VERIFIKASI ADA')
+												->with('hasil',$listHasil);
 		}
 	}
 }

@@ -74,6 +74,7 @@
 				{!! Form::open(array('url' => 'pengaduan/verifikasi', 'method' => 'post')) !!}
 				<div class="input-group col-xs-12 col-sm-6 col-md-6" style="padding-right:15px; padding-left:15px">
 				    <input type="hidden" name="slug" value="{{ $pengaduan->getDataAduan()['slug'] }}">
+				    <input type="hidden" name="kategori" value="{{ $pengaduan->getNamaKategori() }}">
 				    <input type="text" class="form-control" style="height:38px" placeholder="Cari Alamat..." name="alamat" required>
 				    <div class="input-group-btn">
 				    @if($pengaduan->getNamaKategori()=="Tata Ruang dan Bangunan")
@@ -88,18 +89,19 @@
 			@endif		
 		</div>
 		@if(Session::get('message')=="HASIL VERIFIKASI ADA")
-		<?php $listIMB = Session::get('hasil');?>
+		<?php $listHasil = Session::get('hasil');?>
 		<div class="row hasil-verifikasi" id="hasil">
 			<h3>Hasil Verifikasi</h3>
 			<hr style="margin-top:0">
 			<table class="table table-striped">
+				@if($pengaduan->getNamaKategori()=="Tata Ruang dan Bangunan")
 				<tr>
 					<th>Pemegang Hak</th>
 					<th>Tanggal</th>
 					<th>Lokasi</th>
 					<th>Kategori</th>
 				</tr>
-				@foreach($listIMB as $IMB)
+				@foreach($listHasil as $IMB)
 				<tr>
 					<td>{{ $IMB->pemeganghak }}</td>
 					<td>{{ $IMB->updated_at }}</td>
@@ -107,6 +109,21 @@
 					<td>{{ $IMB->kategori }}</td>
 				</tr>
 				@endforeach
+				@elseif($pengaduan->getNamaKategori()=="Transportasi/Perhubungan")
+				<tr>
+					<th>Jenis Kendaraan</th>
+					<th>Alamat</th>
+					<th>Kecamatan</th>
+					<th>Waktu Tenggat</th>
+				</tr>
+				@foreach($listHasil as $Parkir)
+				<tr>
+					<td>{{ $Parkir->jenis_kendaraan_parkir }}</td>
+					<td>{{ $Parkir->alamat }}</td>
+					<td>{{ $Parkir->nama_kecamatan }}</td>
+					<td>{{ $Parkir->tenggat }}</td>
+				</tr>
+				@endif
 			</table>
 		</div>
 		@endif
