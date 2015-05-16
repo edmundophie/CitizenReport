@@ -105,7 +105,7 @@
 				</tr>
 				@foreach($listIMB as $IMB)
 				<tr>
-					<td>($listIMB['pemeganghak'])</td>
+					<td>$listIMB['pemeganghak']</td>
 					<td>$listIMB['updated_at']</td>
 					<td>$listIMB['lokasi']</td>
 					<td>$listIMB['kategori']</td>
