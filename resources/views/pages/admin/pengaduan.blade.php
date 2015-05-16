@@ -104,10 +104,10 @@
 				</tr>
 				@foreach($listIMB as $IMB)
 				<tr>
-					<td>$IMB['pemeganghak']</td>
-					<th>$IMB['updated_at']-></th>
-					<th>$IMB['lokasi']</th>
-					<th>$IMB['kategori']</th>
+					<td>['pemeganghak']</td>
+					<td>['updated_at']-></td>
+					<td>['lokasi']</td>
+					<td>['kategori']</td>
 				</tr>
 				@endforeach
 			</table>
