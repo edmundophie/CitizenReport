@@ -149,4 +149,11 @@ class PengaduanController extends Controller {
 
         return redirect('pengaduan/'.$slug)->with('message', 'PENGADUAN TERKIRIM');		
 	}
+	public function verifikasi(Request $request){
+		$slug = $request->get('slug');
+		$alamat = $request->get('alamat');
+		$listIMB = Verifier::getlistIMB($alamat);
+
+		return redirect('pengaduan/'.$slug)->with('message', 'HASIL VERIFIKASI')->with('listIMB',$listIMB);
+	}
 }

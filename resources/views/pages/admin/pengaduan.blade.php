@@ -67,17 +67,20 @@
 			@if($pengaduan->getNamaStatus()=="Pending")
 			<a href="{{ URL::to('pengaduan/'.$pengaduan->getDataAduan()['slug'].'/kirim') }}" onclick="return confirm('Anda yakin ingin meneruskan pengaduan ke SKPD terkait?')" class="btn btn-success col-xs-12 col-sm-3 col-md-2" style="margin-right:5px"><span class="glyphicon glyphicon-send"></span> Kirim ke SKPD</a>
 				@if(($pengaduan->getNamaKategori()=="Tata Ruang dan Bangunan") ||($pengaduan->getNamaKategori()=="Transportasi/Perhubungan"))
+				{!! Form::open(array('url' => 'pengaduan/verifikasi', 'method' => 'post')) !!}
 				<div class="input-group col-xs-12 col-sm-6 col-md-6" style="padding-right:15px; padding-left:15px">
-				    <input type="text" class="form-control" style="height:38px" placeholder="Cari Alamat...">
+				    <input type="hidden" name="slug" value="{{ $pengaduan->getDataAduan()['slug'] }}">
+				    <input type="text" class="form-control" style="height:38px" placeholder="Cari Alamat..." name="alamat">
 				    <div class="input-group-btn">
 				    @if($pengaduan->getNamaKategori()=="Tata Ruang dan Bangunan")
-				    <button type="button" class="btn btn-primary" >Verifikasi IMB</button>
+				    <button type="submit" class="btn btn-primary" >Verifikasi IMB</button>
 				    @endif
 				    @if($pengaduan->getNamaKategori()=="Transportasi/Perhubungan")
-				    <button type="button" class="btn btn-primary" >Verifikasi Parkir</button>
+				    <button type="submit" class="btn btn-primary" >Verifikasi Parkir</button>
 				    @endif
 				    </div><!-- /btn-group -->
 				</div><!-- /input-group -->
+				{!! Form::close() !!}
 				@endif
 			@endif		
 		</div>
