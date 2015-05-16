@@ -92,7 +92,7 @@
 		</div>
 		@if(Session::get('message')=="HASIL VERIFIKASI ADA")
 		<?php $listIMB = Session::get('hasil'); 
-			dd($listIMB);?>
+			//dd($listIMB);?>
 		<div class="row hasil-verifikasi">
 			<h3>Hasil Verifikasi</h3>
 			<hr style="margin-top:0">
@@ -105,7 +105,7 @@
 				</tr>
 				@foreach($listIMB as $IMB)
 				<tr>
-					<td>$listIMB['pemeganghak']</td>
+					<td>{{ $listIMB->pemeganghak }}</td>
 					<td>$listIMB['updated_at']</td>
 					<td>$listIMB['lokasi']</td>
 					<td>$listIMB['kategori']</td>
