@@ -154,7 +154,8 @@ class PengaduanController extends Controller {
 		$slug = $request->get('slug');
 		$alamat = $request->get('alamat');
 		$listIMB = Verifier::getlistIMB($alamat);
-		if ($listIMB->isEmpty()){
+
+		if (count($listIMB) <= 0 ){
 			return redirect('pengaduan/'.$slug)->with('message', 'HASIL VERIFIKASI TIDAK ADA');
 		}
 		else{
