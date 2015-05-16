@@ -15,7 +15,7 @@ class Verifier extends Model {
 					->join('ppl_imb_bangunans', 'ppl_imb_permohonans.bangunan_nomor', '=', 'ppl_imb_bangunans.nomor')
 			        ->where('lokasi','LIKE', '%'.$alamat.'%')
 			        ->where('statushak','=','Diterima')
-			        ->get();
+			        ->first();
 		return $list;
 	}
 }
