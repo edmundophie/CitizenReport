@@ -76,7 +76,7 @@
 				{!! Form::open(array('url' => 'pengaduan/verifikasi', 'method' => 'post')) !!}
 				<div class="input-group col-xs-12 col-sm-6 col-md-6" style="padding-right:15px; padding-left:15px">
 				    <input type="hidden" name="slug" value="{{ $pengaduan->getDataAduan()['slug'] }}">
-				    <input type="text" class="form-control" style="height:38px" placeholder="Cari Alamat..." name="alamat">
+				    <input type="text" class="form-control" style="height:38px" placeholder="Cari Alamat..." name="alamat" required>
 				    <div class="input-group-btn">
 				    @if($pengaduan->getNamaKategori()=="Tata Ruang dan Bangunan")
 				    <button type="submit" class="btn btn-primary" >Verifikasi IMB</button>
