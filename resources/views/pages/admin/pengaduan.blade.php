@@ -100,12 +100,12 @@
 					<th>Pemegang Hak</th>
 					<th>Tanggal</th>
 					<th>Lokasi</th>
-					<th>Kategori</th>
+					<th>Kategori</th->lokasi>
 				</tr>
 				@foreach($listIMB as $IMB)
 				<tr>
 					<td>$listIMB['pemeganghak']</td>
-					<td><?php echo $listIMB;?></td>
+					<td><?php echo $listIMB->lokasi;?></td>
 					<td>$listIMB['lokasi']</td>
 					<td>$listIMB['kategori']</td>
 				</tr>
