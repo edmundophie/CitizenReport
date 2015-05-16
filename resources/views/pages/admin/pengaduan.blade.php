@@ -100,7 +100,7 @@
 					<th>Pemegang Hak</th>
 					<th>Tanggal</th>
 					<th>Lokasi</th>
-					<th>Kategori</th->lokasi>
+					<th>Kategori</th>
 				</tr>
 				@foreach($listIMB as $IMB)
 				<tr>
