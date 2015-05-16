@@ -67,7 +67,7 @@
 			@if($pengaduan->getNamaStatus()=="Pending")
 			<a href="{{ URL::to('pengaduan/'.$pengaduan->getDataAduan()['slug'].'/kirim') }}" onclick="return confirm('Anda yakin ingin meneruskan pengaduan ke SKPD terkait?')" class="btn btn-success col-xs-12 col-sm-3 col-md-2" style="margin-right:5px"><span class="glyphicon glyphicon-send"></span> Kirim ke SKPD</a>
 				@if(($pengaduan->getNamaKategori()=="Tata Ruang dan Bangunan") ||($pengaduan->getNamaKategori()=="Transportasi/Perhubungan"))
-				<div class="input-group col-xs-12 col-md-6" style="padding-right:15px; padding-left:15px">
+				<div class="input-group col-xs-12 col-sm-6 col-md-6" style="padding-right:15px; padding-left:15px">
 				    <input type="text" class="form-control" style="height:38px" placeholder="Cari Alamat...">
 				    <div class="input-group-btn">
 				    @if($pengaduan->getNamaKategori()=="Tata Ruang dan Bangunan")
@@ -81,7 +81,16 @@
 				@endif
 			@endif		
 		</div>
-
+		<div class="row hasil-verifikasi">
+			<table class="table table-striped">
+				<tr>
+					<th>Pemegang Hak</th>
+					<th>Tanggal</th>
+					<th>Lokasi</th>
+					<th>Kategori</th>
+				</tr>
+			</table>
+		</div>
 		<div class="row keterangan-status">
 			<h3>Komentar</h3>
 			<hr style="margin-top:0">
