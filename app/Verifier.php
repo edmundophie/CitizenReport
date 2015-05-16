@@ -14,8 +14,8 @@ class Verifier extends Model {
 		$list = DB::table("ppl_imb_permohonans")
 					->join('ppl_imb_bangunans', 'ppl_imb_permohonans.bangunan_nomor', '=', 'ppl_imb_bangunans.nomor')
 			        ->where('lokasi','LIKE', '%'.$alamat.'%')
-			        //->where('statushak','=','Diterima')
-			        ->first();
+			        ->where('statushak','=','Diterima')
+			        ->get();
 		return $list;
 	}
 }
