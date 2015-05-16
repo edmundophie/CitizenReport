@@ -74,7 +74,7 @@
 			      <div class="input-group-btn">
 			      	@if($pengaduan->getNamaKategori()=="Tata Ruang dan Bangunan")
 			        <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-expanded="false">Verifikasi IMB <span class="caret"></span></button>
-			        @if($pengaduan->getNamaKategori()=="Transportasi/Perhubungan")
+			        @elseif($pengaduan->getNamaKategori()=="Transportasi/Perhubungan")
 			        <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-expanded="false">Verifikasi Parkir <span class="caret"></span></button>
 			      	@endif
 			      </div><!-- /btn-group -->
