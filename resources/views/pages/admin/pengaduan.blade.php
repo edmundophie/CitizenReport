@@ -84,6 +84,7 @@
 				@endif
 			@endif		
 		</div>
+		@if(Session::get('message')=="HASIL VERIFIKASI")
 		<div class="row hasil-verifikasi">
 			<h3>Hasil Verifikasi</h3>
 			<hr style="margin-top:0">
@@ -104,6 +105,7 @@
 				@endforeach
 			</table>
 		</div>
+		@endif
 		<div class="row keterangan-status">
 			<h3>Komentar</h3>
 			<hr style="margin-top:0">
