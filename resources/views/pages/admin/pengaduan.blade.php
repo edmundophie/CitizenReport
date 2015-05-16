@@ -102,14 +102,14 @@
 					<th>Lokasi</th>
 					<th>Kategori</th>
 				</tr>
-				@foreach($listIMB as $IMB)
+				<!-- @foreach($listIMB as $IMB)
 				<tr>
 					<td>['pemeganghak']</td>
 					<td>['updated_at']-></td>
 					<td>['lokasi']</td>
 					<td>['kategori']</td>
 				</tr>
-				@endforeach
+				@endforeach -->
 			</table>
 		</div>
 		@endif
