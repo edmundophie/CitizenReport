@@ -23,6 +23,12 @@
 		@if(Session::get('message')=="PENGADUAN TERKIRIM")
 		<div class="alert alert-success" role="alert"><strong>Pengaduan terkirim!</strong> Pengaduan berhasil dikirim ke SKPD terkait.</div>	
 		@endif
+		@if(Session::get('message')=="HASIL VERIFIKASI ADA")
+		<div class="alert alert-success" role="alert"><strong>Data ditemukan!</strong> Silahkan cek hasil verifikasi di bawah ini.</div>	
+		@endif
+		@if(Session::get('message')=="HASIL VERIFIKASI TIDAK ADA")
+		<div class="alert alert-danger" role="alert"><strong>Data tidak ditemukan!</strong> Mohon maaf data tidak ditemukan.</div>	
+		@endif
 		<div class="row list-pengaduan">
 			<div class="row">
 				<div class="col-sm-9">
@@ -84,7 +90,7 @@
 				@endif
 			@endif		
 		</div>
-		@if(Session::get('message')=="HASIL VERIFIKASI")
+		<!-- @if(Session::get('message')=="HASIL VERIFIKASI")
 		<div class="row hasil-verifikasi">
 			<h3>Hasil Verifikasi</h3>
 			<hr style="margin-top:0">
@@ -105,7 +111,7 @@
 				@endforeach
 			</table>
 		</div>
-		@endif
+		@endif -->
 		<div class="row keterangan-status">
 			<h3>Komentar</h3>
 			<hr style="margin-top:0">
