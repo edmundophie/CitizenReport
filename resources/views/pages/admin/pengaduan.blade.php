@@ -95,34 +95,35 @@
 			<hr style="margin-top:0">
 			<table class="table table-striped">
 				@if($pengaduan->getNamaKategori()=="Tata Ruang dan Bangunan")
-				<tr>
-					<th>Pemegang Hak</th>
-					<th>Tanggal</th>
-					<th>Lokasi</th>
-					<th>Kategori</th>
-				</tr>
-				@foreach($listHasil as $IMB)
-				<tr>
-					<td>{{ $IMB->pemeganghak }}</td>
-					<td>{{ $IMB->updated_at }}</td>
-					<td>{{ $IMB->lokasi }}</td>
-					<td>{{ $IMB->kategori }}</td>
-				</tr>
-				@endforeach
+					<tr>
+						<th>Pemegang Hak</th>
+						<th>Tanggal</th>
+						<th>Lokasi</th>
+						<th>Kategori</th>
+					</tr>
+					@foreach($listHasil as $IMB)
+					<tr>
+						<td>{{ $IMB->pemeganghak }}</td>
+						<td>{{ $IMB->updated_at }}</td>
+						<td>{{ $IMB->lokasi }}</td>
+						<td>{{ $IMB->kategori }}</td>
+					</tr>
+					@endforeach
 				@elseif($pengaduan->getNamaKategori()=="Transportasi/Perhubungan")
-				<tr>
-					<th>Jenis Kendaraan</th>
-					<th>Alamat</th>
-					<th>Kecamatan</th>
-					<th>Waktu Tenggat</th>
-				</tr>
-				@foreach($listHasil as $Parkir)
-				<tr>
-					<td>{{ $Parkir->jenis_kendaraan_parkir }}</td>
-					<td>{{ $Parkir->alamat }}</td>
-					<td>{{ $Parkir->nama_kecamatan }}</td>
-					<td>{{ $Parkir->tenggat }}</td>
-				</tr>
+					<tr>
+						<th>Jenis Kendaraan</th>
+						<th>Alamat</th>
+						<th>Kecamatan</th>
+						<th>Waktu Tenggat</th>
+					</tr>
+					@foreach($listHasil as $Parkir)
+					<tr>
+						<td>{{ $Parkir->jenis_kendaraan_parkir }}</td>
+						<td>{{ $Parkir->alamat }}</td>
+						<td>{{ $Parkir->nama_kecamatan }}</td>
+						<td>{{ $Parkir->tenggat }}</td>
+					</tr>
+					@endforeach
 				@endif
 			</table>
 		</div>

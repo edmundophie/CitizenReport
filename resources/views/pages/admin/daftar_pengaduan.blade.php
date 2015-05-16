@@ -44,18 +44,18 @@
 		<br>
 		<div class="list-group col-xs-3">
 <!-- <div id="search-box">
-    <div class="input-group">
+	    <div class="input-group">
 
-      <input type="text" class="form-control" placeholder="Alamat...">
-      <div class="input-group-btn">
-        <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-expanded="false">Cari IMB <span class="caret"></span></button>
-        <ul class="dropdown-menu dropdown-menu-right" role="menu">
-          <li><a href="#">Cari Ijin Parkir</a></li>
-        </ul>
-      </div>
-    </div>
-</div>-->
-			<br>
+	      <input type="text" class="form-control" placeholder="Alamat...">
+	      <div class="input-group-btn">
+	        <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-expanded="false">Cari IMB <span class="caret"></span></button>
+	        <ul class="dropdown-menu dropdown-menu-right" role="menu">
+	          <li><a href="#">Cari Ijin Parkir</a></li>
+	        </ul>
+	      </div>
+	    </div>
+	</div>
+			<br>-->
 			<a href="{{ URL::to('/daftar-pengaduan/default') }}" class="list-group-item">Semua </a>
 			@foreach($listKategori as $kategori)
 			<a href="{{ URL::to('/daftar-pengaduan/kategori/'.$kategori['id']) }}" class="list-group-item"><span class="badge">{{ $kategori->count }}</span>  {{ $kategori->nama }}</a>
