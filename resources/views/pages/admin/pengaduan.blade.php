@@ -67,9 +67,9 @@
 			@if($pengaduan->getNamaStatus()=="Pending")
 			<a href="{{ URL::to('pengaduan/'.$pengaduan->getDataAduan()['slug'].'/kirim') }}" onclick="return confirm('Anda yakin ingin meneruskan pengaduan ke SKPD terkait?')" class="btn btn-success col-xs-12 col-sm-3 col-md-2" style="margin-right:5px"><span class="glyphicon glyphicon-send"></span> Kirim ke SKPD</a>
 				@if(($pengaduan->getNamaKategori()=="Tata Ruang dan Bangunan") ||($pengaduan->getNamaKategori()=="Transportasi/Perhubungan"))
-				<div id="search-box">
-				    <div class="input-group row col-xs-12">
-				      <input type="text" class="form-control" placeholder="Cari Alamat...">
+				<div class="row">
+				    <div class="input-group col-xs-12 col-md-6">
+				      <input type="text" class="form-control" style="height:38px" placeholder="Cari Alamat...">
 				      <div class="input-group-btn">
 				      	@if($pengaduan->getNamaKategori()=="Tata Ruang dan Bangunan")
 				        <button type="button" class="btn btn-primary" >Verifikasi IMB</button>
