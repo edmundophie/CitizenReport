@@ -159,7 +159,7 @@ class PengaduanController extends Controller {
 			return redirect('pengaduan/'.$slug)->with('message', 'HASIL VERIFIKASI TIDAK ADA');
 		}
 		else{
-			return redirect('pengaduan/'.$slug)->with('message', 'HASIL VERIFIKASI ADA')->with('listIMB',$listIMB);
+			return redirect('pengaduan/'.$slug)->with('message', 'HASIL VERIFIKASI ADA')->with('hasil',$listIMB);
 		}
 	}
 }
