@@ -105,7 +105,8 @@
 				@foreach($listIMB as $IMB)
 				<tr>
 					<td>$listIMB['pemeganghak']</td>
-					<td><?php echo $listIMB->lokasi;?></td>
+					<td><?php $comma_separated = implode(",", $listIMB);
+								echo $comma_separated;?></td>
 					<td>$listIMB['lokasi']</td>
 					<td>$listIMB['kategori']</td>
 				</tr>
