@@ -13,6 +13,7 @@ use App\Status;
 use App\StatusModel;
 use App\PengaduanModel;
 use App\KomentarModel;
+use App\Verifier;
 use Illuminate\Support\Str;
 
 class PengaduanController extends Controller {
