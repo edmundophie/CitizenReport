@@ -104,7 +104,7 @@
 					@foreach($listHasil as $IMB)
 					<tr>
 						<td>{{ $IMB->pemeganghak }}</td>
-						<td>{{ $IMB->updated_at }}</td>
+						<td>{{ date('d M Y H:i', strtotime($IMB->updated_at)) }}</td>
 						<td>{{ $IMB->lokasi }}</td>
 						<td>{{ $IMB->kategori }}</td>
 					</tr>
@@ -121,7 +121,7 @@
 						<td>{{ $Parkir->jenis_kendaraan_parkir }}</td>
 						<td>{{ $Parkir->alamat }}</td>
 						<td>{{ $Parkir->nama_kecamatan }}</td>
-						<td>{{ $Parkir->tenggat }}</td>
+						<td>{{ date('d M Y', strtotime($Parkir->tenggat)) }}</td>
 					</tr>
 					@endforeach
 				@endif
