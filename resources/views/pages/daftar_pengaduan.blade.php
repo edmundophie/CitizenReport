@@ -43,7 +43,7 @@
                 </div>
                 <div class="row">
                     <div class="col-xs-6">
-                        Pelapor : <a href="#">Ridwan Kamil</a>
+                        Pelapor : <a href="#">{{ $pengaduan->getDataAduan()['pelapor'] }}</a>
                     </div>
                     <div class="col-xs-6 visible-xs visible-sm tanggal-pengaduan">{{ $pengaduan->getDataAduan()['created_at'] }}</div>
                     <div class="col-xs-6 kategori"><span class="hidden-xs hidden-sm label label-primary">{{ $pengaduan->getNamaKategori() }}</span></div>
