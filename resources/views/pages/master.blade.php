@@ -53,7 +53,9 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 		        <li @yield('home_active')><a href="{{ URL::to('index') }}"><span class="glyphicon glyphicon-home"></span> home</a></li>
 		        <li @yield('daftar_pengaduan_active')><a href="{{ URL::to('daftar-pengaduan/default') }}"><span class="glyphicon glyphicon-list"></span> daftar pengaduan</a></li>
 		        <li @yield('statistik_active')><a href="{{ URL::to('statistik') }}"><span class="glyphicon glyphicon-equalizer"></span> statistik</a></li>
+		        @if(SessionLLhas('role'))
 		        <li @yield('buat_pengaduan_active')><a href="{{ URL::to('buat-pengaduan') }}"><span class="glyphicon glyphicon-edit"></span> buat pengaduan</a></li>
+		        @endif
 		      </ul>
 		      <ul class="menu nav navbar-nav navbar-right">
 		      	@if(Session::has('role'))
