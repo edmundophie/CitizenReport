@@ -55,7 +55,7 @@
 		<div class="clearfix"></div>
 		<br>
 		<div class="col-xs-12">
-			@if(count($listPengaudan)>0)
+			@if(count($listPengaduan)>0)
 			<!-- List pengaduan -->
 			<table class="table table-striped">
 				<tr>
