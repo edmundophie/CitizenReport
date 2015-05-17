@@ -29,7 +29,7 @@
 		<div class="clearfix"></div>
 		<br>
 		<div class="col-xs-12">
-
+		@if(count($listPengaduan)>0)
 			<!-- List pengaduan -->
 			<table class="table table-striped">
 				<tr>
@@ -47,7 +47,9 @@
 				@endif
 				@endforeach
 			</table>
-
+		@else
+			<div class="alert alert-success" role="alert"><strong>Daftar Pengaduan Kosong!</strong> Belum ada pengaduan yang dibuat.</div>	
+        @endif
 			<!-- Pagination -->
 			<nav class="text-center">
 				<ul class="pagination">

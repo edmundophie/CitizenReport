@@ -33,6 +33,7 @@
 		</div>
 		<div class="clearfix"></div>
 		<br>
+		@if(count($listPengaduan)>0)
 		@foreach($listPengaduan as $pengaduan)
             <div class="row list-pengaduan">
                 <div class="row">
@@ -53,6 +54,9 @@
                 <button class="btn btn-{{ $pengaduan->getStatus()->getDataStatus()['color_code']}}">{{ $pengaduan->getNamaStatus() }}</button>
             </div>
         @endforeach
+		@else
+			<div class="alert alert-success" role="alert"><strong>Daftar Pengaduan Kosong!</strong> Belum ada pengaduan yang dibuat.</div>	
+        @endif
 
 		<!-- Pagination -->
 		<nav>
