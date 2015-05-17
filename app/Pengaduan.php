@@ -87,6 +87,7 @@ class Pengaduan extends model{
             $temp->setStatus($pengaduan['id_status']);
             $temp->setLampiran($pengaduan['lampiran']);
             $temp->setCreatedDate($pengaduan['created_at']);
+            $temp->setPelapor($pengaduan['pelapor']);
             $array[$i] = $temp;
             $i++;
         }
@@ -117,6 +118,7 @@ class Pengaduan extends model{
             $temp->setStatus($pengaduan['id_status']);
             $temp->setLampiran($pengaduan['lampiran']);
             $temp->setCreatedDate($pengaduan['created_at']);
+            $temp->setPelapor($pengaduan['pelapor']);
             $array[$i] = $temp;
             $i++;
         }
@@ -168,6 +170,10 @@ class Pengaduan extends model{
 
     public function setCreatedDate($date){
         $this->dataPengaduan['created_at'] = $date;
+    }
+
+    public function setPelapor($pelapor){
+        $this->dataPengaduan['pelapor'] = $pelapor;
     }
 
     public function savePengaduan(){
