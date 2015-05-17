@@ -51,7 +51,7 @@ class Pengaduan extends model{
     }
 
     public static function getListPengaduan($sortBy, $id_kategori) {
-        $array;
+        $array = [];
         $i = 0;
 
         if($id_kategori!=null) {
@@ -102,7 +102,7 @@ class Pengaduan extends model{
         else if($sortBy=="status") 
             $model = PengaduanModel::where('id_masyarakat', $id_masyarakat)->orderBy('id_status', 'ASC')->get();
    
-        $array;
+        $array = [];
         $i = 0;
         foreach($model as $pengaduan){
             $temp = new Pengaduan();
