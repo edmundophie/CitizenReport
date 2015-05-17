@@ -22,6 +22,10 @@
 	<div class="body-container">
 		@if(Session::get('message')=="PENGADUAN TERKIRIM")
 		<div class="alert alert-success" role="alert"><strong>Pengaduan terkirim!</strong> Pengaduan berhasil dikirim ke SKPD terkait.</div>	
+		@elseif(Session::get('message')=="HASIL VERIFIKASI ADA")
+		<div class="alert alert-success" role="alert"><strong>Data ditemukan!</strong> Silahkan cek hasil verifikasi <a href="#hasil">di bawah ini.</a></div>	
+		@elseif(Session::get('message')=="HASIL VERIFIKASI TIDAK ADA")
+		<div class="alert alert-danger" role="alert"><strong>Data tidak ditemukan!</strong> Mohon maaf data tidak ditemukan.</div>	
 		@endif
 		<div class="row list-pengaduan">
 			<div class="row">
@@ -65,10 +69,65 @@
 			</div>
 			<a href="{{ URL::to('pengaduan/'.$pengaduan->getDataAduan()['slug'].'/delete') }}" onclick="return confirm('Anda yakin ingin menghapus pengaduan ini?')" class="btn btn-danger col-xs-12 col-sm-3 col-md-2" style="margin-right:5px"><span class="glyphicon glyphicon-trash"></span> Hapus</a>
 			@if($pengaduan->getNamaStatus()=="Pending")
-			<a href="{{ URL::to('pengaduan/'.$pengaduan->getDataAduan()['slug'].'/kirim') }}" onclick="return confirm('Anda yakin ingin meneruskan pengaduan ke SKPD terkait?')" class="btn btn-success col-xs-12 col-sm-3 col-md-2"><span class="glyphicon glyphicon-send"></span> Kirim ke SKPD</a>
+			<a href="{{ URL::to('pengaduan/'.$pengaduan->getDataAduan()['slug'].'/kirim') }}" onclick="return confirm('Anda yakin ingin meneruskan pengaduan ke SKPD terkait?')" class="btn btn-success col-xs-12 col-sm-3 col-md-2" style="margin-right:5px"><span class="glyphicon glyphicon-send"></span> Kirim ke SKPD</a>
+				@if(($pengaduan->getNamaKategori()=="Tata Ruang dan Bangunan") ||($pengaduan->getNamaKategori()=="Transportasi/Perhubungan"))
+				{!! Form::open(array('url' => 'pengaduan/verifikasi', 'method' => 'post')) !!}
+				<div class="input-group col-xs-12 col-sm-6 col-md-6" style="padding-right:15px; padding-left:15px">
+				    <input type="hidden" name="slug" value="{{ $pengaduan->getDataAduan()['slug'] }}">
+				    <input type="hidden" name="kategori" value="{{ $pengaduan->getNamaKategori() }}">
+				    <input type="text" class="form-control" style="height:38px" placeholder="Cari Alamat..." name="alamat" required>
+				    <div class="input-group-btn">
+				    @if($pengaduan->getNamaKategori()=="Tata Ruang dan Bangunan")
+				    <button type="submit" class="btn btn-primary" >Verifikasi IMB</button>
+				    @elseif($pengaduan->getNamaKategori()=="Transportasi/Perhubungan")
+				    <button type="submit" class="btn btn-primary" >Verifikasi Parkir</button>
+				    @endif
+				    </div><!-- /btn-group -->
+				</div><!-- /input-group -->
+				{!! Form::close() !!}
+				@endif
 			@endif		
 		</div>
-
+		@if(Session::get('message')=="HASIL VERIFIKASI ADA")
+		<?php $listHasil = Session::get('hasil');?>
+		<div class="row hasil-verifikasi" id="hasil">
+			<h3>Hasil Verifikasi</h3>
+			<hr style="margin-top:0">
+			<table class="table table-striped">
+				@if($pengaduan->getNamaKategori()=="Tata Ruang dan Bangunan")
+					<tr>
+						<th>Pemegang Hak</th>
+						<th>Tanggal</th>
+						<th>Lokasi</th>
+						<th>Kategori</th>
+					</tr>
+					@foreach($listHasil as $IMB)
+					<tr>
+						<td>{{ $IMB->pemeganghak }}</td>
+						<td>{{ date('d M Y H:i', strtotime($IMB->updated_at)) }}</td>
+						<td>{{ $IMB->lokasi }}</td>
+						<td>{{ $IMB->kategori }}</td>
+					</tr>
+					@endforeach
+				@elseif($pengaduan->getNamaKategori()=="Transportasi/Perhubungan")
+					<tr>
+						<th>Jenis Kendaraan</th>
+						<th>Alamat</th>
+						<th>Kecamatan</th>
+						<th>Waktu Tenggat</th>
+					</tr>
+					@foreach($listHasil as $Parkir)
+					<tr>
+						<td>{{ $Parkir->jenis_kendaraan_parkir }}</td>
+						<td>{{ $Parkir->alamat }}</td>
+						<td>{{ $Parkir->nama_kecamatan }}</td>
+						<td>{{ date('d M Y', strtotime($Parkir->tenggat)) }}</td>
+					</tr>
+					@endforeach
+				@endif
+			</table>
+		</div>
+		@endif
 		<div class="row keterangan-status">
 			<h3>Komentar</h3>
 			<hr style="margin-top:0">

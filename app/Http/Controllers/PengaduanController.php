@@ -13,6 +13,7 @@ use App\Status;
 use App\StatusModel;
 use App\PengaduanModel;
 use App\KomentarModel;
+use App\Verifier;
 use Illuminate\Support\Str;
 
 class PengaduanController extends Controller {
@@ -148,5 +149,27 @@ class PengaduanController extends Controller {
 		Pengaduan::updateStatus($slug, $idStatus, NULL);
 
         return redirect('pengaduan/'.$slug)->with('message', 'PENGADUAN TERKIRIM');		
+	}
+	public function verifikasi(Request $request){
+		$slug = $request->get('slug');
+		$kategori = $request->get('kategori');
+		$alamat = $request->get('alamat');
+		if($kategori == "Tata Ruang dan Bangunan"){
+			$listHasil = Verifier::getlistIMB($alamat);
+		}
+		else if($kategori == "Transportasi/Perhubungan"){
+			$listHasil = Verifier::getlistParkir($alamat);
+		}
+		else{
+			$listHasil = null;
+		}
+
+		if (count($listHasil) <= 0 ){
+			return redirect('pengaduan/'.$slug)->with('message', 'HASIL VERIFIKASI TIDAK ADA');
+		}
+		else{
+			return redirect('pengaduan/'.$slug)->with('message', 'HASIL VERIFIKASI ADA')
+												->with('hasil',$listHasil);
+		}
 	}
 }
