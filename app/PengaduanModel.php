@@ -26,7 +26,7 @@ class PengaduanModel extends Model{
 
     public function getPelaporAttribute($value) {
         $id_masyarakat = $this->attributes['id_masyarakat'];
-        $nama_pelapor = DB::table('ppl_dukcapil_ktp')->select('nama')->where('id'. $id_masyarakat)->first()->nama;
+        $nama_pelapor = DB::table('ppl_dukcapil_ktp')->select('nama')->where('id', $id_masyarakat)->first()->nama;
         return $nama_pelapor;
     }
 }
